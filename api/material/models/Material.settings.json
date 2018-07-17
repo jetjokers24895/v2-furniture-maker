@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "material",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "materialtype": {
+      "model": "materialtype"
+    },
+    "name": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "texture": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "unique": true,
+      "type": "integer",
+      "required": true
+    }
+  }
+}

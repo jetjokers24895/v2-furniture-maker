@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "productmodule",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "components": {
+      "model": "components"
+    },
+    "material": {
+      "model": "material"
+    },
+    "componentPrice": {
+      "type": "integer"
+    },
+    "materialPrice": {
+      "type": "integer"
+    }
+  }
+}

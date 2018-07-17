@@ -1,0 +1,24 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "productdesign",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "productgroup": {
+      "model": "productgroup"
+    },
+    "producttype": {
+      "model": "producttype"
+    }
+  }
+}

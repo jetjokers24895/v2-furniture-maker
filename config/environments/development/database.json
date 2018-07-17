@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-mongoose",
+      "settings": {
+        "client": "mongo",
+        "host": "103.9.77.21",
+        "port": 27017,
+        "database": "furniture-maker-db",
+        "username": "devTeam",
+        "password": "1"
+      },
+      "options": {
+        "authenticationDatabase": "furniture-maker-db",
+        "ssl": false
+      }
+    }
+  }
+}

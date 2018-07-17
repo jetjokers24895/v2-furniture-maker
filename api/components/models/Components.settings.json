@@ -1,0 +1,40 @@
+{
+  "connection": "default",
+  "collectionName": "components",
+  "info": {
+    "name": "components",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "componentType": {
+      "model": "componenttype"
+    },
+    "quotaValue": {
+      "unique": true,
+      "type": "integer",
+      "required": true
+    },
+    "productDesign": {
+      "model": "productdesign"
+    },
+    "quotaUnit": {
+      "model": "quotaunit"
+    },
+    "model": {
+      "unique": true,
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "unique": true,
+      "type": "integer",
+      "required": true
+    }
+  }
+}

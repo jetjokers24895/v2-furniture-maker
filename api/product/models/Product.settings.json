@@ -1,0 +1,27 @@
+{
+  "connection": "default",
+  "collectionName": "product",
+  "info": {
+    "name": "product",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "design": {
+      "model": "design"
+    },
+    "producttypes": {
+      "model": "producttype"
+    },
+    "productmodule": {
+      "model": "productmodule"
+    },
+    "totalprice": {
+      "unique": true,
+      "type": "integer",
+      "required": true
+    }
+  }
+}
