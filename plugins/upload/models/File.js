@@ -30,11 +30,17 @@ module.exports = {
 
   // Before creating a value.
   // Fired before `insert` query.
-  // beforeCreate: async (model) => {},
+  // beforeCreate: async (model) => {
+  //   console.log("before",model);
+  // },
 
   // After creating a value.
   // Fired after `insert` query.
-  // afterCreate: async (model, result) => {},
+  // afterCreate: async (model, result) => {
+  //   console.log("After");
+  //   console.log(model);
+  //   console.log(result);
+  // },
 
   // Before updating a value.
   // Fired before an `update` query.

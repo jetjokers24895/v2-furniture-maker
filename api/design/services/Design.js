@@ -76,6 +76,7 @@ module.exports = {
 
   add: async (values) => {
     // Extract values related to relational data.
+    
     const relations = _.pick(values, Design.associations.map(ast => ast.alias));
     const data = _.omit(values, Design.associations.map(ast => ast.alias));
 
@@ -93,7 +94,6 @@ module.exports = {
    */
 
   edit: async (params, values) => {
-    // Extract values related to relational data.
     const relations = _.pick(values, Design.associations.map(a => a.alias));
     const data = _.omit(values, Design.associations.map(a => a.alias));
 

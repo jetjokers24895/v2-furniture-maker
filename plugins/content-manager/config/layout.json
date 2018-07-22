@@ -54,6 +54,18 @@
     "attributes": {
       "name": {
         "appearance": ""
+      },
+      "img256": {
+        "appearance": ""
+      },
+      "img512": {
+        "appearance": ""
+      },
+      "img1024": {
+        "appearance": ""
+      },
+      "img2000": {
+        "appearance": ""
       }
     }
   },

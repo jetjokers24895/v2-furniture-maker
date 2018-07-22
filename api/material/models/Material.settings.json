@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "material",
   "info": {
     "name": "material",
     "description": ""
@@ -17,15 +17,15 @@
       "type": "string",
       "required": true
     },
-    "texture": {
-      "unique": true,
-      "type": "string",
-      "required": true
-    },
     "price": {
       "unique": true,
       "type": "integer",
       "required": true
+    },
+    "texture": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }

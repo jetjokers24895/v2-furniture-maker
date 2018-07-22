@@ -35,6 +35,16 @@
       "unique": true,
       "type": "integer",
       "required": true
+    },
+    "obj": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "mtl": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }

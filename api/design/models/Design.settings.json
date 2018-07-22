@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "design",
   "info": {
     "name": "design",
-    "description": ""
+    "description": "name_image ban phải điền đúng tên của link ảnh.Vd: abc.com/img123,jpg -> img123.jpg"
   },
   "options": {
     "timestamps": true
@@ -17,6 +17,24 @@
     },
     "producttype": {
       "model": "producttype"
+    },
+    "img256": {
+      "type": "text"
+    },
+    "img512": {
+      "type": "text"
+    },
+    "img1024": {
+      "type": "text"
+    },
+    "img2000": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "name_image": {
+      "type": "text",
+      "required": true
     }
   }
 }

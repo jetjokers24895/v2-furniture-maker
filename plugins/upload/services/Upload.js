@@ -47,16 +47,30 @@ module.exports = {
     if (!provider) {
       throw new Error(`The provider package isn't installed. Please run \`npm install strapi-upload-${config.provider}\``);
     }
-
-    const actions = provider.init(config);
-
+    const actions = provider.init(config);  
     // Execute upload function of the provider for all files.
     return Promise.all(
       files.map(async file => {
         await actions.upload(file);
-
+        //block code: resize
+        var pair_value = await strapi.plugins['upload'].services.resize.resizeImg(file);
+        // console.log(pair_value);
+        // var model_name = file.related[0].ref;
+        // console.log(model_name)
+        // strapi.services[model_name].edit()
+        // await strapi.services[model_name].edit(strapi.models[model_name],pair_value);
+        // for (var i in pair_value) {
+        //   await strapi.services[model_name].edit(strapi.models[model_name],pair_value[i]);
+        //   // console.log(strapi.models[model_name][i]);
+        //   // console.log(pair_value[i]);
+        // }
+        // console.log(model);
+        // console.log(file.related[0].ref);
         // Remove buffer to don't save it.
+        // console.log(file);
+        // console.log(file.buffer);
         delete file.buffer;
+        
 
         file.provider = provider.provider;
 
