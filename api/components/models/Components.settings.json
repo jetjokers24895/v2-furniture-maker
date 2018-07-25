@@ -23,11 +23,6 @@
     "quotaUnit": {
       "model": "quotaunit"
     },
-    "model": {
-      "unique": true,
-      "type": "text",
-      "required": true
-    },
     "price": {
       "unique": true,
       "type": "integer",
@@ -39,6 +34,11 @@
       "plugin": "upload"
     },
     "mtl": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "thumbnail": {
       "model": "file",
       "via": "related",
       "plugin": "upload"

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Productgroup.js service
+ * Producttypegroup.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all productgroups.
+   * Promise to fetch all producttypegroups.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productgroup', params);
+    const filters = strapi.utils.models.convertParams('producttypegroup', params);
     // Select field to populate.
-    const populate = Productgroup.associations
+    const populate = Producttypegroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productgroup
+    return Producttypegroup
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an productgroup.
+   * Promise to fetch a/an producttypegroup.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Productgroup.associations
+    const populate = Producttypegroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productgroup
-      .findOne(_.pick(params, _.keys(Productgroup.schema.paths)))
+    return Producttypegroup
+      .findOne(_.pick(params, _.keys(Producttypegroup.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count productgroups.
+   * Promise to count producttypegroups.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productgroup', params);
+    const filters = strapi.utils.models.convertParams('producttypegroup', params);
 
-    return Productgroup
+    return Producttypegroup
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an productgroup.
+   * Promise to add a/an producttypegroup.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productgroup.associations.map(ast => ast.alias));
-    const data = _.omit(values, Productgroup.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Producttypegroup.associations.map(ast => ast.alias));
+    const data = _.omit(values, Producttypegroup.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Productgroup.create(data);
+    const entry = await Producttypegroup.create(data);
 
     // Create relational data and return the entry.
-    return Productgroup.updateRelations({ id: entry.id, values: relations });
+    return Producttypegroup.updateRelations({ id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an productgroup.
+   * Promise to edit a/an producttypegroup.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productgroup.associations.map(a => a.alias));
-    const data = _.omit(values, Productgroup.associations.map(a => a.alias));
+    const relations = _.pick(values, Producttypegroup.associations.map(a => a.alias));
+    const data = _.omit(values, Producttypegroup.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Productgroup.update(params, data, { multi: true });
+    const entry = await Producttypegroup.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Productgroup.updateRelations(Object.assign(params, { values: relations }));
+    return Producttypegroup.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an productgroup.
+   * Promise to remove a/an producttypegroup.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Productgroup.associations
+    const populate = Producttypegroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Productgroup
+    const data = await Producttypegroup
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Productgroup.associations.map(async association => {
+      Producttypegroup.associations.map(async association => {
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
@@ -145,22 +145,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an productgroup.
+   * Promise to search a/an producttypegroup.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productgroup', params);
+    const filters = strapi.utils.models.convertParams('producttypegroup', params);
     // Select field to populate.
-    const populate = Productgroup.associations
+    const populate = Producttypegroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Productgroup.attributes).reduce((acc, curr) => {
-      switch (Productgroup.attributes[curr].type) {
+    const $or = Object.keys(Producttypegroup.attributes).reduce((acc, curr) => {
+      switch (Producttypegroup.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -184,7 +184,7 @@ module.exports = {
       }
     }, []);
 
-    return Productgroup
+    return Producttypegroup
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

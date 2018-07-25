@@ -53,7 +53,7 @@ module.exports = {
       files.map(async file => {
         await actions.upload(file);
         //block code: resize
-        var pair_value = await strapi.plugins['upload'].services.resize.resizeImg(file);
+        // var pair_value = await strapi.plugins['upload'].services.resize.resizeImg(file);
         // console.log(pair_value);
         // var model_name = file.related[0].ref;
         // console.log(model_name)

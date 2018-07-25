@@ -16,7 +16,16 @@
     },
     "discountbyquantities": {
       "collection": "discountbyquantity",
-      "via": "producttype"
+      "via": "producttype"},
+      
+    "productTypeGroup": {
+      "model": "producttypegroup",
+      "via": "producttypes"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }

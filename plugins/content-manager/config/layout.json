@@ -123,6 +123,9 @@
       },
       "price": {
         "appearance": ""
+      },
+      "inStock": {
+        "appearance": ""
       }
     }
   },
@@ -166,18 +169,24 @@
         "appearance": ""
       },
       "discount": {
+  "productTypeGroup": {
+    "attributes": {
+      "name": {
         "appearance": ""
       }
     }
-  },
+  }}}},
   "discountbyquantity": {
     "attributes": {
       "quantity": {
         "appearance": ""
       },
       "discount": {
+  "designGroup": {
+    "attributes": {
+      "name": {
         "appearance": ""
       }
     }
   }
-}
+}}}}

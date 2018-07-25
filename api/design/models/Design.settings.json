@@ -12,9 +12,6 @@
     "name": {
       "type": "string"
     },
-    "productgroup": {
-      "model": "productgroup"
-    },
     "producttype": {
       "model": "producttype"
     },
@@ -35,6 +32,15 @@
     "name_image": {
       "type": "text",
       "required": true
+    },
+    "designGroup": {
+      "model": "designgroup",
+      "via": "designs"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }
