@@ -2,20 +2,18 @@
   "connection": "default",
   "collectionName": "",
   "info": {
-    "name": "productdesign",
+    "name": "discountbyquantity",
     "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
-    "name": {
-      "unique": true,
-      "type": "string",
-      "required": true
+    "quantity": {
+      "type": "integer"
     },
-    "productgroup": {
-      "model": "productgroup"
+    "discount": {
+      "type": "integer"
     },
     "producttype": {
       "model": "producttype"

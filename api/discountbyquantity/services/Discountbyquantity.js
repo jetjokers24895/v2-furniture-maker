@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Productdesign.js service
+ * Discountbyquantity.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all productdesigns.
+   * Promise to fetch all discountbyquantities.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('discountbyquantity', params);
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Discountbyquantity.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productdesign
+    return Discountbyquantity
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an productdesign.
+   * Promise to fetch a/an discountbyquantity.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Discountbyquantity.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productdesign
-      .findOne(_.pick(params, _.keys(Productdesign.schema.paths)))
+    return Discountbyquantity
+      .findOne(_.pick(params, _.keys(Discountbyquantity.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count productdesigns.
+   * Promise to count discountbyquantities.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('discountbyquantity', params);
 
-    return Productdesign
+    return Discountbyquantity
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an productdesign.
+   * Promise to add a/an discountbyquantity.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productdesign.associations.map(ast => ast.alias));
-    const data = _.omit(values, Productdesign.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Discountbyquantity.associations.map(ast => ast.alias));
+    const data = _.omit(values, Discountbyquantity.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Productdesign.create(data);
+    const entry = await Discountbyquantity.create(data);
 
     // Create relational data and return the entry.
-    return Productdesign.updateRelations({ id: entry.id, values: relations });
+    return Discountbyquantity.updateRelations({ id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an productdesign.
+   * Promise to edit a/an discountbyquantity.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productdesign.associations.map(a => a.alias));
-    const data = _.omit(values, Productdesign.associations.map(a => a.alias));
+    const relations = _.pick(values, Discountbyquantity.associations.map(a => a.alias));
+    const data = _.omit(values, Discountbyquantity.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Productdesign.update(params, data, { multi: true });
+    const entry = await Discountbyquantity.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Productdesign.updateRelations(Object.assign(params, { values: relations }));
+    return Discountbyquantity.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an productdesign.
+   * Promise to remove a/an discountbyquantity.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Discountbyquantity.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Productdesign
+    const data = await Discountbyquantity
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Productdesign.associations.map(async association => {
+      Discountbyquantity.associations.map(async association => {
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
@@ -145,22 +145,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an productdesign.
+   * Promise to search a/an discountbyquantity.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('discountbyquantity', params);
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Discountbyquantity.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Productdesign.attributes).reduce((acc, curr) => {
-      switch (Productdesign.attributes[curr].type) {
+    const $or = Object.keys(Discountbyquantity.attributes).reduce((acc, curr) => {
+      switch (Discountbyquantity.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -184,7 +184,7 @@ module.exports = {
       }
     }, []);
 
-    return Productdesign
+    return Discountbyquantity
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

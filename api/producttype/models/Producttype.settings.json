@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "producttype",
   "info": {
     "name": "producttype",
     "description": ""
@@ -13,6 +13,10 @@
       "unique": true,
       "type": "string",
       "required": true
+    },
+    "discountbyquantities": {
+      "collection": "discountbyquantity",
+      "via": "producttype"
     }
   }
 }

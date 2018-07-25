@@ -159,5 +159,25 @@
         "appearance": ""
       }
     }
+  },
+  "discountByQuantity": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      }
+    }
+  },
+  "discountbyquantity": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      }
+    }
   }
 }

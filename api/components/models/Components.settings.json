@@ -20,9 +20,6 @@
       "type": "integer",
       "required": true
     },
-    "productDesign": {
-      "model": "productdesign"
-    },
     "quotaUnit": {
       "model": "quotaunit"
     },
