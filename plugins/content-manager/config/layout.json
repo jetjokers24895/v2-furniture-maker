@@ -123,6 +123,9 @@
       },
       "price": {
         "appearance": ""
+      },
+      "inStock": {
+        "appearance": ""
       }
     }
   },
@@ -154,6 +157,20 @@
     }
   },
   "customer": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "productTypeGroup": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "designGroup": {
     "attributes": {
       "name": {
         "appearance": ""

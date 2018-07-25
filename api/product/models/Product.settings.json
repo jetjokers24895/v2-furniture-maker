@@ -12,9 +12,6 @@
     "design": {
       "model": "design"
     },
-    "producttypes": {
-      "model": "producttype"
-    },
     "productmodule": {
       "model": "productmodule"
     },

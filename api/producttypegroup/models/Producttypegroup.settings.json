@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "producttype",
+  "collectionName": "",
   "info": {
-    "name": "producttype",
+    "name": "producttypegroup",
     "description": ""
   },
   "options": {
@@ -10,18 +10,16 @@
   },
   "attributes": {
     "name": {
-      "unique": true,
-      "type": "string",
-      "required": true
-    },
-    "productTypeGroup": {
-      "model": "producttypegroup",
-      "via": "producttypes"
+      "type": "string"
     },
     "thumbnail": {
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "producttypes": {
+      "collection": "producttype",
+      "via": "productTypeGroup"
     }
   }
 }

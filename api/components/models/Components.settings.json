@@ -20,16 +20,8 @@
       "type": "integer",
       "required": true
     },
-    "productDesign": {
-      "model": "productdesign"
-    },
     "quotaUnit": {
       "model": "quotaunit"
-    },
-    "model": {
-      "unique": true,
-      "type": "text",
-      "required": true
     },
     "price": {
       "unique": true,
@@ -42,6 +34,11 @@
       "plugin": "upload"
     },
     "mtl": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "thumbnail": {
       "model": "file",
       "via": "related",
       "plugin": "upload"

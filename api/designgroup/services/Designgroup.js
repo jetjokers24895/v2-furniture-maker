@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Productdesign.js service
+ * Designgroup.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all productdesigns.
+   * Promise to fetch all designgroups.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('designgroup', params);
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Designgroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productdesign
+    return Designgroup
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an productdesign.
+   * Promise to fetch a/an designgroup.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Designgroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Productdesign
-      .findOne(_.pick(params, _.keys(Productdesign.schema.paths)))
+    return Designgroup
+      .findOne(_.pick(params, _.keys(Designgroup.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count productdesigns.
+   * Promise to count designgroups.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('designgroup', params);
 
-    return Productdesign
+    return Designgroup
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an productdesign.
+   * Promise to add a/an designgroup.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productdesign.associations.map(ast => ast.alias));
-    const data = _.omit(values, Productdesign.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Designgroup.associations.map(ast => ast.alias));
+    const data = _.omit(values, Designgroup.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Productdesign.create(data);
+    const entry = await Designgroup.create(data);
 
     // Create relational data and return the entry.
-    return Productdesign.updateRelations({ id: entry.id, values: relations });
+    return Designgroup.updateRelations({ id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an productdesign.
+   * Promise to edit a/an designgroup.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Productdesign.associations.map(a => a.alias));
-    const data = _.omit(values, Productdesign.associations.map(a => a.alias));
+    const relations = _.pick(values, Designgroup.associations.map(a => a.alias));
+    const data = _.omit(values, Designgroup.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Productdesign.update(params, data, { multi: true });
+    const entry = await Designgroup.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Productdesign.updateRelations(Object.assign(params, { values: relations }));
+    return Designgroup.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an productdesign.
+   * Promise to remove a/an designgroup.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Designgroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Productdesign
+    const data = await Designgroup
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Productdesign.associations.map(async association => {
+      Designgroup.associations.map(async association => {
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
@@ -145,22 +145,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an productdesign.
+   * Promise to search a/an designgroup.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('productdesign', params);
+    const filters = strapi.utils.models.convertParams('designgroup', params);
     // Select field to populate.
-    const populate = Productdesign.associations
+    const populate = Designgroup.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Productdesign.attributes).reduce((acc, curr) => {
-      switch (Productdesign.attributes[curr].type) {
+    const $or = Object.keys(Designgroup.attributes).reduce((acc, curr) => {
+      switch (Designgroup.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -184,7 +184,7 @@ module.exports = {
       }
     }, []);
 
-    return Productdesign
+    return Designgroup
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)
