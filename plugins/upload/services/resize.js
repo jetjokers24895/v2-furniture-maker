@@ -25,6 +25,8 @@ module.exports = {
     resizeImg: async (file) => {
         var model = new Array;
         var link_image_2000 = path.normalize(root_project+ '/public/' + file.url); //must is absolute link
+        //console
+        console.log(link_imahe_2000)
         // var reg = /(?:\/uploads\/).*/g;
         // var reg_action = link_image_2000.match(reg);
         // var name = reg_action.toString().replace(/\/|uploads/g,"");
@@ -44,6 +46,8 @@ module.exports = {
             mkdirSync(path.join(outputPath,forder_name));
             // set link ảnh
             var link = path.join(outputPath,forder_name,output_name);
+            console.log(link)
+            console.log(file.ext.replace(".",""))
             // gán vào list model để insert
             model['img'+ (1024/i).toString()] = link;
             imgTool.resize({
@@ -55,6 +59,7 @@ module.exports = {
             }, function(err,stdout,stderr) {
                 if(err) {
                 throw err;
+                console.error("error",err);
                 };
             });
         }
