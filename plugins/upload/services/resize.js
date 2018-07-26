@@ -69,8 +69,8 @@ module.exports = {
             }
 
         }
-        return new Promise (resolve => {
-            resolve(model)
-        });
+        // return new Promise (resolve => {
+        //     resolve(model)
+        // });
     }
 }
