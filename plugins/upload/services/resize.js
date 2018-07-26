@@ -52,7 +52,8 @@ module.exports = {
             model['img'+ (1024/i).toString()] = link;
             try {
                 imgTool.resize({
-                    srcPath: link_image_2000,
+                    // srcPath: link_image_2000,
+                    srcData: file.buffer,
                     dstPath: link,
                     format: file.ext.replace(".",""),
                     width: 1024/i,
