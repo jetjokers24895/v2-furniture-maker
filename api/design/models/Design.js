@@ -81,9 +81,9 @@ module.exports = {
 
   // Before updating a value.
   // Fired before an `update` query.
-  beforeUpdate: async (model) => {
-    console.log("model",model);
-  },
+  // beforeUpdate: async (model) => {
+  //   console.log("model",model);
+  // },
 
   // After updating a value.
   // Fired after an `update` query.
