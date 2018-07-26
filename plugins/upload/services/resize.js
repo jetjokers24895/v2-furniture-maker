@@ -46,22 +46,28 @@ module.exports = {
             mkdirSync(path.join(outputPath,forder_name));
             // set link ảnh
             var link = path.join(outputPath,forder_name,output_name);
-            console.log(link)
-            console.log(file.ext.replace(".",""))
+            console.log(link);
+            console.log(file.ext.replace(".",""));
             // gán vào list model để insert
             model['img'+ (1024/i).toString()] = link;
-            imgTool.resize({
-            srcPath: link_image_2000,
-            dstPath: link,
-            format: file.ext.replace(".",""),
-            width: 1024/i,
-            height: 1024/i,
-            }, function(err,stdout,stderr) {
-                if(err) {
-                throw err;
-                console.error("error",err);
-                };
-            });
+            try {
+                imgTool.resize({
+                    srcPath: link_image_2000,
+                    dstPath: link,
+                    format: file.ext.replace(".",""),
+                    width: 1024/i,
+                    height: 1024/i,
+                    }, function(err,stdout,stderr) {
+                        if(err) {
+                        throw err;
+                        console.error("error",err);
+                        };
+                    });
+                
+            } catch (error) {
+                console.log(error)   
+            }
+
         }
         return new Promise (resolve => {
             resolve(model)
