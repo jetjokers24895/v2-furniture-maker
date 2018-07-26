@@ -11,6 +11,7 @@ const _ = require('lodash');
 const toArray = require('stream-to-array');
 const uuid = require('uuid/v4');
 
+
 (function() {
   var childProcess = require("child_process");
   var oldSpawn = childProcess.spawn;

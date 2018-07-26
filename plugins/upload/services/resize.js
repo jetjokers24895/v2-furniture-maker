@@ -5,6 +5,7 @@ const imgTool = require('imagemagick');
 const root_project = process.cwd();
 const fs = require('fs');
 const path = require("path");
+const gm = require('gm').subClass({imageMagick: true});
 
 
 const mkdirSync = function (dirPath) {
@@ -51,20 +52,24 @@ module.exports = {
             // gán vào list model để insert
             model['img'+ (1024/i).toString()] = link;
             try {
-                imgTool.resize({
-                    // srcPath: link_image_2000,
-                    srcData: file.buffer,
-                    dstPath: link,
-                    format: file.ext.replace(".",""),
-                    width: 1024/i,
-                    height: 1024/i,
-                    }, function(err,stdout,stderr) {
-                        if(err) {
-                        throw err;
-                        console.error("error",err);
-                        };
-                    });
-                
+                // imgTool.resize({
+                //     // srcPath: link_image_2000,
+                //     srcData: file.buffer,
+                //     dstPath: link,
+                //     format: file.ext.replace(".",""),
+                //     width: 1024/i,
+                //     height: 1024/i,
+                //     }, function(err,stdout,stderr) {
+                //         if(err) {
+                //         throw err;
+                //         console.error("error",err);
+                //         };
+                //     });
+                gm(link_image_2000)
+                .resizeExact(1024/i, 1024/i)
+                .write(link, function (err) {
+                 if (!err) console.log('done');
+                });
             } catch (error) {
                 console.log(error)   
             }
