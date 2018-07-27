@@ -12,8 +12,9 @@
     "name": {
       "type": "string"
     },
-    "producttype": {
-      "model": "producttype"
+    "productType": {
+      "model": "producttype",
+      "via": "designs"
     },
     "img256": {
       "type": "text"

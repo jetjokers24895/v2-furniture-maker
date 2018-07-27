@@ -169,24 +169,30 @@
         "appearance": ""
       },
       "discount": {
-  "productTypeGroup": {
-    "attributes": {
-      "name": {
-        "appearance": ""
+        "productTypeGroup": {
+          "attributes": {
+            "name": {
+              "appearance": ""
+            }
+          }
+        }
       }
     }
-  }}}},
+  },
   "discountbyquantity": {
     "attributes": {
       "quantity": {
         "appearance": ""
       },
       "discount": {
-  "designGroup": {
-    "attributes": {
-      "name": {
-        "appearance": ""
+        "designGroup": {
+          "attributes": {
+            "name": {
+              "appearance": ""
+            }
+          }
+        }
       }
     }
   }
-}}}}
+}

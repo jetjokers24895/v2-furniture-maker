@@ -13,7 +13,8 @@
       "type": "string"
     },
     "componentType": {
-      "model": "componenttype"
+      "model": "componenttype",
+      "via": "components"
     },
     "quotaValue": {
       "unique": true,
