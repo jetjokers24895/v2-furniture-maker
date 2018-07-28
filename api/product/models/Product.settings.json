@@ -12,10 +12,11 @@
     "design": {
       "model": "design"
     },
-    "productmodule": {
-      "model": "productmodule"
+    "productModules": {
+      "collection": "productmodule",
+      "via": "product"
     },
-    "totalprice": {
+    "totalPrice": {
       "unique": true,
       "type": "integer",
       "required": true

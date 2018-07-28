@@ -17,6 +17,14 @@
     "components": {
       "collection": "components",
       "via": "componentType"
+    },
+    "materialType": {
+      "model": "materialtype",
+      "via": "componentTypes"
+    },
+    "design": {
+      "model": "design",
+      "via": "componentTypes"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "producttypegroup",
   "info": {
     "name": "producttypegroup",
     "description": ""
@@ -17,7 +17,7 @@
       "via": "related",
       "plugin": "upload"
     },
-    "producttypes": {
+    "productTypes": {
       "collection": "producttype",
       "via": "productTypeGroup"
     }

@@ -19,9 +19,6 @@
     "quotaValue": {
       "type": "integer"
     },
-    "quotaUnit": {
-      "model": "quotaunit"
-    },
     "price": {
       "type": "integer",
       "required": true
@@ -40,6 +37,10 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "materialType": {
+      "model": "materialtype",
+      "via": "components"
     }
   }
 }

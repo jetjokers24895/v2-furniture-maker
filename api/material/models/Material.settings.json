@@ -18,7 +18,6 @@
       "required": true
     },
     "price": {
-      "unique": true,
       "type": "integer",
       "required": true
     },

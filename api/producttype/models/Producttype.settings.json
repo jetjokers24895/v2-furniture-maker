@@ -14,13 +14,13 @@
       "type": "string",
       "required": true
     },
-    "discountbyquantities": {
+    "discountByQuantities": {
       "collection": "discountbyquantity",
-      "via": "producttype"
+      "via": "productType"
     },
     "productTypeGroup": {
       "model": "producttypegroup",
-      "via": "producttypes"
+      "via": "productTypes"
     },
     "thumbnail": {
       "model": "file",

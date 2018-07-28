@@ -15,8 +15,9 @@
     "discount": {
       "type": "integer"
     },
-    "producttype": {
-      "model": "producttype"
+    "productType": {
+      "model": "producttype",
+      "via": "discountByQuantities"
     }
   }
 }

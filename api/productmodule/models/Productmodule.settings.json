@@ -9,9 +9,6 @@
     "timestamps": true
   },
   "attributes": {
-    "components": {
-      "model": "components"
-    },
     "material": {
       "model": "material"
     },
@@ -20,6 +17,10 @@
     },
     "materialPrice": {
       "type": "integer"
+    },
+    "product": {
+      "model": "product",
+      "via": "productModules"
     }
   }
 }

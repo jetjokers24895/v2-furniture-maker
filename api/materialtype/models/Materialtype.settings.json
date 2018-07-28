@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "materialtype",
   "info": {
     "name": "materialtype",
     "description": ""
@@ -13,6 +13,14 @@
       "unique": true,
       "type": "string",
       "required": true
+    },
+    "componentTypes": {
+      "collection": "componenttype",
+      "via": "materialType"
+    },
+    "components": {
+      "collection": "components",
+      "via": "materialType"
     }
   }
 }
