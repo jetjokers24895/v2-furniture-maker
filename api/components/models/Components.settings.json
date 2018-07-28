@@ -41,6 +41,10 @@
     "materialType": {
       "model": "materialtype",
       "via": "components"
+    },
+    "design": {
+      "model": "design",
+      "via": "components"
     }
   }
 }

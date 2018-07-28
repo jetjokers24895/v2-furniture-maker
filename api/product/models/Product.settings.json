@@ -9,9 +9,6 @@
     "timestamps": true
   },
   "attributes": {
-    "design": {
-      "model": "design"
-    },
     "productModules": {
       "collection": "productmodule",
       "via": "product"
