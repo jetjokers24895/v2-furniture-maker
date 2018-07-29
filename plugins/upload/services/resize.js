@@ -5,6 +5,8 @@ const root_project = process.cwd();
 const fs = require('fs');
 const path = require('path');
 const Jimp = require('jimp2');
+var model = new Array;
+Array.range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + start);
 
 const mkdirSync = function (dirPath) {
   try {
@@ -24,7 +26,6 @@ function statPath(path) {
 
 module.exports = {
   resizeImg: async (file) => {
-    var model = new Array;
     var link_image_2000 = path.normalize(root_project+ '/public/' + file.url); //must is absolute link
         //console
     console.log(link_image_2000);
@@ -42,23 +43,8 @@ module.exports = {
         //set output path
     const outputPath = root_project + '/public/uploads/resize/';
         //resize image
-    
-    Jimp.read(file.buffer).then((image) => {
-      for (var i = 1; i < 5; i=i*2) {
-        var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,'');
-        var output_name = forder_name + '_' +(1024/i).toString() + 'x' + (1024/i).toString() + file.ext;
-                  // ttao thu muc chứa file
-        mkdirSync(path.join(outputPath,forder_name));
-                  // set link ảnh
-        var link = path.join(outputPath,forder_name,output_name);
-        console.log(link);
-                  // gán vào list model để insert
-        model['img'+ (1024/i).toString()] = link;
-        image.resize(1024/i, 1024/i)            // resize
-                    .write(link,cb => console.log(cb));} // save
-    }).catch((err)=>{
-      console.error(err);
-    });
+    resize_action(file.buffer,name,outputPath,model,file.ext);
+
             
     
         // return new Promise (resolve => {
@@ -66,3 +52,60 @@ module.exports = {
         // });
   }
 };
+
+function resize_action(buffer,name,outputPath,model,ext) {
+  Jimp.read(buffer).then((image) => {
+    var _num_image = check_size(image.bitmap.width,image.bitmap.height);
+    console.log('#width:',image.bitmap.width);
+    console.log('#height:',image.bitmap.height);
+    console.log("#number image:",_num_image);
+    if (_num_image == 1) {
+      resize(name,outputPath,model,image,256,ext);
+    }
+    if (_num_image == 2) {
+      resize(name,outputPath,model,image,256,ext);
+      resize(name,outputPath,model,image,512,ext);
+    }
+    if (_num_image == 3) {
+      resize(name,outputPath,model,image,256,ext);
+      resize(name,outputPath,model,image,512,ext);
+      resize(name,outputPath,model,image,1024,ext);
+    }
+    
+    // save
+  }).catch((err)=>{
+    console.error(err);
+  });
+}
+
+function check_size(width,height) {
+  width = parseInt(width);
+  height = parseInt(height);
+  var _min = Math.min(width,height);
+  if (_min > 256)
+  {
+    if (_min > 512) {
+      if (_min > 1024) {
+        return 3;
+      }
+      return 2;
+    }
+    return 1;
+  }
+  return 0;
+}
+
+function resize(name,outputPath,model,image,size,ext) {
+  var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,'');
+  var output_name = forder_name + '_' +(size).toString() + 'x' + (size).toString() + ext;
+            // ttao thu muc chứa file
+  mkdirSync(path.join(outputPath,forder_name));
+            // set link ảnh
+  var link = path.join(outputPath,forder_name,output_name);
+  console.log(link);
+            // gán vào list model để insert
+  model['img'+ (size).toString()] = link;
+  image.resize(size, size)            // resize
+              .write(link,cb => console.log(cb));
+  console.log('created image:', size.toString() + 'x' + size.toString());
+}
