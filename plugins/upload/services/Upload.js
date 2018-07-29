@@ -65,7 +65,7 @@ module.exports = {
     return Promise.all(
       files.map(async file => {
         await actions.upload(file);
-        console.log(file)
+        console.log(file);
         //block code: resize
         await strapi.plugins['upload'].services.resize.resizeImg(file);
         // console.log(pair_value);
