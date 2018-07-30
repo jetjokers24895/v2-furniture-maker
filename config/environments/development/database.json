@@ -1,20 +1,22 @@
 {
-  "defaultConnection": "default",
-  "connections": {
-    "default": {
-      "connector": "strapi-mongoose",
-      "settings": {
-        "client": "mongo",
-        "host": "localhost",
-        "port": 27017,
-        "database": "furniture-maker-db",
-        "username": "devTeam",
-        "password": "1"
-      },
-      "options": {
-        "authenticationDatabase": "furniture-maker-db",
-        "ssl": false
+    "defaultConnection": "default",
+    "connections": {
+      "default": {
+        "connector": "strapi-mongoose",
+        "settings": {
+          "client": "mongo",
+          "host": "127.0.0.1",
+          "port": 27017,
+          "database": "furniture-maker-db",
+          "username": "devTeam",
+          "password": "1"
+        },
+        "options": {
+          "authenticationDatabase": "furniture-maker-db",
+          "ssl": false
+        }
       }
     }
   }
-}
+  
+  

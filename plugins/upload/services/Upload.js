@@ -13,13 +13,13 @@ const uuid = require('uuid/v4');
 
 
 (function() {
-  var childProcess = require("child_process");
+  var childProcess = require('child_process');
   var oldSpawn = childProcess.spawn;
   function mySpawn() {
-      console.log('spawn called');
-      console.log(arguments);
-      var result = oldSpawn.apply(this, arguments);
-      return result;
+    console.log('spawn called');
+    console.log(arguments);
+    var result = oldSpawn.apply(this, arguments);
+    return result;
   }
   childProcess.spawn = mySpawn;
 })();
@@ -65,9 +65,15 @@ module.exports = {
     return Promise.all(
       files.map(async file => {
         await actions.upload(file);
-        console.log(file)
-        //block code: resize
-        await strapi.plugins['upload'].services.resize.resizeImg(file);
+        console.log(file);
+        /**
+         * block code resize
+         */
+        var list_exten_image = ['.jpg','.png','.jpeg','.bmp'];
+        // if file exten is image -> resize
+        if ( list_exten_image.indexOf(file.ext) >= 0){
+          await strapi.plugins['upload'].services.resize.resizeImg(file);
+        }
         // console.log(pair_value);
         // var model_name = file.related[0].ref;
         // console.log(model_name)
@@ -83,6 +89,9 @@ module.exports = {
         // Remove buffer to don't save it.
         // console.log(file);
         // console.log(file.buffer);
+        /**
+         * endblock code resize
+         */
         delete file.buffer;
         
 
@@ -109,7 +118,9 @@ module.exports = {
     if (strapi.plugins['content-manager']) {
       params.model = 'file';
       params.id = (params._id || params.id);
-
+      //jet-console
+      console.log(params);
+      console.log(values);
       return await strapi.plugins['content-manager'].services['contentmanager'].edit(params, values, 'upload');
     }
 
@@ -153,7 +164,7 @@ module.exports = {
   },
 
   uploadToEntity: async function (params, files, source) {
-    // Retrieve provider settings from database.
+    // Retrieve provider settings from ddatabase.
     const config = await strapi.store({
       environment: strapi.config.environment,
       type: 'plugin',

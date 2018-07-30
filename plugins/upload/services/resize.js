@@ -1,82 +1,111 @@
 'use strict';
 
-var assert = require("assert");
-const imgTool = require('imagemagick');
+var assert = require('assert');
 const root_project = process.cwd();
 const fs = require('fs');
-const path = require("path");
-const gm = require('gm').subClass({imageMagick: true});
-
+const path = require('path');
+const Jimp = require('jimp2');
+var model = new Array;
+Array.range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + start);
 
 const mkdirSync = function (dirPath) {
   try {
-    fs.mkdirSync(dirPath)
-  } catch (err) {
-    if (err.code !== 'EEXIST') throw err
-}};
-// check directory
+    fs.mkdirSync(dirPath);} 
+  catch (err) {
+    if (err.code !== 'EEXIST') throw err;}
+};
+
+    // check directory
 function statPath(path) {
-    try {
-      return fs.statSync(path);
-    } catch (ex) {}
+  try {
+    return fs.statSync(path);
+  } catch (ex) {
     return false;
   }
+}
 
 module.exports = {
-    resizeImg: async (file) => {
-        var model = new Array;
-        var link_image_2000 = path.normalize(root_project+ '/public/' + file.url); //must is absolute link
+  resizeImg: async (file) => {
+    var link_image_2000 = path.normalize(root_project+ '/public/' + file.url); //must is absolute link
         //console
-        console.log(link_image_2000)
+    console.log(link_image_2000);
         // var reg = /(?:\/uploads\/).*/g;
         // var reg_action = link_image_2000.match(reg);
         // var name = reg_action.toString().replace(/\/|uploads/g,"");
-        var name = file.name
-        assert.equal(name.search("/"), -1);
+    var name = file.name;
+    assert.equal(name.search('/'), -1);
         // check resize directory exists
-        var exist = statPath(root_project+'/public/uploads/resize');
-        if (!(exist && exist.isDirectory())) {
-            console.log("not exists")
-            mkdirSync(root_project + '/public/uploads/resize');
-        }
-        const outputPath = root_project + '/public/uploads/resize/';
-        for (var i = 1; i < 5; i=i*2) {
-            var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,"");
-            var output_name = forder_name + '_' +(1024/i).toString() + 'x' + (1024/i).toString() + file.ext;
-            // ttao thu muc chứa file
-            mkdirSync(path.join(outputPath,forder_name));
-            // set link ảnh
-            var link = path.join(outputPath,forder_name,output_name);
-            console.log(link);
-            console.log(file.ext.replace(".",""));
-            // gán vào list model để insert
-            model['img'+ (1024/i).toString()] = link;
-            try {
-                // imgTool.resize({
-                //     // srcPath: link_image_2000,
-                //     srcData: file.buffer,
-                //     dstPath: link,
-                //     format: file.ext.replace(".",""),
-                //     width: 1024/i,
-                //     height: 1024/i,
-                //     }, function(err,stdout,stderr) {
-                //         if(err) {
-                //         throw err;
-                //         console.error("error",err);
-                //         };
-                //     });
-                gm(link_image_2000)
-                .resizeExact(1024/i, 1024/i)
-                .write(link, function (err) {
-                 if (!err) console.log('done');
-                });
-            } catch (error) {
-                console.log(error)   
-            }
+    var exist = statPath(root_project+'/public/uploads/resize');
+    if (!(exist && exist.isDirectory())) {
+      console.log('not exists');
+      mkdirSync(root_project + '/public/uploads/resize');
+    }
+        //set output path
+    const outputPath = root_project + '/public/uploads/resize/';
+        //resize image
+    resize_action(file.buffer,name,outputPath,model,file.ext);
 
-        }
+            
+    
         // return new Promise (resolve => {
         //     resolve(model)
         // });
+  }
+};
+
+function resize_action(buffer,name,outputPath,model,ext) {
+  Jimp.read(buffer).then((image) => {
+    var _num_image = check_size(image.bitmap.width,image.bitmap.height);
+    console.log('#width:',image.bitmap.width);
+    console.log('#height:',image.bitmap.height);
+    console.log("#number image:",_num_image);
+    if (_num_image == 1) {
+      resize(name,outputPath,model,image,256,ext);
     }
+    if (_num_image == 2) {
+      resize(name,outputPath,model,image,256,ext);
+      resize(name,outputPath,model,image,512,ext);
+    }
+    if (_num_image == 3) {
+      resize(name,outputPath,model,image,256,ext);
+      resize(name,outputPath,model,image,512,ext);
+      resize(name,outputPath,model,image,1024,ext);
+    }
+    
+    // save
+  }).catch((err)=>{
+    console.error(err);
+  });
+}
+
+function check_size(width,height) {
+  width = parseInt(width);
+  height = parseInt(height);
+  var _min = Math.min(width,height);
+  if (_min > 256)
+  {
+    if (_min > 512) {
+      if (_min > 1024) {
+        return 3;
+      }
+      return 2;
+    }
+    return 1;
+  }
+  return 0;
+}
+
+function resize(name,outputPath,model,image,size,ext) {
+  var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,'');
+  var output_name = forder_name + '_' +(size).toString() + 'x' + (size).toString() + ext;
+            // ttao thu muc chứa file
+  mkdirSync(path.join(outputPath,forder_name));
+            // set link ảnh
+  var link = path.join(outputPath,forder_name,output_name);
+  console.log(link);
+            // gán vào list model để insert
+  model['img'+ (size).toString()] = link;
+  image.resize(size, size)            // resize
+              .write(link,cb => console.log(cb));
+  console.log('created image:', size.toString() + 'x' + size.toString());
 }
