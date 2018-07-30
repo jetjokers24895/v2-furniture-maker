@@ -45,6 +45,11 @@
     "design": {
       "model": "design",
       "via": "components"
+    },
+    "fbx": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }

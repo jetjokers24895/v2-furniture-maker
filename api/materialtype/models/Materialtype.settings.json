@@ -21,6 +21,10 @@
     "components": {
       "collection": "components",
       "via": "materialType"
+    },
+    "materials": {
+      "collection": "material",
+      "via": "materialType"
     }
   }
 }

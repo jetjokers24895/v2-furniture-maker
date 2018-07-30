@@ -9,9 +9,6 @@
     "timestamps": true
   },
   "attributes": {
-    "materialtype": {
-      "model": "materialtype"
-    },
     "name": {
       "unique": true,
       "type": "string",
@@ -28,6 +25,10 @@
     },
     "inStock": {
       "type": "boolean"
+    },
+    "materialType": {
+      "model": "materialtype",
+      "via": "materials"
     }
   }
 }
