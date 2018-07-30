@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "discountbyquantity",
   "info": {
     "name": "discountbyquantity",
     "description": ""
@@ -12,7 +12,7 @@
     "quantity": {
       "type": "integer"
     },
-    "discount": {
+    "discountPerProduct": {
       "type": "integer"
     },
     "productType": {
