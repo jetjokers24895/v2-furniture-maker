@@ -55,10 +55,6 @@ module.exports = {
   },
 
   add: async (params, values, source) => {
-    //jet-console
-    console.log(params);
-    console.log(values);
-    console.log(source);
     // Multipart/form-data.
     if (values.hasOwnProperty('fields') && values.hasOwnProperty('files')) {
       // Silent recursive parser.
