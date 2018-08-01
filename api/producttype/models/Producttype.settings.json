@@ -14,10 +14,6 @@
       "type": "string",
       "required": true
     },
-    "discountByQuantities": {
-      "collection": "discountbyquantity",
-      "via": "productType"
-    },
     "productTypeGroup": {
       "model": "producttypegroup",
       "via": "productTypes"
@@ -29,6 +25,10 @@
     },
     "designs": {
       "collection": "design",
+      "via": "productType"
+    },
+    "discountByQuantities": {
+      "collection": "discountbyquantity",
       "via": "productType"
     }
   }

@@ -1,1 +1,19 @@
-{}
+{
+  "discountbyquantity": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "discountPerProduct": {
+        "appearance": ""
+      }
+    }
+  },
+  "components": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
+      }
+    }
+  }
+}
