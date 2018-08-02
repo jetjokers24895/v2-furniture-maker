@@ -53,6 +53,11 @@
     },
     "displayName": {
       "type": "string"
+    },
+    "code": {
+      "unique": true,
+      "type": "string",
+      "required": true
     }
   }
 }

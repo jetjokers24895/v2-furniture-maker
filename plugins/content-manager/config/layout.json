@@ -13,6 +13,23 @@
     "attributes": {
       "displayName": {
         "appearance": ""
+      },
+      "Code": {
+        "appearance": ""
+      }
+    }
+  },
+  "material": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
+      }
+    }
+  },
+  "materialtype": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
       }
     }
   }
