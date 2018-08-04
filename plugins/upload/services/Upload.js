@@ -10,7 +10,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const toArray = require('stream-to-array');
 const uuid = require('uuid/v4');
-
+// const add_model = require('./add_link_to_model');
 
 (function() {
   var childProcess = require('child_process');
@@ -65,14 +65,17 @@ module.exports = {
     return Promise.all(
       files.map(async file => {
         await actions.upload(file);
-        console.log(file);
         /**
          * block code resize
          */
         var list_exten_image = ['.jpg','.png','.jpeg','.bmp'];
         // if file exten is image -> resize
         if ( list_exten_image.indexOf(file.ext) >= 0){
-          await strapi.plugins['upload'].services.resize.resizeImg(file);
+          var _model = await strapi.plugins['upload'].services.resize.resizeImg(file);
+          _model = await strapi.plugins['upload'].services.resize.check_imgage_size_exists(_model);
+          file['img256x256'] = _model['img256'];
+          file['img512x512'] = _model['img512'];
+          file['img1024x1024'] = _model['img1024'];
         }
         // console.log(pair_value);
         // var model_name = file.related[0].ref;
@@ -96,7 +99,6 @@ module.exports = {
         
 
         file.provider = provider.provider;
-
         return await strapi.plugins['upload'].services.upload.add(file);
       })
     );

@@ -15,5 +15,18 @@
         "appearance": ""
       }
     }
+  },
+  "design": {
+    "attributes": {
+      "img256": {
+        "appearance": ""
+      },
+      "img512": {
+        "appearance": ""
+      },
+      "img1024": {
+        "appearance": ""
+      }
+    }
   }
 }

@@ -20,6 +20,15 @@
     "productTypes": {
       "collection": "producttype",
       "via": "productTypeGroup"
+    },
+    "img256": {
+      "type": "text"
+    },
+    "img512": {
+      "type": "string"
+    },
+    "img1024": {
+      "type": "string"
     }
   }
 }

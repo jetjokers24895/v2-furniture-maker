@@ -46,6 +46,18 @@
       "collection": "*",
       "filter": "field",
       "configurable": false
+    },
+    "img256x256": {
+      "type": "string",
+      "configurable": true
+    },
+    "img512x512": {
+      "type": "string",
+      "configurable": true
+    },
+    "img1024x1024": {
+      "type": "string",
+      "configurable": true
     }
   }
 }

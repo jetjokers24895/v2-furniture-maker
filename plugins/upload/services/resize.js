@@ -1,11 +1,17 @@
 'use strict';
 
-var assert = require('assert');
-const root_project = process.cwd();
+
 const fs = require('fs');
 const path = require('path');
 const Jimp = require('jimp2');
-var model = new Array;
+var assert = require('assert');
+const root_project = process.cwd();
+var db = require(root_project + '/config/environments/development/database.json');
+var db_name = db.connections.default.settings.database;
+var link_localhost = 'http://localhost:1337/uploads/resize/';
+var link_vps = 'http://v2-api.furnituremaker.vn/uploads/resize/';
+const link = db_name == 'strapi' ? link_localhost : link_vps;
+var model = {};
 Array.range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + start);
 
 const mkdirSync = function (dirPath) {
@@ -44,21 +50,28 @@ module.exports = {
     const outputPath = root_project + '/public/uploads/resize/';
         //resize image
     resize_action(file.buffer,name,outputPath,model,file.ext);
-
-            
-    
-        // return new Promise (resolve => {
-        //     resolve(model)
-        // });
+    // return new Promise (resolve => {
+    //   resolve(model);
+    // });
+    return model;
+  },
+  check_imgage_size_exists : async (_model) => {
+    var _size = ['img256','img512','img1024'];
+    for (var i in _size) {
+      if (typeof _model[i] == 'undefined') {
+        _model[i] = 'this Image size dont have';
+      }
+    }
+    return _model;
   }
 };
 
 function resize_action(buffer,name,outputPath,model,ext) {
   Jimp.read(buffer).then((image) => {
     var _num_image = check_size(image.bitmap.width,image.bitmap.height);
-    console.log('#width:',image.bitmap.width);
-    console.log('#height:',image.bitmap.height);
-    console.log("#number image:",_num_image);
+    // console.log('#width:',image.bitmap.width);
+    // console.log('#height:',image.bitmap.height);
+    // console.log('#number image:',_num_image);
     if (_num_image == 1) {
       resize(name,outputPath,model,image,256,ext);
     }
@@ -101,11 +114,11 @@ function resize(name,outputPath,model,image,size,ext) {
             // ttao thu muc chứa file
   mkdirSync(path.join(outputPath,forder_name));
             // set link ảnh
-  var link = path.join(outputPath,forder_name,output_name);
-  console.log(link);
+  var path_image = path.join(outputPath,forder_name,output_name);
+  var _link = link + forder_name.toString() + '/' + output_name.toString(); 
             // gán vào list model để insert
-  model['img'+ (size).toString()] = link;
+  model['img'+ (size).toString()] = _link;
   image.resize(size, size)            // resize
-              .write(link,cb => console.log(cb));
+              .write(path_image,cb => console.log(cb));
   console.log('created image:', size.toString() + 'x' + size.toString());
 }
