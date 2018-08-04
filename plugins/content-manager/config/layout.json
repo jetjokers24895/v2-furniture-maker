@@ -45,5 +45,34 @@
         "appearance": ""
       }
     }
+  },
+  "catalog": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "Design": {
+        "appearance": ""
+      },
+      "Descriptions": {
+        "appearance": ""
+      },
+      "Price": {
+        "appearance": ""
+      },
+      "published": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
+  },
+  "tags": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
   }
 }

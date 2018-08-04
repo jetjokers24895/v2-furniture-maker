@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "jimp2": "^2.0.0",
+    "js-sha256": "^0.9.0",
     "lodash": "4.x.x",
     "strapi": "3.0.0-alpha.12.6",
     "strapi-mongoose": "3.0.0-alpha.12.6"
