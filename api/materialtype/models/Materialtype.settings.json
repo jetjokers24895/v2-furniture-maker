@@ -25,6 +25,9 @@
     "materials": {
       "collection": "material",
       "via": "materialType"
+    },
+    "displayName": {
+      "type": "string"
     }
   }
 }

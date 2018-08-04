@@ -29,6 +29,9 @@
     "materialType": {
       "model": "materialtype",
       "via": "materials"
+    },
+    "displayName": {
+      "type": "string"
     }
   }
 }

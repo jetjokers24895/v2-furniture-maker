@@ -54,14 +54,10 @@
     "displayName": {
       "type": "string"
     },
-    "img256": {
-      "type": "text"
-    },
-    "img512": {
-      "type": "string"
-    },
-    "img1024": {
-      "type": "string"
+    "code": {
+      "unique": true,
+      "type": "string",
+      "required": true
     }
   }
 }
