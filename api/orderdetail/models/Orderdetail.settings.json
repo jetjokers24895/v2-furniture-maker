@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "orderdetail",
+  "info": {
+    "name": "orderDetail",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "subTotalPrice": {
+      "type": "integer"
+    },
+    "totalPrice": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "note": {
+      "type": "text"
+    },
+    "design": {
+      "model": "design",
+      "via": "orderDetails"
+    },
+    "productType": {
+      "model": "producttype",
+      "via": "orderDetails"
+    },
+    "order": {
+      "model": "order",
+      "via": "orderDetails"
+    },
+    "productModules": {
+      "collection": "productmodule",
+      "via": "orderDetail"
+    }
+  }
+}

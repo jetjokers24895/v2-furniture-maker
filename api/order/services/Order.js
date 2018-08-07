@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Cart.js service
+ * Order.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all carts.
+   * Promise to fetch all orders.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('cart', params);
+    const filters = strapi.utils.models.convertParams('order', params);
     // Select field to populate.
-    const populate = Cart.associations
+    const populate = Order.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Cart
+    return Order
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an cart.
+   * Promise to fetch a/an order.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Cart.associations
+    const populate = Order.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Cart
-      .findOne(_.pick(params, _.keys(Cart.schema.paths)))
+    return Order
+      .findOne(_.pick(params, _.keys(Order.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count carts.
+   * Promise to count orders.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('cart', params);
+    const filters = strapi.utils.models.convertParams('order', params);
 
-    return Cart
+    return Order
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an cart.
+   * Promise to add a/an order.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Cart.associations.map(ast => ast.alias));
-    const data = _.omit(values, Cart.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Order.associations.map(ast => ast.alias));
+    const data = _.omit(values, Order.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Cart.create(data);
+    const entry = await Order.create(data);
 
     // Create relational data and return the entry.
-    return Cart.updateRelations({ id: entry.id, values: relations });
+    return Order.updateRelations({ id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an cart.
+   * Promise to edit a/an order.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Cart.associations.map(a => a.alias));
-    const data = _.omit(values, Cart.associations.map(a => a.alias));
+    const relations = _.pick(values, Order.associations.map(a => a.alias));
+    const data = _.omit(values, Order.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Cart.update(params, data, { multi: true });
+    const entry = await Order.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Cart.updateRelations(Object.assign(params, { values: relations }));
+    return Order.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an cart.
+   * Promise to remove a/an order.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Cart.associations
+    const populate = Order.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Cart
+    const data = await Order
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Cart.associations.map(async association => {
+      Order.associations.map(async association => {
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
@@ -145,22 +145,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an cart.
+   * Promise to search a/an order.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('cart', params);
+    const filters = strapi.utils.models.convertParams('order', params);
     // Select field to populate.
-    const populate = Cart.associations
+    const populate = Order.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Cart.attributes).reduce((acc, curr) => {
-      switch (Cart.attributes[curr].type) {
+    const $or = Object.keys(Order.attributes).reduce((acc, curr) => {
+      switch (Order.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -184,7 +184,7 @@ module.exports = {
       }
     }, []);
 
-    return Cart
+    return Order
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

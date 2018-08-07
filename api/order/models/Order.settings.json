@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "totalPrice": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "shippingAddress": {
+      "type": "string"
+    },
+    "shippingDate": {
+      "type": "date"
+    },
+    "shippingStatus": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    },
+    "orderDetails": {
+      "collection": "orderdetail",
+      "via": "order"
+    }
+  }
+}

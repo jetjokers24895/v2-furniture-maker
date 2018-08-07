@@ -21,6 +21,10 @@
     "product": {
       "model": "product",
       "via": "productModules"
+    },
+    "orderDetail": {
+      "model": "orderdetail",
+      "via": "productModules"
     }
   }
 }

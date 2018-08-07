@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Cart` model.
+ * Lifecycle callbacks for the `Order` model.
  */
 
 module.exports = {

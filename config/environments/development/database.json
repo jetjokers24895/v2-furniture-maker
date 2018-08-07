@@ -7,9 +7,9 @@
           "client": "mongo",
           "host": "127.0.0.1",
           "port": 27017,
-          "database": "strapi",
-          "username": "",
-          "password": ""
+          "database": "furniture-maker-db",
+          "username": "devTeam",
+          "password": "1"
         },
         "options": {
           "authenticationDatabase": "",

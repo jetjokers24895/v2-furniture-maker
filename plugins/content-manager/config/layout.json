@@ -74,5 +74,46 @@
         "appearance": ""
       }
     }
+  },
+  "orderDetail": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "subTotalPrice": {
+        "appearance": ""
+      },
+      "totalPrice": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      }
+    }
+  },
+  "order": {
+    "attributes": {
+      "totalPrice": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      },
+      "shippingAddress": {
+        "appearance": ""
+      },
+      "shippingDate": {
+        "appearance": ""
+      },
+      "shippingStatus": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      }
+    }
   }
 }

@@ -28,6 +28,10 @@
     "components": {
       "collection": "components",
       "via": "design"
+    },
+    "orderDetails": {
+      "collection": "orderdetail",
+      "via": "design"
     }
   }
 }
