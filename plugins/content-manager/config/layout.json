@@ -23,6 +23,9 @@
     "attributes": {
       "displayName": {
         "appearance": ""
+      },
+      "code": {
+        "appearance": ""
       }
     }
   },

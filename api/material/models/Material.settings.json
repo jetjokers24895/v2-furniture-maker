@@ -32,6 +32,13 @@
     },
     "displayName": {
       "type": "string"
+    },
+    "code": {
+      "maxLength": 2,
+      "unique": true,
+      "minLength": 2,
+      "type": "string",
+      "required": true
     }
   }
 }
