@@ -9,14 +9,25 @@
     "timestamps": true
   },
   "attributes": {
-    "productModules": {
-      "collection": "productmodule",
-      "via": "product"
-    },
     "totalPrice": {
       "unique": true,
       "type": "integer",
       "required": true
+    },
+    "design": {
+      "model": "design"
+    },
+    "producttype": {
+      "model": "producttype"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "produceCode": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
     }
   }
 }

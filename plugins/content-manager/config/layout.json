@@ -97,6 +97,21 @@
       },
       "note": {
         "appearance": ""
+      },
+      "productCode": {
+        "appearance": ""
+      },
+      "status": {
+        "appearance": ""
+      },
+      "productPrice": {
+        "appearance": ""
+      },
+      "ProductDiscoune": {
+        "appearance": ""
+      },
+      "ProductDiscount": {
+        "appearance": ""
       }
     }
   },
@@ -118,6 +133,25 @@
         "appearance": ""
       },
       "note": {
+        "appearance": ""
+      },
+      "status": {
+        "appearance": ""
+      },
+      "totalDiscount": {
+        "appearance": ""
+      }
+    }
+  },
+  "product": {
+    "attributes": {
+      "discount": {
+        "appearance": ""
+      },
+      "produceCode": {
+        "appearance": ""
+      },
+      "alias": {
         "appearance": ""
       }
     }

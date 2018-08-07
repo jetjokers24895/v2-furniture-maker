@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "order",
   "info": {
     "name": "order",
     "description": ""
@@ -10,9 +10,6 @@
   },
   "attributes": {
     "totalPrice": {
-      "type": "integer"
-    },
-    "discount": {
       "type": "integer"
     },
     "shippingAddress": {
@@ -30,6 +27,22 @@
     "orderDetails": {
       "collection": "orderdetail",
       "via": "order"
+    },
+    "user": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "processing",
+        "confirmed",
+        "cancel",
+        "done"
+      ]
+    },
+    "totalDiscount": {
+      "type": "integer"
     }
   }
 }

@@ -36,9 +36,22 @@
       "model": "order",
       "via": "orderDetails"
     },
-    "productModules": {
-      "collection": "productmodule",
-      "via": "orderDetail"
+    "productCode": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "comfirmed",
+        "canel"
+      ]
+    },
+    "productPrice": {
+      "type": "integer"
+    },
+    "ProductDiscount": {
+      "type": "integer"
     }
   }
 }

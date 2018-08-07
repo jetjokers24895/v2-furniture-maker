@@ -12,7 +12,7 @@
           "password": "1"
         },
         "options": {
-          "authenticationDatabase": "",
+          "authenticationDatabase": "furniture-maker-db",
           "ssl": false
         }
       }
