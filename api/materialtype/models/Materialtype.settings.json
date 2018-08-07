@@ -28,6 +28,9 @@
     },
     "displayName": {
       "type": "string"
+    },
+    "price": {
+      "type": "integer"
     }
   }
 }

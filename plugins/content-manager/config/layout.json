@@ -33,6 +33,9 @@
     "attributes": {
       "displayName": {
         "appearance": ""
+      },
+      "price": {
+        "appearance": ""
       }
     }
   },
