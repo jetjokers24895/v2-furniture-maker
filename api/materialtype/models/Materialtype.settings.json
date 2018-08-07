@@ -27,6 +27,10 @@
     },
     "price": {
       "type": "integer"
+    },
+    "components": {
+      "collection": "components",
+      "via": "materialTypes"
     }
   }
 }

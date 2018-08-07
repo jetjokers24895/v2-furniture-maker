@@ -58,6 +58,11 @@
     "catalog": {
       "collection": "catalog",
       "via": "components"
+    },
+    "materialTypes": {
+      "collection": "materialtype",
+      "via": "components",
+      "dominant": true
     }
   }
 }
