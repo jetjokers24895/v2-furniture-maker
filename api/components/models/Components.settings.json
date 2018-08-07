@@ -38,10 +38,6 @@
       "via": "related",
       "plugin": "upload"
     },
-    "materialType": {
-      "model": "materialtype",
-      "via": "components"
-    },
     "design": {
       "model": "design",
       "via": "components"

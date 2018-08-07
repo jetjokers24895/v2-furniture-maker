@@ -18,10 +18,6 @@
       "collection": "componenttype",
       "via": "materialType"
     },
-    "components": {
-      "collection": "components",
-      "via": "materialType"
-    },
     "materials": {
       "collection": "material",
       "via": "materialType"

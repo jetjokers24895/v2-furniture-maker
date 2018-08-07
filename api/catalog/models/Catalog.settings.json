@@ -29,8 +29,8 @@
     },
     "components": {
       "collection": "components",
-      "via": "catalog",
-      "dominant": true
+      "dominant": true,
+      "via": "catalog"
     },
     "tags": {
       "collection": "tags",
