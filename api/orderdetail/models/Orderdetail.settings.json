@@ -42,9 +42,8 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "pending",
-        "comfirmed",
-        "canel"
+        "temp",
+        "order"
       ]
     },
     "productPrice": {
