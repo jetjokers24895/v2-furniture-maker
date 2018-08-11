@@ -140,6 +140,21 @@
       },
       "totalDiscount": {
         "appearance": ""
+      },
+      "depositRequired": {
+        "appearance": ""
+      },
+      "theAmountPaid": {
+        "appearance": ""
+      },
+      "paid": {
+        "appearance": ""
+      },
+      "phone": {
+        "appearance": ""
+      },
+      "email": {
+        "appearance": ""
       }
     }
   },

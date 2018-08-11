@@ -35,14 +35,33 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "processing",
+        "new",
         "confirmed",
-        "cancel",
-        "done"
+        "processing",
+        "shipping",
+        "done",
+        "cancel"
       ]
     },
     "totalDiscount": {
       "type": "integer"
+    },
+    "depositRequired": {
+      "type": "integer"
+    },
+    "theAmountPaid": {
+      "type": "integer"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
     }
   }
 }
