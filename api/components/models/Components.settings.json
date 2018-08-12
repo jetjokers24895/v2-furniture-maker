@@ -53,7 +53,9 @@
     "code": {
       "unique": true,
       "type": "string",
-      "required": true
+      "required": true,
+      "minLength": 3,
+      "maxLength": 3
     },
     "catalog": {
       "collection": "catalog",
