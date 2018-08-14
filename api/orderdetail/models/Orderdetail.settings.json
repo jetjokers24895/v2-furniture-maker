@@ -51,6 +51,9 @@
     },
     "ProductDiscount": {
       "type": "integer"
+    },
+    "previewImg": {
+      "type": "string"
     }
   }
 }

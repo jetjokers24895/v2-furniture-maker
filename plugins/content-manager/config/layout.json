@@ -112,6 +112,9 @@
       },
       "ProductDiscount": {
         "appearance": ""
+      },
+      "previewImg": {
+        "appearance": ""
       }
     }
   },
