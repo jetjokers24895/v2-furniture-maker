@@ -49,11 +49,11 @@
     "productPrice": {
       "type": "integer"
     },
-    "ProductDiscount": {
-      "type": "integer"
-    },
     "previewImg": {
       "type": "string"
+    },
+    "productDiscount": {
+      "type": "integer"
     }
   }
 }
