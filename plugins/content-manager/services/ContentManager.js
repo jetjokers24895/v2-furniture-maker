@@ -54,7 +54,12 @@ module.exports = {
     }, populate, raw);
   },
 
-  add: async (params, values, source) => {
+  add: async (params, values, source) => { 
+    console.log('####### content-manager:')
+    console.log(params);
+    console.log(values);
+    console.log(source);
+    console.log('###End');
     // Multipart/form-data.
     if (values.hasOwnProperty('fields') && values.hasOwnProperty('files')) {
       // Silent recursive parser.
@@ -67,7 +72,7 @@ module.exports = {
 
         return _.isArray(value) ? value.map(obj => parser(obj)) : value;
       };
-
+      
       const files = values.files;
 
       // Parse stringify JSON data.
@@ -81,6 +86,9 @@ module.exports = {
       const entry = await strapi.query(params.model, source).create({
         values
       });
+      console.log('########Start-console: ');
+      console.log('entry',entry);
+      console.log('End-console:  ');
 
       // Then, request plugin upload.
       if (strapi.plugins.upload && Object.keys(files).length > 0) {
@@ -95,7 +103,10 @@ module.exports = {
         id: entry.id || entry._id
       });
     }
-
+    console.log('########Start-console: ');
+    console.log('param.model',params.model);
+    console.log('source',source);
+    console.log('End-console:  ');
     // Create an entry using `queries` system
     return await strapi.query(params.model, source).create({
       values

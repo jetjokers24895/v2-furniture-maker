@@ -6,11 +6,11 @@ const path = require('path');
 const Jimp = require('jimp2');
 var assert = require('assert');
 const root_project = process.cwd();
-var db = require(root_project + '/config/environments/development/database.json');
-var db_name = db.connections.default.settings.database;
-var link_localhost = 'http://localhost:1337/uploads/resize/';
-var link_vps = 'http://v2-api.furnituremaker.vn/uploads/resize/';
-const link = db_name == 'strapi' ? link_localhost : link_vps;
+// var db = require(root_project + '/config/environments/development/database.json');
+// var db_name = db.connections.default.settings.database;
+// var link_localhost = 'http://localhost:1337/uploads/resize/';
+// var link_vps = 'http://v2-api.furnituremaker.vn/uploads/resize/';
+// const link = db_name == 'strapi' ? link_localhost : link_vps;
 var model = {};
 Array.range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + start);
 
@@ -115,7 +115,7 @@ function resize(name,outputPath,model,image,size,ext) {
   mkdirSync(path.join(outputPath,forder_name));
             // set link ảnh
   var path_image = path.join(outputPath,forder_name,output_name);
-  var _link = link + forder_name.toString() + '/' + output_name.toString(); 
+  var _link = forder_name.toString() + '/' + output_name.toString(); 
             // gán vào list model để insert
   model['img'+ (size).toString()] = _link;
   image.resize(size, size)            // resize
