@@ -35,15 +35,29 @@
       "collection": "orderdetail",
       "via": "productType"
     },
-    "options": {
-      "type": "json",
-      "required": true
-    },
     "size": {
       "type": "string"
     },
     "volume": {
       "type": "decimal"
+    },
+    "view_senceWidth": {
+      "type": "integer",
+      "required": true
+    },
+    "view_senceHeight": {
+      "type": "integer",
+      "required": true
+    },
+    "view_rotateX": {
+      "max": 360,
+      "type": "integer",
+      "required": true
+    },
+    "view_rotateY": {
+      "max": 360,
+      "type": "integer",
+      "required": true
     }
   }
 }

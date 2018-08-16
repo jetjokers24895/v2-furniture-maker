@@ -187,6 +187,18 @@
       },
       "volume": {
         "appearance": ""
+      },
+      "view_senceWidth": {
+        "appearance": ""
+      },
+      "view_senceHeight": {
+        "appearance": ""
+      },
+      "view_rotateX": {
+        "appearance": ""
+      },
+      "view_rotateY": {
+        "appearance": ""
       }
     }
   }
