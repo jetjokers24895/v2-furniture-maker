@@ -34,6 +34,16 @@
     "orderDetails": {
       "collection": "orderdetail",
       "via": "productType"
+    },
+    "options": {
+      "type": "json",
+      "required": true
+    },
+    "size": {
+      "type": "string"
+    },
+    "volume": {
+      "type": "decimal"
     }
   }
 }

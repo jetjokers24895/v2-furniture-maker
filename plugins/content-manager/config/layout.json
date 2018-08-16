@@ -176,5 +176,18 @@
         "appearance": ""
       }
     }
+  },
+  "producttype": {
+    "attributes": {
+      "options": {
+        "appearance": ""
+      },
+      "size": {
+        "appearance": ""
+      },
+      "volume": {
+        "appearance": ""
+      }
+    }
   }
 }
