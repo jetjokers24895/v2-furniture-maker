@@ -1,0 +1,24 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "county",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "TranspotFee": {
+      "type": "integer"
+    },
+    "city": {
+      "collection": "city",
+      "via": "counties",
+      "dominant": true
+    }
+  }
+}

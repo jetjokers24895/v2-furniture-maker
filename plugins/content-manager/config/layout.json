@@ -201,5 +201,67 @@
         "appearance": ""
       }
     }
+  },
+  "agencyLevel": {
+    "attributes": {
+      "Name": {
+        "appearance": ""
+      },
+      "discountPercent": {
+        "appearance": ""
+      }
+    }
+  },
+  "promotion": {
+    "attributes": {
+      "code": {
+        "appearance": ""
+      },
+      "quantity": {
+        "appearance": ""
+      },
+      "discountPrice": {
+        "appearance": ""
+      },
+      "discountPercent": {
+        "appearance": ""
+      },
+      "expirationDate": {
+        "appearance": ""
+      },
+      "enabled": {
+        "appearance": ""
+      }
+    }
+  },
+  "city": {
+    "attributes": {
+      "ZipCode": {
+        "appearance": ""
+      },
+      "Name": {
+        "appearance": ""
+      },
+      "counties": {
+        "appearance": ""
+      }
+    }
+  },
+  "county": {
+    "attributes": {
+      "Name": {
+        "appearance": ""
+      },
+      "TranspotFee": {
+        "appearance": ""
+      }
+    }
+  },
+  "agency": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
   }
 }

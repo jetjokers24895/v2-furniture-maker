@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "city",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "ZipCode": {
+      "type": "integer",
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "counties": {
+      "collection": "county",
+      "via": "city"
+    },
+    "undefined": {
+      "collection": "agency",
+      "via": "city"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "agency",
+  "info": {
+    "name": "agency",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "model": "city"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "county": {
+      "model": "county"
+    },
+    "level": {
+      "model": "agencylevel"
+    },
+    "user": {
+      "model": "user",
+      "plugin": "users-permissions"
+    }
+  }
+}

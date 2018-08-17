@@ -62,6 +62,10 @@
     "email": {
       "type": "email",
       "required": true
+    },
+    "promotions": {
+      "collection": "promotion",
+      "via": "orders"
     }
   }
 }
