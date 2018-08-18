@@ -17,8 +17,8 @@
     },
     "city": {
       "collection": "city",
-      "via": "counties",
-      "dominant": true
+      "dominant": true,
+      "via": "counties"
     }
   }
 }

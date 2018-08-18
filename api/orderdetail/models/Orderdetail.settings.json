@@ -24,14 +24,6 @@
     "note": {
       "type": "text"
     },
-    "design": {
-      "model": "design",
-      "via": "orderDetails"
-    },
-    "productType": {
-      "model": "producttype",
-      "via": "orderDetails"
-    },
     "order": {
       "model": "order",
       "via": "orderDetails"
@@ -54,6 +46,9 @@
     },
     "productDiscount": {
       "type": "integer"
+    },
+    "design": {
+      "model": "design"
     }
   }
 }

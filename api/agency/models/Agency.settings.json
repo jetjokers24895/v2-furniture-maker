@@ -12,9 +12,6 @@
     "name": {
       "type": "string"
     },
-    "city": {
-      "model": "city"
-    },
     "address": {
       "type": "string"
     },
@@ -24,15 +21,15 @@
     "email": {
       "type": "string"
     },
-    "county": {
-      "model": "county"
-    },
     "level": {
       "model": "agencylevel"
     },
     "user": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "city": {
+      "model": "city"
     }
   }
 }

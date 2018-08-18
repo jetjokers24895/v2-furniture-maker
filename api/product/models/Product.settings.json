@@ -14,9 +14,6 @@
       "type": "integer",
       "required": true
     },
-    "design": {
-      "model": "design"
-    },
     "producttype": {
       "model": "producttype"
     },

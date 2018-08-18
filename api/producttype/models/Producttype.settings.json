@@ -31,10 +31,6 @@
       "collection": "discountbyquantity",
       "via": "productType"
     },
-    "orderDetails": {
-      "collection": "orderdetail",
-      "via": "productType"
-    },
     "size": {
       "type": "string"
     },

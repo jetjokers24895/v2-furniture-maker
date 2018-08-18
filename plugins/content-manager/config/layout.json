@@ -244,6 +244,9 @@
       },
       "counties": {
         "appearance": ""
+      },
+      "transportFee": {
+        "appearance": ""
       }
     }
   },

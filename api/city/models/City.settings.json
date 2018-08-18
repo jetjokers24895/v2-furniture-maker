@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "city",
   "info": {
     "name": "city",
     "description": ""
@@ -21,9 +21,8 @@
       "collection": "county",
       "via": "city"
     },
-    "undefined": {
-      "collection": "agency",
-      "via": "city"
+    "transportFee": {
+      "type": "integer"
     }
   }
 }
