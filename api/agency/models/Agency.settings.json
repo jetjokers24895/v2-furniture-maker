@@ -27,9 +27,6 @@
     "user": {
       "model": "user",
       "plugin": "users-permissions"
-    },
-    "city": {
-      "model": "city"
     }
   }
 }

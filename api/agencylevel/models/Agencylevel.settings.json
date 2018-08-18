@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "agencylevel",
   "info": {
     "name": "agencyLevel",
     "description": ""
@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "unique": true,
       "type": "string",
       "required": true

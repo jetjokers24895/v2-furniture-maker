@@ -9,11 +9,11 @@
     "timestamps": true
   },
   "attributes": {
-    "ZipCode": {
+    "zipCode": {
       "type": "integer",
       "required": true
     },
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
@@ -22,6 +22,9 @@
       "via": "city"
     },
     "transportFee": {
+      "type": "integer"
+    },
+    "additionalShippingDays": {
       "type": "integer"
     }
   }
