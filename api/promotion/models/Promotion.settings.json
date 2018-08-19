@@ -39,8 +39,8 @@
     },
     "orders": {
       "collection": "order",
-      "via": "promotions",
-      "dominant": true
+      "dominant": true,
+      "via": "promotions"
     }
   }
 }

@@ -66,6 +66,9 @@
     "promotions": {
       "collection": "promotion",
       "via": "orders"
+    },
+    "shippingFee": {
+      "type": "integer"
     }
   }
 }

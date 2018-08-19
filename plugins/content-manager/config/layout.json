@@ -161,6 +161,9 @@
       },
       "email": {
         "appearance": ""
+      },
+      "shippingFee": {
+        "appearance": ""
       }
     }
   },
