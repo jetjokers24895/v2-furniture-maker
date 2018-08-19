@@ -75,6 +75,22 @@
     },
     "totalOfPayment": {
       "type": "integer"
+    },
+    "productsDiscount": {
+      "type": "integer"
+    },
+    "promotionDiscount": {
+      "type": "integer"
+    },
+    "agencyCommissionPercent": {
+      "max": 100,
+      "type": "integer"
+    },
+    "agencyCommissionValue": {
+      "type": "integer"
+    },
+    "billDiscount": {
+      "type": "integer"
     }
   }
 }

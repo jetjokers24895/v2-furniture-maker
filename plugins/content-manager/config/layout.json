@@ -167,6 +167,21 @@
       },
       "totalOfPayment": {
         "appearance": ""
+      },
+      "productsDiscount": {
+        "appearance": ""
+      },
+      "promotionDiscount": {
+        "appearance": ""
+      },
+      "agencyCommissionPercent": {
+        "appearance": ""
+      },
+      "agencyCommissionValue": {
+        "appearance": ""
+      },
+      "billDiscount": {
+        "appearance": ""
       }
     }
   },
