@@ -49,6 +49,9 @@
     },
     "design": {
       "model": "design"
+    },
+    "productType": {
+      "model": "producttype"
     }
   }
 }

@@ -28,6 +28,10 @@
     "components": {
       "collection": "components",
       "via": "design"
+    },
+    "undefined": {
+      "collection": "orderdetail",
+      "via": "design"
     }
   }
 }
