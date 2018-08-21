@@ -28,19 +28,17 @@
       "collection": "orderdetail",
       "via": "order"
     },
-    "user": {
-      "model": "user",
-      "plugin": "users-permissions"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
         "new",
         "confirmed",
-        "processing",
+        "produce",
+        "payment",
         "shipping",
         "done",
-        "cancel"
+        "cancel",
+        "change"
       ]
     },
     "totalDiscount": {
@@ -62,10 +60,6 @@
     "email": {
       "type": "email",
       "required": true
-    },
-    "promotions": {
-      "collection": "promotion",
-      "via": "orders"
     },
     "shippingFee": {
       "type": "integer"
@@ -91,6 +85,10 @@
     },
     "billDiscount": {
       "type": "integer"
+    },
+    "promotion": {
+      "model": "promotion",
+      "via": "orders"
     }
   }
 }
