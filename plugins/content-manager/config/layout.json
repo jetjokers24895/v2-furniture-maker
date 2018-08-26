@@ -182,6 +182,9 @@
       },
       "billDiscount": {
         "appearance": ""
+      },
+      "code": {
+        "appearance": ""
       }
     }
   },

@@ -89,6 +89,11 @@
     "promotion": {
       "model": "promotion",
       "via": "orders"
+    },
+    "code": {
+      "unique": true,
+      "type": "string",
+      "required": true
     }
   }
 }
