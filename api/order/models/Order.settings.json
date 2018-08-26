@@ -95,7 +95,7 @@
       "type": "string",
       "required": true
     },
-    "agency": {
+    "agencyOrderer": {
       "model": "agency"
     }
   }
