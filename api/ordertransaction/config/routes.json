@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/promotion",
-      "handler": "Promotion.find",
+      "path": "/ordertransaction",
+      "handler": "Ordertransaction.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/promotion/count",
-      "handler": "Promotion.count",
+      "path": "/ordertransaction/count",
+      "handler": "Ordertransaction.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/promotion/:_id",
-      "handler": "Promotion.findOne",
+      "path": "/ordertransaction/:_id",
+      "handler": "Ordertransaction.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/promotion",
-      "handler": "Promotion.create",
+      "path": "/ordertransaction",
+      "handler": "Ordertransaction.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/promotion/:_id",
-      "handler": "Promotion.update",
+      "path": "/ordertransaction/:_id",
+      "handler": "Ordertransaction.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/promotion/:_id",
-      "handler": "Promotion.destroy",
+      "path": "/ordertransaction/:_id",
+      "handler": "Ordertransaction.destroy",
       "config": {
         "policies": []
       }

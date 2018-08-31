@@ -296,5 +296,27 @@
         "appearance": ""
       }
     }
+  },
+  "orderTransction": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "money": {
+        "appearance": ""
+      },
+      "date": {
+        "appearance": ""
+      },
+      "type": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
   }
 }

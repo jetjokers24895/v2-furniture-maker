@@ -97,6 +97,11 @@
     },
     "agencyOrderer": {
       "model": "agency"
+    },
+    "orderTransctions": {
+      "collection": "ordertransaction",
+      "via": "order",
+      "columnName": ""
     }
   }
 }
