@@ -24,6 +24,7 @@ module.exports = {
     }
 
     // Extract optional relational data.
+    console.log(ctx.request.body);
     const { refId, ref, source, field } = ctx.request.body.fields;
     const { files = {} } = ctx.request.body.files;
 

@@ -7,12 +7,12 @@
           "client": "mongo",
           "host": "127.0.0.1",
           "port": 27017,
-          "database": "furniture-maker-db",
-          "username": "devTeam",
-          "password": "1"
+          "database": "strapi",
+          "username": "",
+          "password": ""
         },
         "options": {
-          "authenticationDatabase": "furniture-maker-db",
+          "authenticationDatabase": "",
           "ssl": false
         }
       }

@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "productdiscount",
+  "info": {
+    "name": "productDiscount",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "discount(VND)": {
+      "type": "integer"
+    },
+    "discount(Percent %)": {
+      "type": "integer"
+    },
+    "products": {
+      "collection": "product",
+      "via": "productDiscount"
+    },
+    "event": {
+      "model": "event",
+      "via": "productDiscount"
+    }
+  }
+}

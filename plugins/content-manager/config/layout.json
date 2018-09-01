@@ -318,5 +318,37 @@
         "appearance": ""
       }
     }
+  },
+  "event": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "startTime": {
+        "appearance": ""
+      },
+      "endTime": {
+        "appearance": ""
+      }
+    }
+  },
+  "productDiscount": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "discount(VND)": {
+        "appearance": ""
+      },
+      "discount(Percent %)": {
+        "appearance": ""
+      },
+      "productDiscount": {
+        "appearance": ""
+      },
+      "event": {
+        "appearance": ""
+      }
+    }
   }
 }

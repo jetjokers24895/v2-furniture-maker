@@ -12,6 +12,14 @@
     "name": {
       "type": "string"
     },
+    "title": {
+      "type": "string"
+    },
+    "coverPhoto": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
     "productType": {
       "model": "producttype",
       "via": "designs"
