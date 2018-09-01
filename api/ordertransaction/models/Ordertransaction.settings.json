@@ -33,7 +33,7 @@
     },
     "order": {
       "model": "order",
-      "via": "orderTransctions"
+      "via": "orderTransactions"
     },
     "code": {
       "maxLength": 10,

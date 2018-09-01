@@ -98,10 +98,9 @@
     "agencyOrderer": {
       "model": "agency"
     },
-    "orderTransctions": {
+    "orderTransactions": {
       "collection": "ordertransaction",
-      "via": "order",
-      "columnName": ""
+      "via": "order"
     }
   }
 }
