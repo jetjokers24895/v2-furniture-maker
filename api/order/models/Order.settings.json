@@ -101,6 +101,10 @@
     "orderTransactions": {
       "collection": "ordertransaction",
       "via": "order"
+    },
+    "createdBy": {
+      "model": "user",
+      "plugin": "users-permissions"
     }
   }
 }
