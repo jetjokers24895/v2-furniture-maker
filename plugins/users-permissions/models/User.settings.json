@@ -51,6 +51,9 @@
     "agency": {
       "model": "agency",
       "via": "user"
+    },
+    "name": {
+      "type": "string"
     }
   },
   "collectionName": "users-permissions_user"
