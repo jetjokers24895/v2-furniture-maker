@@ -39,6 +39,9 @@
       },
       "price": {
         "appearance": ""
+      },
+      "view_shiny": {
+        "appearance": ""
       }
     }
   },
