@@ -28,6 +28,9 @@
       "model": "user",
       "via": "agency",
       "plugin": "users-permissions"
+    },
+    "city": {
+      "model": "city"
     }
   }
 }
