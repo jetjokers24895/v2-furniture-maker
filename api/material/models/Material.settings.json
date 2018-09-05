@@ -42,6 +42,11 @@
     },
     "description": {
       "type": "string"
+    },
+    "view_normalMap": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }
