@@ -55,6 +55,9 @@
       },
       "img1024": {
         "appearance": ""
+      },
+      "coverPhotoShape": {
+        "appearance": ""
       }
     }
   },

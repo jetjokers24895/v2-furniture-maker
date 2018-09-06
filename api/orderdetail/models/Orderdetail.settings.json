@@ -47,9 +47,6 @@
     "productDiscount": {
       "type": "integer"
     },
-    "design": {
-      "model": "design"
-    },
     "productType": {
       "model": "producttype"
     },

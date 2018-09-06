@@ -39,8 +39,7 @@
       "plugin": "upload"
     },
     "design": {
-      "model": "design",
-      "via": "components"
+      "model": "design"
     },
     "fbx": {
       "model": "file",
@@ -63,8 +62,8 @@
     },
     "materialTypes": {
       "collection": "materialtype",
-      "dominant": true,
-      "via": "components"
+      "via": "components",
+      "dominant": true
     }
   }
 }
