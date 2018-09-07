@@ -207,6 +207,18 @@
       },
       "alias": {
         "appearance": ""
+      },
+      "name": {
+        "appearance": ""
+      },
+      "description": {
+        "appearance": ""
+      },
+      "inventory": {
+        "appearance": ""
+      },
+      "isFeatureProduct": {
+        "appearance": ""
       }
     }
   },

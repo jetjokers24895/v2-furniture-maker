@@ -10,7 +10,6 @@
   },
   "attributes": {
     "totalPrice": {
-      "unique": true,
       "type": "integer",
       "required": true
     },
@@ -26,6 +25,23 @@
     "productDiscount": {
       "model": "productdiscount",
       "via": "products"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "inventory": {
+      "type": "integer"
+    },
+    "isFeatureProduct": {
+      "type": "boolean"
     }
   }
 }
