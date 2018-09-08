@@ -42,6 +42,9 @@
     },
     "isFeatureProduct": {
       "type": "boolean"
+    },
+    "design": {
+      "model": "design"
     }
   }
 }
