@@ -219,6 +219,12 @@
       },
       "isFeatureProduct": {
         "appearance": ""
+      },
+      "componentsCode": {
+        "appearance": ""
+      },
+      "makerEnabled": {
+        "appearance": ""
       }
     }
   },

@@ -45,6 +45,12 @@
     },
     "design": {
       "model": "design"
+    },
+    "componentsCode": {
+      "type": "string"
+    },
+    "makerEnabled": {
+      "type": "boolean"
     }
   }
 }
