@@ -12,10 +12,10 @@
     "name": {
       "type": "string"
     },
-    "discount(VND)": {
+    "discountMoney": {
       "type": "integer"
     },
-    "discount(Percent %)": {
+    "discountPercent": {
       "type": "integer"
     },
     "products": {
