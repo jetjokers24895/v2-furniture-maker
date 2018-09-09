@@ -54,10 +54,6 @@
       "max": 360,
       "type": "integer",
       "required": true
-    },
-    "undefined": {
-      "collection": "orderdetail",
-      "via": "productType"
     }
   }
 }

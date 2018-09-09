@@ -13,9 +13,6 @@
       "type": "integer",
       "required": true
     },
-    "productType": {
-      "model": "producttype"
-    },
     "produceCode": {
       "type": "string"
     },
