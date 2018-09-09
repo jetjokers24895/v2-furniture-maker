@@ -54,7 +54,7 @@
       "model": "user",
       "plugin": "users-permissions"
     },
-    "modulesCode": {
+    "productModulesCode": {
       "type": "string"
     }
   }
