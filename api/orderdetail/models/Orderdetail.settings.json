@@ -53,6 +53,9 @@
     "createdBy": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "modulesCode": {
+      "type": "string"
     }
   }
 }

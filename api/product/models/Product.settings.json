@@ -46,7 +46,7 @@
     "design": {
       "model": "design"
     },
-    "componentsCode": {
+    "modulesCode": {
       "type": "string"
     },
     "makerEnabled": {

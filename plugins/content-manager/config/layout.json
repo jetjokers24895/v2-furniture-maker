@@ -127,6 +127,9 @@
       },
       "productDiscount": {
         "appearance": ""
+      },
+      "modulesCode": {
+        "appearance": ""
       }
     }
   },
