@@ -60,9 +60,6 @@
     "productModulesCode": {
       "type": "string"
     },
-    "product": {
-      "model": "product"
-    },
     "productType": {
       "model": "producttype"
     }
