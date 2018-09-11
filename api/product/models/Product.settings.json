@@ -16,9 +16,6 @@
     "produceCode": {
       "type": "string"
     },
-    "alias": {
-      "type": "string"
-    },
     "productDiscount": {
       "model": "productdiscount",
       "via": "products"

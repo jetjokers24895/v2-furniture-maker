@@ -76,7 +76,6 @@ module.exports = {
 
   add: async (values) => {
     // Extract values related to relational data.
-    console.log('values','');
     const relations = _.pick(values, Catalog.associations.map(ast => ast.alias));
     const data = _.omit(values, Catalog.associations.map(ast => ast.alias));
 

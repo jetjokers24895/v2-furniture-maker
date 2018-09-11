@@ -109,16 +109,16 @@ function check_size(width,height) {
 }
 
 function resize(name,outputPath,model,image,size,ext) {
-  var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,'');
-  var output_name = forder_name + '_' +(size).toString() + 'x' + (size).toString() + ext;
+  var forder_name = name.replace(/.jpg|.png|jpeg|bmp/,''); // name: **/Armchair
+  var output_name = forder_name + '_' +(size).toString() + 'x' + (size).toString() + ext; // name: **/Armchair/Armchair_256x256
             // ttao thu muc chứa file
   mkdirSync(path.join(outputPath,forder_name));
             // set link ảnh
   var path_image = path.join(outputPath,forder_name,output_name);
-  var _link = forder_name.toString() + '/' + output_name.toString(); 
+  var _link = '/uploads/resize/' + forder_name.toString() + '/' + output_name.toString(); 
             // gán vào list model để insert
   model['img'+ (size).toString()] = _link;
   image.resize(size, size)            // resize
               .write(path_image,cb => console.log(cb));
-  console.log('created image:', size.toString() + 'x' + size.toString());
+  // console.log('created image:', size.toString() + 'x' + size.toString());
 }
