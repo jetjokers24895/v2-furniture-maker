@@ -5,7 +5,7 @@
         "connector": "strapi-mongoose",
         "settings": {
           "client": "mongo",
-          "host": "127.0.0.1",
+          "host": "103.9.77.21",
           "port": 27017,
           "database": "furniture-maker-db",
           "username": "devTeam",
