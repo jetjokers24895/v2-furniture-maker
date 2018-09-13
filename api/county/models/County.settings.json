@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "county",
+  "collectionName": "",
   "info": {
     "name": "county",
     "description": ""
@@ -9,15 +9,11 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "TranspotFee": {
-      "type": "integer"
-    },
     "city": {
-      "model": "city",
-      "dominant": true
+      "model": "city"
     }
   }
 }

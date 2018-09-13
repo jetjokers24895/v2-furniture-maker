@@ -261,7 +261,7 @@
   },
   "agencyLevel": {
     "attributes": {
-      "Name": {
+      "name": {
         "appearance": ""
       },
       "discountPercent": {
@@ -296,7 +296,7 @@
       "ZipCode": {
         "appearance": ""
       },
-      "Name": {
+      "name": {
         "appearance": ""
       },
       "counties": {
@@ -312,10 +312,7 @@
   },
   "county": {
     "attributes": {
-      "Name": {
-        "appearance": ""
-      },
-      "TranspotFee": {
+      "name": {
         "appearance": ""
       }
     }
