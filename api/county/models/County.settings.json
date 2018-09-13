@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "county",
   "info": {
     "name": "county",
     "description": ""
@@ -16,9 +16,8 @@
       "type": "integer"
     },
     "city": {
-      "collection": "city",
-      "dominant": true,
-      "via": "counties"
+      "model": "city",
+      "dominant": true
     }
   }
 }

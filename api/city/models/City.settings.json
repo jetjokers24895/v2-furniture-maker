@@ -17,10 +17,6 @@
       "type": "string",
       "required": true
     },
-    "counties": {
-      "collection": "county",
-      "via": "city"
-    },
     "transportFee": {
       "type": "integer"
     },

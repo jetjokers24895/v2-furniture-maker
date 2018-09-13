@@ -31,6 +31,9 @@
     },
     "city": {
       "model": "city"
+    },
+    "county": {
+      "model": "county"
     }
   }
 }
