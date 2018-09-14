@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "agencylevel",
+  "info": {
+    "name": "agencyLevel",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "discountPercent": {
+      "max": 100,
+      "type": "integer"
+    }
+  }
+}

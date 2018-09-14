@@ -1,0 +1,67 @@
+{
+  "connection": "default",
+  "collectionName": "orderdetail",
+  "info": {
+    "name": "orderDetail",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "subTotalPrice": {
+      "type": "integer"
+    },
+    "totalPrice": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "note": {
+      "type": "text"
+    },
+    "order": {
+      "model": "order",
+      "via": "orderDetails"
+    },
+    "productCode": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "temp",
+        "order"
+      ]
+    },
+    "productPrice": {
+      "type": "integer"
+    },
+    "previewImg": {
+      "type": "string"
+    },
+    "discountMoneyByInventoryProduct": {
+      "type": "integer"
+    },
+    "discountPercentByInventoryProduct": {
+      "type": "integer"
+    },
+    "totalDiscountPerProduct": {
+      "type": "integer"
+    },
+    "createdBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "productModulesCode": {
+      "type": "string"
+    },
+    "productType": {
+      "model": "producttype"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "connection": "default",
+  "collectionName": "components",
+  "info": {
+    "name": "components",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "componentType": {
+      "model": "componenttype",
+      "via": "components"
+    },
+    "quotaValue": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "obj": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "mtl": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "design": {
+      "model": "design"
+    },
+    "fbx": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "code": {
+      "unique": true,
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "catalog": {
+      "collection": "catalog",
+      "via": "components"
+    },
+    "materialTypes": {
+      "collection": "materialtype",
+      "via": "components",
+      "dominant": true
+    }
+  }
+}

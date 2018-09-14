@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/designgroup",
+      "handler": "Designgroup.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designgroup/count",
+      "handler": "Designgroup.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designgroup/:_id",
+      "handler": "Designgroup.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/designgroup",
+      "handler": "Designgroup.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/designgroup/:_id",
+      "handler": "Designgroup.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/designgroup/:_id",
+      "handler": "Designgroup.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "user": {
+    "attributes": {
+      "Address": {
+        "appearance": ""
+      },
+      "Phone": {
+        "appearance": ""
+      },
+      "Organize": {
+        "appearance": ""
+      },
+      "name": {
+        "appearance": ""
+      }
+    }
+  }
+}

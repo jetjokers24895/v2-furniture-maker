@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "design",
+  "info": {
+    "name": "design",
+    "description": "name_image ban phải điền đúng tên của link ảnh.Vd: abc.com/img123,jpg -> img123.jpg"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "coverPhoto": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "productType": {
+      "model": "producttype",
+      "via": "designs"
+    },
+    "designGroup": {
+      "model": "designgroup",
+      "via": "designs"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "coverPhotoShape": {
+      "type": "enumeration",
+      "enum": [
+        "square",
+        "rectangle"
+      ]
+    }
+  }
+}

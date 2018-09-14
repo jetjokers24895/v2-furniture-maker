@@ -1,0 +1,63 @@
+{
+  "connection": "default",
+  "info": {
+    "name": "file",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "hash": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "ext": {
+      "type": "string",
+      "configurable": false
+    },
+    "mime": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "size": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "related": {
+      "collection": "*",
+      "filter": "field",
+      "configurable": false
+    },
+    "img256x256": {
+      "type": "string",
+      "configurable": true
+    },
+    "img512x512": {
+      "type": "string",
+      "configurable": true
+    },
+    "img1024x1024": {
+      "type": "string",
+      "configurable": true
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "connection": "default",
+  "collectionName": "catalog",
+  "info": {
+    "name": "catalog",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "producttypegroup": {
+      "model": "producttypegroup"
+    },
+    "producttype": {
+      "model": "producttype"
+    },
+    "Descriptions": {
+      "type": "text"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "components": {
+      "collection": "components",
+      "dominant": true,
+      "via": "catalog"
+    },
+    "tags": {
+      "collection": "tags",
+      "via": "catalog"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "connection": "default",
+  "collectionName": "material",
+  "info": {
+    "name": "material",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "texture": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "inStock": {
+      "type": "boolean"
+    },
+    "materialType": {
+      "model": "materialtype",
+      "via": "materials"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "code": {
+      "maxLength": 2,
+      "unique": true,
+      "minLength": 2,
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "view_normalMap": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

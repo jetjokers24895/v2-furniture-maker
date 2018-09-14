@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/productdiscount",
+      "handler": "Productdiscount.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/productdiscount/count",
+      "handler": "Productdiscount.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/productdiscount/:_id",
+      "handler": "Productdiscount.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/productdiscount",
+      "handler": "Productdiscount.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/productdiscount/:_id",
+      "handler": "Productdiscount.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/productdiscount/:_id",
+      "handler": "Productdiscount.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

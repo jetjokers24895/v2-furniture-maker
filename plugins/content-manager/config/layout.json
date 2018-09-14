@@ -1,0 +1,381 @@
+{
+  "discountbyquantity": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "discountPerProduct": {
+        "appearance": ""
+      }
+    }
+  },
+  "components": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
+      },
+      "Code": {
+        "appearance": ""
+      }
+    }
+  },
+  "material": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      },
+      "description": {
+        "appearance": ""
+      }
+    }
+  },
+  "materialtype": {
+    "attributes": {
+      "displayName": {
+        "appearance": ""
+      },
+      "price": {
+        "appearance": ""
+      },
+      "view_shiny": {
+        "appearance": ""
+      }
+    }
+  },
+  "design": {
+    "attributes": {
+      "img256": {
+        "appearance": ""
+      },
+      "img512": {
+        "appearance": ""
+      },
+      "img1024": {
+        "appearance": ""
+      },
+      "coverPhotoShape": {
+        "appearance": ""
+      }
+    }
+  },
+  "catalog": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "Design": {
+        "appearance": ""
+      },
+      "Descriptions": {
+        "appearance": ""
+      },
+      "Price": {
+        "appearance": ""
+      },
+      "published": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
+  },
+  "tags": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "orderDetail": {
+    "attributes": {
+      "quantity": {
+        "appearance": ""
+      },
+      "subTotalPrice": {
+        "appearance": ""
+      },
+      "totalPrice": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      },
+      "productCode": {
+        "appearance": ""
+      },
+      "status": {
+        "appearance": ""
+      },
+      "productPrice": {
+        "appearance": ""
+      },
+      "ProductDiscoune": {
+        "appearance": ""
+      },
+      "ProductDiscount": {
+        "appearance": ""
+      },
+      "previewImg": {
+        "appearance": ""
+      },
+      "productDiscount": {
+        "appearance": ""
+      },
+      "modulesCode": {
+        "appearance": ""
+      },
+      "productModulesCode": {
+        "appearance": ""
+      }
+    }
+  },
+  "order": {
+    "attributes": {
+      "totalPrice": {
+        "appearance": ""
+      },
+      "discount": {
+        "appearance": ""
+      },
+      "shippingAddress": {
+        "appearance": ""
+      },
+      "shippingDate": {
+        "appearance": ""
+      },
+      "shippingStatus": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      },
+      "status": {
+        "appearance": ""
+      },
+      "totalDiscount": {
+        "appearance": ""
+      },
+      "depositRequired": {
+        "appearance": ""
+      },
+      "theAmountPaid": {
+        "appearance": ""
+      },
+      "paid": {
+        "appearance": ""
+      },
+      "phone": {
+        "appearance": ""
+      },
+      "email": {
+        "appearance": ""
+      },
+      "shippingFee": {
+        "appearance": ""
+      },
+      "totalOfPayment": {
+        "appearance": ""
+      },
+      "productsDiscount": {
+        "appearance": ""
+      },
+      "promotionDiscount": {
+        "appearance": ""
+      },
+      "agencyCommissionPercent": {
+        "appearance": ""
+      },
+      "agencyCommissionValue": {
+        "appearance": ""
+      },
+      "billDiscount": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
+  },
+  "product": {
+    "attributes": {
+      "discount": {
+        "appearance": ""
+      },
+      "produceCode": {
+        "appearance": ""
+      },
+      "alias": {
+        "appearance": ""
+      },
+      "name": {
+        "appearance": ""
+      },
+      "description": {
+        "appearance": ""
+      },
+      "inventory": {
+        "appearance": ""
+      },
+      "isFeatureProduct": {
+        "appearance": ""
+      },
+      "componentsCode": {
+        "appearance": ""
+      },
+      "makerEnabled": {
+        "appearance": ""
+      }
+    }
+  },
+  "producttype": {
+    "attributes": {
+      "options": {
+        "appearance": ""
+      },
+      "size": {
+        "appearance": ""
+      },
+      "volume": {
+        "appearance": ""
+      },
+      "view_senceWidth": {
+        "appearance": ""
+      },
+      "view_senceHeight": {
+        "appearance": ""
+      },
+      "view_rotateX": {
+        "appearance": ""
+      },
+      "view_rotateY": {
+        "appearance": ""
+      }
+    }
+  },
+  "agencyLevel": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "discountPercent": {
+        "appearance": ""
+      }
+    }
+  },
+  "promotion": {
+    "attributes": {
+      "code": {
+        "appearance": ""
+      },
+      "quantity": {
+        "appearance": ""
+      },
+      "discountPrice": {
+        "appearance": ""
+      },
+      "discountPercent": {
+        "appearance": ""
+      },
+      "expirationDate": {
+        "appearance": ""
+      },
+      "enabled": {
+        "appearance": ""
+      }
+    }
+  },
+  "city": {
+    "attributes": {
+      "ZipCode": {
+        "appearance": ""
+      },
+      "name": {
+        "appearance": ""
+      },
+      "counties": {
+        "appearance": ""
+      },
+      "transportFee": {
+        "appearance": ""
+      },
+      "additionalShippingDays": {
+        "appearance": ""
+      }
+    }
+  },
+  "county": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "agency": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "orderTransction": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "money": {
+        "appearance": ""
+      },
+      "date": {
+        "appearance": ""
+      },
+      "type": {
+        "appearance": ""
+      },
+      "note": {
+        "appearance": ""
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
+  },
+  "event": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "startTime": {
+        "appearance": ""
+      },
+      "endTime": {
+        "appearance": ""
+      }
+    }
+  },
+  "productDiscount": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "discount(VND)": {
+        "appearance": ""
+      },
+      "discount(Percent %)": {
+        "appearance": ""
+      },
+      "productDiscount": {
+        "appearance": ""
+      },
+      "event": {
+        "appearance": ""
+      }
+    }
+  }
+}

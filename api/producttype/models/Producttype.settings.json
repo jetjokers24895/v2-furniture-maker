@@ -1,0 +1,59 @@
+{
+  "connection": "default",
+  "collectionName": "producttype",
+  "info": {
+    "name": "producttype",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "productTypeGroup": {
+      "model": "producttypegroup",
+      "via": "productTypes"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "designs": {
+      "collection": "design",
+      "via": "productType"
+    },
+    "discountByQuantities": {
+      "collection": "discountbyquantity",
+      "via": "productType"
+    },
+    "size": {
+      "type": "string"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "view_senceWidth": {
+      "type": "integer",
+      "required": true
+    },
+    "view_senceHeight": {
+      "type": "integer",
+      "required": true
+    },
+    "view_rotateX": {
+      "max": 360,
+      "type": "integer",
+      "required": true
+    },
+    "view_rotateY": {
+      "max": 360,
+      "type": "integer",
+      "required": true
+    }
+  }
+}

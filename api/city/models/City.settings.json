@@ -1,0 +1,27 @@
+{
+  "connection": "default",
+  "collectionName": "city",
+  "info": {
+    "name": "city",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "zipCode": {
+      "type": "integer",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "transportFee": {
+      "type": "integer"
+    },
+    "additionalShippingDays": {
+      "type": "integer"
+    }
+  }
+}

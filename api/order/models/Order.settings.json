@@ -1,0 +1,113 @@
+{
+  "connection": "default",
+  "collectionName": "order",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "totalPrice": {
+      "type": "integer"
+    },
+    "shippingAddress": {
+      "type": "string"
+    },
+    "shippingDate": {
+      "type": "date"
+    },
+    "shippingStatus": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    },
+    "orderDetails": {
+      "collection": "orderdetail",
+      "via": "order"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "confirmed",
+        "produce",
+        "payment",
+        "shipping",
+        "done",
+        "cancel",
+        "change"
+      ]
+    },
+    "totalDiscount": {
+      "type": "integer"
+    },
+    "depositRequired": {
+      "type": "integer"
+    },
+    "theAmountPaid": {
+      "type": "integer"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "shippingFee": {
+      "type": "integer"
+    },
+    "shippingToCity": {
+      "model": "city"
+    },
+    "totalOfPayment": {
+      "type": "integer"
+    },
+    "productsDiscount": {
+      "type": "integer"
+    },
+    "promotionDiscount": {
+      "type": "integer"
+    },
+    "agencyCommissionPercent": {
+      "max": 100,
+      "type": "integer"
+    },
+    "agencyCommissionValue": {
+      "type": "integer"
+    },
+    "billDiscount": {
+      "type": "integer"
+    },
+    "promotion": {
+      "model": "promotion",
+      "via": "orders"
+    },
+    "code": {
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "agencyOrderer": {
+      "model": "agency"
+    },
+    "orderTransactions": {
+      "collection": "ordertransaction",
+      "via": "order"
+    },
+    "createdBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "shippingToCounty": {
+      "model": "county"
+    }
+  }
+}
