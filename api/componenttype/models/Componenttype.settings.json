@@ -22,6 +22,16 @@
     "materialType": {
       "model": "materialtype",
       "via": "componentTypes"
+    },
+    "position": {
+      "default": "default",
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "hand",
+        "leg",
+        "top"
+      ]
     }
   }
 }

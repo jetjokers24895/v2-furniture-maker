@@ -27,31 +27,31 @@
       "required": true
     },
     "obj": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "mtl": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "thumbnail": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "design": {
       "model": "design"
     },
     "fbx": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "displayName": {
       "default": "",
@@ -63,7 +63,7 @@
       "type": "string",
       "required": true,
       "minLength": 3,
-      "maxLength": 3
+      "maxLength": 5
     },
     "catalog": {
       "collection": "catalog",
@@ -73,6 +73,10 @@
       "collection": "materialtype",
       "via": "components",
       "dominant": true
+    },
+    "height": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
