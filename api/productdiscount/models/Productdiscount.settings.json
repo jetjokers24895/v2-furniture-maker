@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "productdiscount",
+  "info": {
+    "name": "productDiscount",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "discountMoney": {
+      "default": "",
+      "type": "integer"
+    },
+    "discountPercent": {
+      "default": "",
+      "type": "integer"
+    },
+    "products": {
+      "collection": "product",
+      "via": "productDiscount"
+    },
+    "event": {
+      "model": "event",
+      "via": "productDiscount"
+    }
+  }
+}

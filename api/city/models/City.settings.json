@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "city",
+  "info": {
+    "name": "city",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "zipCode": {
+      "type": "integer",
+      "required": true
+    },
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "counties": {
+      "collection": "county",
+      "via": "city"
+    },
+    "transportFee": {
+      "default": "",
+      "type": "integer"
+    },
+    "additionalShippingDays": {
+      "default": "",
+      "type": "integer"
+    },
+    "undefined": {
+      "collection": "agency",
+      "via": "city"
+    }
+  }
+}

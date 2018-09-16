@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/discountbyquantity",
+      "handler": "Discountbyquantity.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discountbyquantity/count",
+      "handler": "Discountbyquantity.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discountbyquantity/:_id",
+      "handler": "Discountbyquantity.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/discountbyquantity",
+      "handler": "Discountbyquantity.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/discountbyquantity/:_id",
+      "handler": "Discountbyquantity.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/discountbyquantity/:_id",
+      "handler": "Discountbyquantity.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "discountbyquantity",
+  "info": {
+    "name": "discountbyquantity",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "quantity": {
+      "default": "",
+      "type": "integer"
+    },
+    "discountPerProduct": {
+      "default": "",
+      "type": "integer"
+    },
+    "productType": {
+      "model": "producttype",
+      "via": "discountByQuantities"
+    }
+  }
+}

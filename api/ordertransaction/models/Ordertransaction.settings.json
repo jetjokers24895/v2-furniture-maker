@@ -1,0 +1,52 @@
+{
+  "connection": "default",
+  "collectionName": "ordertransction",
+  "info": {
+    "name": "orderTransaction",
+    "description": "thông tin giao dịch liên quan đến Order"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "money": {
+      "default": "",
+      "type": "integer",
+      "required": true
+    },
+    "date": {
+      "default": "",
+      "type": "date",
+      "required": true
+    },
+    "type": {
+      "default": "",
+      "enum": [
+        "deposit",
+        "payment",
+        "refund"
+      ],
+      "type": "enumeration"
+    },
+    "note": {
+      "default": "",
+      "type": "string"
+    },
+    "order": {
+      "model": "order",
+      "via": "orderTransactions"
+    },
+    "code": {
+      "default": "",
+      "maxLength": 10,
+      "unique": true,
+      "minLength": 10,
+      "type": "string",
+      "required": true
+    }
+  }
+}

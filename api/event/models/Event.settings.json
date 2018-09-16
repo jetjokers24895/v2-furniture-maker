@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "event",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "startTime": {
+      "default": "",
+      "type": "date"
+    },
+    "endTime": {
+      "default": "",
+      "type": "date"
+    },
+    "productDiscount": {
+      "collection": "productdiscount",
+      "via": "event"
+    }
+  }
+}

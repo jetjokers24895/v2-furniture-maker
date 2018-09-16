@@ -1,0 +1,49 @@
+{
+  "connection": "default",
+  "collectionName": "materialtype",
+  "info": {
+    "name": "materialtype",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "componentTypes": {
+      "collection": "componenttype",
+      "via": "materialType"
+    },
+    "materials": {
+      "collection": "material",
+      "via": "materialType"
+    },
+    "displayName": {
+      "default": "",
+      "type": "string"
+    },
+    "price": {
+      "default": "",
+      "type": "integer"
+    },
+    "components": {
+      "collection": "components",
+      "via": "materialTypes"
+    },
+    "view_shiny": {
+      "default": "",
+      "type": "integer"
+    },
+    "view_normalMap": {
+      "required": false,
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

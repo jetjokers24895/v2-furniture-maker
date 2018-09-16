@@ -1,0 +1,50 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "promotion",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "code": {
+      "default": "",
+      "maxLength": 5,
+      "minLength": 5,
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "default": "",
+      "min": 1,
+      "type": "integer",
+      "required": true
+    },
+    "discountPrice": {
+      "default": "",
+      "type": "integer",
+      "required": true
+    },
+    "discountPercent": {
+      "default": "",
+      "max": 100,
+      "type": "integer",
+      "required": true
+    },
+    "expirationDate": {
+      "default": "",
+      "type": "date"
+    },
+    "enabled": {
+      "default": true,
+      "type": "boolean",
+      "required": true
+    },
+    "orders": {
+      "collection": "order",
+      "via": "promotion"
+    }
+  }
+}

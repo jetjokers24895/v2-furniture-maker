@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "tags",
+  "info": {
+    "name": "tags",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "text"
+    },
+    "catalog": {
+      "collection": "catalog",
+      "dominant": true,
+      "via": "tags"
+    }
+  }
+}

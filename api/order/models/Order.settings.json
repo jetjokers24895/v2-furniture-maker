@@ -1,0 +1,130 @@
+{
+  "connection": "default",
+  "collectionName": "order",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "totalPrice": {
+      "default": "",
+      "type": "integer"
+    },
+    "shippingAddress": {
+      "default": "",
+      "type": "string"
+    },
+    "shippingDate": {
+      "default": "",
+      "type": "date"
+    },
+    "shippingStatus": {
+      "default": "",
+      "type": "string"
+    },
+    "note": {
+      "default": "",
+      "type": "text"
+    },
+    "orderDetails": {
+      "collection": "orderdetail",
+      "via": "order"
+    },
+    "status": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "confirmed",
+        "produce",
+        "payment",
+        "shipping",
+        "done",
+        "cancel",
+        "change"
+      ]
+    },
+    "totalDiscount": {
+      "default": "",
+      "type": "integer"
+    },
+    "depositRequired": {
+      "default": "",
+      "type": "integer"
+    },
+    "theAmountPaid": {
+      "default": "",
+      "type": "integer"
+    },
+    "paid": {
+
+      "type": "boolean"
+    },
+    "phone": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "default": "",
+      "type": "email",
+      "required": true
+    },
+    "shippingFee": {
+      "default": "",
+      "type": "integer"
+    },
+    "shippingToCity": {
+      "model": "city"
+    },
+    "totalOfPayment": {
+      "default": "",
+      "type": "integer"
+    },
+    "productsDiscount": {
+      "default": "",
+      "type": "integer"
+    },
+    "promotionDiscount": {
+      "default": "",
+      "type": "integer"
+    },
+    "agencyCommissionPercent": {
+      "default": "",
+      "max": 100,
+      "type": "integer"
+    },
+    "agencyCommissionValue": {
+      "default": "",
+      "type": "integer"
+    },
+    "billDiscount": {
+      "default": "",
+      "type": "integer"
+    },
+    "promotion": {
+      "model": "promotion",
+      "via": "orders"
+    },
+    "code": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "agencyOrderer": {
+      "model": "agency"
+    },
+    "orderTransactions": {
+      "collection": "ordertransaction",
+      "via": "order"
+    },
+    "createdBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    }
+  }
+}
