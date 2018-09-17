@@ -20,10 +20,10 @@
       "required": true
     },
     "texture": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "inStock": {
       "type": "boolean"
@@ -37,7 +37,7 @@
       "type": "string"
     },
     "code": {
-      "maxLength": 2,
+      "maxLength": 6,
       "unique": true,
       "minLength": 2,
       "type": "string",
@@ -47,10 +47,10 @@
       "type": "string"
     },
     "view_normalMap": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     }
   }
 }
