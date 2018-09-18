@@ -35,6 +35,9 @@
       "model": "user",
       "via": "agency",
       "plugin": "users-permissions"
+    },
+    "county": {
+      "model": "county"
     }
   }
 }

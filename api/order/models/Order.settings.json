@@ -60,7 +60,6 @@
       "type": "integer"
     },
     "paid": {
-
       "type": "boolean"
     },
     "phone": {
@@ -125,6 +124,9 @@
     "createdBy": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "shippingToCounty": {
+      "model": "county"
     }
   }
 }
