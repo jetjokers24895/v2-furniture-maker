@@ -20,10 +20,10 @@
       "via": "productTypes"
     },
     "thumbnail": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "designs": {
       "collection": "design",
@@ -62,10 +62,6 @@
       "max": 360,
       "type": "integer",
       "required": true
-    },
-    "undefined": {
-      "collection": "orderdetail",
-      "via": "productType"
     }
   }
 }
