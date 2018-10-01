@@ -62,6 +62,50 @@
       "max": 360,
       "type": "integer",
       "required": true
+    },
+    "sizeHeight": {
+      "default": "",
+      "type": "integer"
+    },
+    "sizeWeight": {
+      "default": "",
+      "type": "integer"
+    },
+    "sizeDepth": {
+      "default": "",
+      "type": "integer"
+    },
+    "sizeHeightHand": {
+      "default": "",
+      "type": "integer"
+    },
+    "sizeHeightFoot": {
+      "default": "",
+      "type": "integer"
+    },
+    "hwd": {
+      "default": "",
+      "type": "string"
+    },
+    "crs": {
+      "default": "",
+      "type": "string"
+    },
+    "chairCoverType": {
+      "default": "",
+      "type": "string"
+    },
+    "mattressMaterial": {
+      "default": "",
+      "type": "string"
+    },
+    "foamType": {
+      "default": "",
+      "type": "string"
+    },
+    "caringInstruction": {
+      "default": "",
+      "type": "string"
     }
   }
 }
