@@ -106,6 +106,14 @@
     "caringInstruction": {
       "default": "",
       "type": "string"
+    },
+    "weight": {
+      "default": "",
+      "type": "integer"
+    },
+    "wrappedMaterial": {
+      "default": "",
+      "type": "string"
     }
   }
 }

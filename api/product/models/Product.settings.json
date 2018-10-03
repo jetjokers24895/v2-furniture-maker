@@ -31,17 +31,16 @@
       "type": "text"
     },
     "thumbnail": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "inventory": {
       "default": "",
       "type": "integer"
     },
     "isFeatureProduct": {
-
       "type": "boolean"
     },
     "design": {
@@ -53,6 +52,12 @@
     },
     "makerEnabled": {
       "type": "boolean"
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

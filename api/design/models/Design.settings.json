@@ -18,10 +18,10 @@
       "type": "string"
     },
     "coverPhoto": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "productType": {
       "model": "producttype",
@@ -32,10 +32,10 @@
       "via": "designs"
     },
     "thumbnail": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "coverPhotoShape": {
       "default": "",
@@ -44,6 +44,12 @@
         "square",
         "rectangle"
       ]
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
