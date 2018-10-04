@@ -73,7 +73,7 @@
       "default": "",
       "type": "string"
     },
-    "producttype": {
+    "productType": {
       "model": "producttype"
     }
   }
