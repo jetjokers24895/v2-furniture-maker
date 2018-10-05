@@ -127,6 +127,26 @@
     },
     "shippingToCounty": {
       "model": "county"
+    },
+    "contactTo": {
+      "default": "",
+      "type": "string"
+    },
+    "contactToPhone": {
+      "default": "",
+      "type": "string"
+    },
+    "billingOrganization": {
+      "default": "",
+      "type": "string"
+    },
+    "billingTaxcode": {
+      "default": "",
+      "type": "string"
+    },
+    "billingAddress": {
+      "default": "",
+      "type": "string"
     }
   }
 }
