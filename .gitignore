@@ -4,7 +4,8 @@ uploads
 ############################
 # OS X
 ############################
-
+database-vps.json
+database-local.json
 database.json
 .DS_Store
 .AppleDouble
