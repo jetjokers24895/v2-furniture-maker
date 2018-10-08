@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "slide",
   "info": {
     "name": "slide",
     "description": ""
@@ -14,6 +14,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "link": {
+      "default": "",
+      "type": "string"
     }
   }
 }
