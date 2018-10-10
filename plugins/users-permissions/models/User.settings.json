@@ -43,6 +43,34 @@
     "agency": {
       "model": "agency",
       "via": "user"
+    },
+    "dayOfBirth": {
+      "default": "",
+      "type": "integer"
+    },
+    "monthOfBirth": {
+      "default": "",
+      "type": "integer"
+    },
+    "yearOfBirth": {
+      "default": "",
+      "type": "integer"
+    },
+    "phone": {
+      "default": "",
+      "type": "string"
+    },
+    "gender": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "famale"
+      ]
+    },
+    "fullName": {
+      "default": "",
+      "type": "string"
     }
   },
   "collectionName": "users-permissions_user"
