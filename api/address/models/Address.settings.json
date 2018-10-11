@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "address",
+  "info": {
+    "name": "address",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "phone": {
+      "default": "",
+      "type": "string"
+    },
+    "fullAddress": {
+      "default": "",
+      "type": "string"
+    },
+    "city": {
+      "model": "city"
+    },
+    "county": {
+      "model": "county"
+    },
+    "user": {
+      "model": "user",
+      "plugin": "users-permissions"
+    }
+  }
+}

@@ -29,10 +29,6 @@
     "additionalShippingDays": {
       "default": "",
       "type": "integer"
-    },
-    "undefined": {
-      "collection": "agency",
-      "via": "city"
     }
   }
 }
