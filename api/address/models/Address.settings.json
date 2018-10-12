@@ -27,7 +27,7 @@
     "county": {
       "model": "county"
     },
-    "user": {
+    "createdBy": {
       "model": "user",
       "plugin": "users-permissions"
     }
