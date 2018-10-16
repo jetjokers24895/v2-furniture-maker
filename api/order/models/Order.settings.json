@@ -147,6 +147,14 @@
     "billingAddress": {
       "default": "",
       "type": "string"
+    },
+    "addressType": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "apartment",
+        "home"
+      ]
     }
   }
 }

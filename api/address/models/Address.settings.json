@@ -30,6 +30,18 @@
     "createdBy": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "type": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "apartment",
+        "home"
+      ]
+    },
+    "isDefault": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
