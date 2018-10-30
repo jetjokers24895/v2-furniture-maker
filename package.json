@@ -21,7 +21,7 @@
   "dependencies": {
     "jimp2": "^2.0.0",
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.14.1.1",
+    "strapi": "^3.0.0-alpha.14.4.0",
     "strapi-hook-mongoose": "3.0.0-alpha.14.1.1"
   },
   "author": {
