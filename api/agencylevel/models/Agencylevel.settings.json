@@ -12,7 +12,7 @@
     "discountPercent": {
       "default": "",
       "max": 100,
-      "type": "decimal"
+      "type": "integer"
     },
     "name": {
       "default": "",
