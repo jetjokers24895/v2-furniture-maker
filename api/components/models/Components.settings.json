@@ -77,6 +77,10 @@
     "height": {
       "default": "",
       "type": "integer"
+    },
+    "componentGroup": {
+      "model": "componentgroup",
+      "via": "components"
     }
   }
 }

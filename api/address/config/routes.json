@@ -29,7 +29,9 @@
       "path": "/address",
       "handler": "Address.create",
       "config": {
-        "policies": []
+        "policies": [
+          "global.setOwner"
+        ]
       }
     },
     {
@@ -37,7 +39,9 @@
       "path": "/address/:_id",
       "handler": "Address.update",
       "config": {
-        "policies": []
+        "policies": [
+          "global.setOwner"
+        ]
       }
     },
     {

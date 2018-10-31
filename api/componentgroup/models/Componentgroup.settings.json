@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "componentgroup",
+  "info": {
+    "name": "componentgroup",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "components": {
+      "collection": "components",
+      "via": "componentGroup"
+    }
+  }
+}
