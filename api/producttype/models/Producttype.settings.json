@@ -39,7 +39,7 @@
     },
     "volume": {
       "default": "",
-      "type": "decimal"
+      "type": "float"
     },
     "view_senceWidth": {
       "default": "",

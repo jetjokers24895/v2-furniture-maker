@@ -32,6 +32,10 @@
         "leg",
         "top"
       ]
+    },
+    "isBase": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

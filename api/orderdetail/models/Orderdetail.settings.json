@@ -72,9 +72,6 @@
     "productModulesCode": {
       "default": "",
       "type": "string"
-    },
-    "productType": {
-      "model": "producttype"
     }
   }
 }
