@@ -51,6 +51,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "isDefault": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

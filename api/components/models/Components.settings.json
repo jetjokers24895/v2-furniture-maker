@@ -81,6 +81,10 @@
     "componentGroup": {
       "model": "componentgroup",
       "via": "components"
+    },
+    "isDefault": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
