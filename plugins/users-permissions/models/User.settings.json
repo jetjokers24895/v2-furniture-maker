@@ -75,10 +75,6 @@
     "accountrequest": {
       "model": "accountrequest",
       "via": "createdBy"
-    },
-    "undefined": {
-      "model": "orderdetail",
-      "via": "createdBy"
     }
   },
   "collectionName": "users-permissions_user"

@@ -65,7 +65,7 @@
       "default": "",
       "type": "integer"
     },
-    "createdBy": {
+    "created_by": {
       "model": "user",
       "plugin": "users-permissions"
     },
@@ -73,7 +73,7 @@
       "default": "",
       "type": "string"
     },
-    "producttype": {
+    "product_type": {
       "model": "producttype"
     }
   }
