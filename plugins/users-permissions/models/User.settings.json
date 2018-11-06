@@ -72,7 +72,7 @@
       "default": "",
       "type": "string"
     },
-    "accountrequest": {
+    "accountRequest": {
       "model": "accountrequest",
       "via": "createdBy"
     }
