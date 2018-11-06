@@ -121,7 +121,7 @@
       "collection": "ordertransaction",
       "via": "order"
     },
-    "createdBy": {
+    "created_by": {
       "model": "user",
       "plugin": "users-permissions"
     },
