@@ -290,9 +290,9 @@ module.exports = {
     }
 
     try {
-      if (!settings.email_confirmation) {
-        params.confirmed = true;
-      }
+      // if (!settings.email_confirmation) {
+      //   params.confirmed = true;
+      // }
 
       const user = await strapi.query('user', 'users-permissions').create(params);
 

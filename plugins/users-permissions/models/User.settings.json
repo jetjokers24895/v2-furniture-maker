@@ -71,6 +71,10 @@
     "fullName": {
       "default": "",
       "type": "string"
+    },
+    "accountrequest": {
+      "model": "accountrequest",
+      "via": "createdBy"
     }
   },
   "collectionName": "users-permissions_user"
