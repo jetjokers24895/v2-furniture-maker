@@ -50,6 +50,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "order": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
