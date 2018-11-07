@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "designgroup",
   "info": {
     "name": "designgroup",
     "description": ""
@@ -14,14 +14,18 @@
       "type": "string"
     },
     "thumbnail": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "designs": {
       "collection": "design",
       "via": "designGroup"
+    },
+    "order": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
