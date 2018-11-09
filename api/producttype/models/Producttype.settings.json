@@ -114,6 +114,10 @@
     "wrappedMaterial": {
       "default": "",
       "type": "string"
+    },
+    "view_cameraFar": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
