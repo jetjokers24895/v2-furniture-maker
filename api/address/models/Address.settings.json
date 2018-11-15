@@ -37,7 +37,7 @@
       "type": "boolean"
     },
     "city": {
-      "model": "accountrequest"
+      "model": "city"
     },
     "created_by": {
       "model": "user",
