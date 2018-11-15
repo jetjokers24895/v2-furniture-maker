@@ -21,15 +21,8 @@
       "default": "",
       "type": "string"
     },
-    "city": {
-      "model": "city"
-    },
     "county": {
       "model": "county"
-    },
-    "createdBy": {
-      "model": "user",
-      "plugin": "users-permissions"
     },
     "type": {
       "default": "",
@@ -42,6 +35,13 @@
     "isDefault": {
       "default": false,
       "type": "boolean"
+    },
+    "city": {
+      "model": "accountrequest"
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
     }
   }
 }

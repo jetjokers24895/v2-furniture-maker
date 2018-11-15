@@ -28,9 +28,6 @@
     "level": {
       "model": "agencylevel"
     },
-    "city": {
-      "model": "city"
-    },
     "user": {
       "model": "user",
       "via": "agency",
