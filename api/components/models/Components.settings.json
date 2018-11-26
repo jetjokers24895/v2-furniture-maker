@@ -85,6 +85,10 @@
     "isDefault": {
       "default": false,
       "type": "boolean"
+    },
+    "noSelection": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
