@@ -93,6 +93,10 @@
     "diameter": {
       "default": "",
       "type": "integer"
+    },
+    "variantIndex": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
