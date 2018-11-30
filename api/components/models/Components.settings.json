@@ -89,6 +89,10 @@
     "noSelection": {
       "default": false,
       "type": "boolean"
+    },
+    "diameter": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
