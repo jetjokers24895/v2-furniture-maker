@@ -97,6 +97,10 @@
     "variantIndex": {
       "default": "",
       "type": "integer"
+    },
+    "scale": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
