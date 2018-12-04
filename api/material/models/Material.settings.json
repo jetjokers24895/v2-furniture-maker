@@ -56,7 +56,7 @@
       "default": false,
       "type": "boolean"
     },
-    "showInLibrary": {
+    "hideInLibrary": {
       "default": false,
       "type": "boolean"
     }

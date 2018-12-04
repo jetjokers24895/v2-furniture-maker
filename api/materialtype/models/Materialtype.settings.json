@@ -45,7 +45,7 @@
       "plugin": "upload",
       "required": false
     },
-    "showInLibrary": {
+    "hideInLibrary": {
       "default": false,
       "type": "boolean"
     }
