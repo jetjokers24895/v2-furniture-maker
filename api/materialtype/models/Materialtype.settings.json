@@ -40,10 +40,14 @@
       "type": "integer"
     },
     "view_normalMap": {
-      "required": false,
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
+    },
+    "showInLibrary": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

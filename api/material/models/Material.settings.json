@@ -55,6 +55,10 @@
     "isDefault": {
       "default": false,
       "type": "boolean"
+    },
+    "showInLibrary": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

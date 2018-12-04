@@ -71,8 +71,8 @@
     },
     "materialTypes": {
       "collection": "materialtype",
-      "via": "components",
-      "dominant": true
+      "dominant": true,
+      "via": "components"
     },
     "height": {
       "default": "",
