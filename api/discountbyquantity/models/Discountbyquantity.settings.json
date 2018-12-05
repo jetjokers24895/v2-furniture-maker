@@ -9,6 +9,10 @@
     "timestamps": true
   },
   "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
     "quantity": {
       "default": "",
       "type": "integer"
