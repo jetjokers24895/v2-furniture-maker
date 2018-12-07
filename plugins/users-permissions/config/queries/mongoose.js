@@ -1,5 +1,7 @@
 const _ = require('lodash');
 
+const { models: { mergeStages } } = require('strapi-utils');
+
 module.exports = {
   find: async function (params = {}, populate) {
     return this

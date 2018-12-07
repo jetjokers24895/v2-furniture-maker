@@ -65,7 +65,7 @@ module.exports = {
 
     if (!provider) {
       throw new Error(
-        `The provider package isn't installed. Please run \`npm install strapi-upload-${
+        `The provider package isn't installed. Please run \`npm install strapi-provider-upload-${
         config.provider
         }\``,
       );
@@ -90,7 +90,7 @@ module.exports = {
           file['img512x512'] = _model['img512'];
           file['img1024x1024'] = _model['img1024'];
         }
-
+        
         // Remove buffer to don't save it.
         delete file.buffer;
 

@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
+  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.15",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.15",
   "_inBundle": false,
-  "_integrity": "sha512-KHPqzRkxQlo7KbOQ32Qf/bbQV651pbc5ZGbP3doDkcv6C1M1d+KCW4Oc6ThDWYKbpBP1zLpI/yqTpH2cj1tkHw==",
+  "_integrity": "sha512-MFfMveuRQqH3dEF6t0oHMsLfj37ns0bYtvpnj52PqYt3nK/BwyMRi6akRXHLS+AsTSReooQV5GHhY5qSycNxWg==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
+    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.15",
     "name": "strapi-plugin-settings-manager",
     "escapedName": "strapi-plugin-settings-manager",
-    "rawSpec": "3.0.0-alpha.14.4.0",
+    "rawSpec": "3.0.0-alpha.15",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.14.4.0"
+    "fetchSpec": "3.0.0-alpha.15"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.14.4.0.tgz",
-  "_shasum": "6cdeb87758bc1cdaabaab958cfacc47107d0d7b6",
-  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
-  "_where": "C:\\Users\\kenkz447\\Documents\\Projects\\myNewStrapiProject",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.15.tgz",
+  "_shasum": "a5dd0259d48a7557ed34f13a8e5e4a7e21630714",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.15",
+  "_where": "C:\\Users\\kenkz447\\Documents\\Projects\\new-strapi-v3.0.0-alpha.16",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
+    "strapi-helper-plugin": "3.0.0-alpha.15"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -76,5 +76,5 @@
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.14.4.0"
+  "version": "3.0.0-alpha.15"
 }
