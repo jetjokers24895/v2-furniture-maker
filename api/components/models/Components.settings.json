@@ -101,6 +101,10 @@
     "scale": {
       "default": "",
       "type": "integer"
+    },
+    "lengthiness": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
