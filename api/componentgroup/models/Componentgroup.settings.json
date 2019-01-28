@@ -16,6 +16,14 @@
     "components": {
       "collection": "components",
       "via": "componentGroup"
+    },
+    "packagingSize": {
+      "default": "",
+      "type": "string"
+    },
+    "weight": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
