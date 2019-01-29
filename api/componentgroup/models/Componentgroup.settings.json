@@ -24,6 +24,10 @@
     "weight": {
       "default": "",
       "type": "integer"
+    },
+    "productSize": {
+      "default": "",
+      "type": "string"
     }
   }
 }
