@@ -30,7 +30,8 @@
         "default",
         "hand",
         "leg",
-        "top"
+        "top",
+        "seat"
       ]
     },
     "isBase": {

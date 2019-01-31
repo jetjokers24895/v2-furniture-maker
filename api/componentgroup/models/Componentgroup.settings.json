@@ -28,6 +28,18 @@
     "productSize": {
       "default": "",
       "type": "string"
+    },
+    "mattressMaterial": {
+      "default": "",
+      "type": "string"
+    },
+    "foamType": {
+      "default": "",
+      "type": "string"
+    },
+    "sittingSurfaceSize": {
+      "default": "",
+      "type": "string"
     }
   }
 }
