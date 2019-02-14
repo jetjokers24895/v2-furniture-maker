@@ -37,6 +37,18 @@
     "isBase": {
       "default": false,
       "type": "boolean"
+    },
+    "mattressMaterial": {
+      "default": "",
+      "type": "string"
+    },
+    "foamType": {
+      "default": "",
+      "type": "string"
+    },
+    "sittingSurfaceSize": {
+      "default": "",
+      "type": "string"
     }
   }
 }

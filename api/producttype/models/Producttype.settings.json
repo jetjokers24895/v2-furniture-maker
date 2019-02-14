@@ -83,14 +83,6 @@
       "default": "",
       "type": "integer"
     },
-    "hwd": {
-      "default": "",
-      "type": "string"
-    },
-    "crs": {
-      "default": "",
-      "type": "string"
-    },
     "chairCoverType": {
       "default": "",
       "type": "string"
@@ -103,17 +95,9 @@
       "default": "",
       "type": "string"
     },
-    "caringInstruction": {
-      "default": "",
-      "type": "string"
-    },
     "weight": {
       "default": "",
       "type": "integer"
-    },
-    "wrappedMaterial": {
-      "default": "",
-      "type": "string"
     },
     "view_cameraFar": {
       "default": "",
