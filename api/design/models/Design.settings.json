@@ -54,6 +54,10 @@
     "order": {
       "default": "",
       "type": "integer"
+    },
+    "handHeight": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

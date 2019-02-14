@@ -71,8 +71,8 @@
     },
     "materialTypes": {
       "collection": "materialtype",
-      "dominant": true,
-      "via": "components"
+      "via": "components",
+      "dominant": true
     },
     "height": {
       "default": "",
@@ -103,6 +103,10 @@
       "type": "integer"
     },
     "lengthiness": {
+      "default": "",
+      "type": "integer"
+    },
+    "handHeight": {
       "default": "",
       "type": "integer"
     }
