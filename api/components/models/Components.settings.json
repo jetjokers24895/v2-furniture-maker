@@ -109,6 +109,10 @@
     "handHeight": {
       "default": "",
       "type": "integer"
+    },
+    "disabled": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
