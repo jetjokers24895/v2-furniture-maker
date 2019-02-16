@@ -71,7 +71,7 @@ module.exports = {
       subject: 'Đơn đặt hàng mới',
       html: `
         <div>
-          <a href="admin.furnituremake.vn/orders/detail/${result.id}">Xem đơn hàng</a>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
         </div>
       `
     });
@@ -84,11 +84,15 @@ module.exports = {
   // After updating a value.
   // Fired after an `update` query.
   afterUpdate: async (model, result) => {
+    if(!result.id) {
+      return;
+    }
+
     sendMailToAdmins({
       subject: 'Đơn đặt hàng đã được cập nhật',
       html: `
         <div>
-          <a href="admin.furnituremake.vn/orders/detail/${result.id}">Xem đơn hàng</a>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
         </div>
       `
     });
