@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/businesslicenses",
+      "handler": "Businesslicense.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/businesslicenses/count",
+      "handler": "Businesslicense.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/businesslicenses/:_id",
+      "handler": "Businesslicense.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/businesslicenses",
+      "handler": "Businesslicense.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/businesslicenses/:_id",
+      "handler": "Businesslicense.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/businesslicenses/:_id",
+      "handler": "Businesslicense.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

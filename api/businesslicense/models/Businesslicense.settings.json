@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "businesslicense",
+  "info": {
+    "name": "businesslicense",
+    "description": "Business license"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "companyName": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "businessAreas": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "businessLicense": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
+    }
+  }
+}
