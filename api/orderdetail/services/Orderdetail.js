@@ -27,7 +27,7 @@ module.exports = {
       .join(' ');
 
     return Orderdetail
-      .find()
+      .find({ order: null })
       .where(filters.where)
       .sort(filters.sort)
       .skip(filters.start)
@@ -132,7 +132,7 @@ module.exports = {
         if (!association.via || !data._id) {
           return true;
         }
-        
+
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 

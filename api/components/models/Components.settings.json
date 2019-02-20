@@ -113,6 +113,10 @@
     "disabled": {
       "default": false,
       "type": "boolean"
+    },
+    "displayHeight": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
