@@ -12,23 +12,26 @@
     "companyName": {
       "default": "",
       "unique": true,
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "businessAreas": {
       "default": "",
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "businessLicense": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
-      "required": true
+      "required": false
     },
     "created_by": {
       "model": "user",
+      "via": "license",
       "plugin": "users-permissions"
+    },
+    "isBusiness": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

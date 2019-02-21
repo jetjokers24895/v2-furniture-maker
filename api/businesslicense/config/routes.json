@@ -5,7 +5,7 @@
       "path": "/businesslicenses",
       "handler": "Businesslicense.find",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -13,7 +13,7 @@
       "path": "/businesslicenses/count",
       "handler": "Businesslicense.count",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -21,7 +21,7 @@
       "path": "/businesslicenses/:_id",
       "handler": "Businesslicense.findOne",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -29,7 +29,7 @@
       "path": "/businesslicenses",
       "handler": "Businesslicense.create",
       "config": {
-        "policies": []
+        "policies": ["global.setOwner"]
       }
     },
     {
@@ -37,7 +37,7 @@
       "path": "/businesslicenses/:_id",
       "handler": "Businesslicense.update",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -45,7 +45,7 @@
       "path": "/businesslicenses/:_id",
       "handler": "Businesslicense.destroy",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     }
   ]

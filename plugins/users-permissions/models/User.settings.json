@@ -84,6 +84,10 @@
     "accountRequest": {
       "model": "accountrequest",
       "via": "createdBy"
+    },
+    "license": {
+      "model": "businesslicense",
+      "via": "created_by"
     }
   },
   "collectionName": "users-permissions_user"
