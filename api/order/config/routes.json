@@ -5,7 +5,9 @@
       "path": "/order",
       "handler": "Order.find",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -13,7 +15,9 @@
       "path": "/order/count",
       "handler": "Order.count",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -21,7 +25,9 @@
       "path": "/order/:_id",
       "handler": "Order.findOne",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -29,7 +35,9 @@
       "path": "/order",
       "handler": "Order.create",
       "config": {
-        "policies": ["global.setOwner"]
+        "policies": [
+          "global.setOwner"
+        ]
       }
     },
     {
@@ -37,7 +45,9 @@
       "path": "/order/:_id",
       "handler": "Order.update",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -45,7 +55,9 @@
       "path": "/order/:_id",
       "handler": "Order.destroy",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     }
   ]

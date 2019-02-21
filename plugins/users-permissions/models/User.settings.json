@@ -81,10 +81,6 @@
       "default": "",
       "type": "string"
     },
-    "accountRequest": {
-      "model": "accountrequest",
-      "via": "createdBy"
-    },
     "license": {
       "model": "businesslicense",
       "via": "created_by"
