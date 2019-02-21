@@ -53,7 +53,20 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.order.add(ctx.request.body);
+    const result = await strapi.services.order.add(ctx.request.body);
+
+    const { mail } = strapi.services;
+
+    mail.sendToAdmins({
+      subject: 'Đơn đặt hàng mới',
+      html: `
+        <div>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
+        </div>
+      `
+    });
+
+    return result;
   },
 
   /**
@@ -63,7 +76,24 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.order.edit(ctx.params, ctx.request.body) ;
+    const result = await strapi.services.order.edit(ctx.params, ctx.request.body);
+
+    if (!result.id) {
+      return;
+    }
+
+    const { mail } = strapi.services;
+
+    mail.sendToAdmins({
+      subject: 'Đơn đặt hàng đã được cập nhật',
+      html: `
+        <div>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
+        </div>
+      `
+    });
+
+    return result;
   },
 
   /**

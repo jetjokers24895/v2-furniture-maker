@@ -53,7 +53,31 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.businesslicense.add(ctx.request.body);
+    const result = await strapi.services.businesslicense.add(ctx.request.body);
+
+    const { created_by } = result;
+    const { mail } = strapi.services;
+
+    mail.sendToAdmins({
+      subject: 'Người dùng vừa đăng ký một tài khoản',
+      html: `
+        <div>
+          <a href="admin.furnituremaker.vn/users/${created_by.id}">Xem tài khoản</a>
+        </div>
+      `
+    });
+
+    mail.sendTo({
+      to: created_by.email,
+      subject: '[furnituremaker.vn] Đăng ký tài khoản!',
+      html: `
+        <div>
+          Cảm ơn bạn đã đăng ký!
+        </div>
+      `
+    });
+
+    return result;
   },
 
   /**
@@ -63,7 +87,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.businesslicense.edit(ctx.params, ctx.request.body) ;
+    return strapi.services.businesslicense.edit(ctx.params, ctx.request.body);
   },
 
   /**
