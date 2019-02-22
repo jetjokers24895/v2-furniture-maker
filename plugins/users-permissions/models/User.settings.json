@@ -49,10 +49,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "agency": {
-      "model": "agency",
-      "via": "user"
-    },
     "dayOfBirth": {
       "default": "",
       "type": "integer"
@@ -84,6 +80,10 @@
     "license": {
       "model": "businesslicense",
       "via": "created_by"
+    },
+    "agency": {
+      "model": "agency",
+      "via": "linkedUser"
     }
   },
   "collectionName": "users-permissions_user"

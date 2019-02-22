@@ -28,13 +28,16 @@
     "level": {
       "model": "agencylevel"
     },
-    "user": {
+    "county": {
+      "model": "county"
+    },
+    "linkedUser": {
       "model": "user",
       "via": "agency",
       "plugin": "users-permissions"
     },
-    "county": {
-      "model": "county"
+    "city": {
+      "model": "city"
     }
   }
 }

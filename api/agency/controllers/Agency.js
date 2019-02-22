@@ -53,7 +53,37 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.agency.add(ctx.request.body);
+    const { body } = ctx.request;
+    const { linkedUser } = body;
+
+    const result = await strapi.services.agency.add(ctx.request.body);
+
+    const usersPermissions = strapi.plugins['users-permissions'].services;
+    const linkedUserEntity = await usersPermissions.user.fetch({ id: linkedUser });
+
+    UpdateUserRole: {
+
+      const roles = await usersPermissions.userspermissions.getRoles();
+      const authenticatedRole = roles.find(o => o.name === 'Authenticated');
+
+      await usersPermissions.user.edit({ id: linkedUser }, { ...linkedUserEntity, role: authenticatedRole });
+    }
+
+    SendMailToLinkedUser: {
+      const { mail } = strapi.services;
+
+      mail.sendTo({
+        to: linkedUserEntity.email,
+        subject: 'Tài khoản của bạn đã được xác nhận',
+        html: `
+          <div>
+            <a href="admin.furnituremaker.vn">Đăng nhập</a>
+          </div>
+        `
+      });
+    }
+
+    return result;
   },
 
   /**
@@ -63,7 +93,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.agency.edit(ctx.params, ctx.request.body) ;
+    return strapi.services.agency.edit(ctx.params, ctx.request.body);
   },
 
   /**
