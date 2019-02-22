@@ -40,6 +40,14 @@
     "sittingSurfaceSize": {
       "default": "",
       "type": "string"
+    },
+    "handHeight": {
+      "default": "",
+      "type": "integer"
+    },
+    "legHeight": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
