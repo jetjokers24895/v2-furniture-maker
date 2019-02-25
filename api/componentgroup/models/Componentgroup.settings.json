@@ -48,6 +48,10 @@
     "legHeight": {
       "default": "",
       "type": "integer"
+    },
+    "sittingHeight": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

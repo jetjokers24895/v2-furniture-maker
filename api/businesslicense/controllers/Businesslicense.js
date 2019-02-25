@@ -91,6 +91,29 @@ module.exports = {
   },
 
   /**
+ * Update a/an businesslicense record.
+ *
+ * @return {Object}
+ */
+
+  changeStatus: async (ctx, next) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
+    const params = { _id: ctx.params._id };
+
+    const businessLicense = await strapi.services.businesslicense.fetch(params);
+    
+    const result = await strapi.services.businesslicense.edit(params, {
+      ...businessLicense._doc,
+      status: ctx.params.status
+    });
+
+    return result;
+  },
+
+  /**
    * Destroy a/an businesslicense record.
    *
    * @return {Object}

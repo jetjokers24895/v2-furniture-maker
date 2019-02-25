@@ -51,6 +51,16 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/businesslicenses/status/:_id/:status",
+      "handler": "Businesslicense.changeStatus",
+      "config": {
+        "policies": [
+          "global.isOwner"
+        ]
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/businesslicenses/:_id",
       "handler": "Businesslicense.destroy",
