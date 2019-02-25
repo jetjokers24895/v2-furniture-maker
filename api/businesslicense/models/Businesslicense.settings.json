@@ -34,7 +34,7 @@
       "type": "boolean"
     },
     "status": {
-      "default": "",
+      "default": "pending",
       "type": "enumeration",
       "enum": [
         "pending",

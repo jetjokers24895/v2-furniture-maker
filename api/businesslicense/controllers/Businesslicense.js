@@ -103,12 +103,25 @@ module.exports = {
 
     const params = { _id: ctx.params._id };
 
-    const businessLicense = await strapi.services.businesslicense.fetch(params);
-    
     const result = await strapi.services.businesslicense.edit(params, {
-      ...businessLicense._doc,
+      ...ctx.request.body,
       status: ctx.params.status
     });
+
+    sendRejectMail: {
+      const { created_by } = result;
+      const { mail } = strapi.services;
+
+      mail.sendTo({
+        to: created_by.email,
+        subject: '[furnituremaker.vn] Đăng ký tài khoản!',
+        html: `
+          <div>
+            Tài khoản của bạn không đáp ứng được yêu cầu, chúng tôi rất tiếc về điều đó!
+          </div>
+        `
+      });
+    }
 
     return result;
   },
