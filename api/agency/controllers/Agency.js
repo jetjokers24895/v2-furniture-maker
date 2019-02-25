@@ -61,6 +61,16 @@ module.exports = {
     const usersPermissions = strapi.plugins['users-permissions'].services;
     const linkedUserEntity = await usersPermissions.user.fetch({ id: linkedUser });
 
+    UpdateLicenseStatus: {
+      await strapi.services.businesslicense.edit(
+        { _id: body.businessLicense },
+        {
+          ...result.businessLicense._doc,
+          status: 'accepted'
+        }
+      );
+    }
+
     UpdateUserRole: {
 
       const roles = await usersPermissions.userspermissions.getRoles();

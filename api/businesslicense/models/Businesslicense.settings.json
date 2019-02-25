@@ -41,6 +41,10 @@
         "accepted",
         "rejected"
       ]
+    },
+    "agency": {
+      "model": "agency",
+      "via": "businessLicense"
     }
   }
 }

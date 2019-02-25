@@ -38,6 +38,10 @@
     },
     "city": {
       "model": "city"
+    },
+    "businessLicense": {
+      "model": "businesslicense",
+      "via": "agency"
     }
   }
 }
