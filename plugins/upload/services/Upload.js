@@ -42,6 +42,7 @@ module.exports = {
         const buffer = Buffer.concat(buffers);
 
         return {
+          tmpPath: stream.path,
           name: stream.name,
           sha256: niceHash(buffer),
           hash: uuid().replace(/-/g, ''),
@@ -66,7 +67,7 @@ module.exports = {
     if (!provider) {
       throw new Error(
         `The provider package isn't installed. Please run \`npm install strapi-provider-upload-${
-          config.provider
+        config.provider
         }\``,
       );
     }
@@ -96,7 +97,11 @@ module.exports = {
 
         file.provider = provider.provider;
 
-        return await strapi.plugins['upload'].services.upload.add(file);
+        const res = await strapi.plugins['upload'].services.upload.add(file);
+
+        // Remove temp file
+        fs.unlinkSync(file.tmpPath);
+        return res;
       }),
     );
   },
@@ -133,9 +138,10 @@ module.exports = {
   },
 
   fetch: params => {
+    params.id = params._id || params.id;
     return strapi
       .query('file', 'upload')
-      .findOne(_.pick(params, ['_id', 'id']));
+      .findOne(_.pick(params, ['id']));
   },
 
   fetchAll: params => {
@@ -180,7 +186,7 @@ module.exports = {
     return strapi.query('file', 'upload').delete(params);
   },
 
-  uploadToEntity: async function(params, files, source) {
+  uploadToEntity: async function (params, files, source) {
     // Retrieve provider settings from database.
     const config = await strapi
       .store({
