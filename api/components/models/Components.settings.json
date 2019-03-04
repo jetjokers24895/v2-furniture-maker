@@ -117,6 +117,22 @@
     "displayHeight": {
       "default": "",
       "type": "integer"
+    },
+    "displayWidth": {
+      "default": "",
+      "type": "integer"
+    },
+    "displayDepth": {
+      "default": "",
+      "type": "integer"
+    },
+    "displayDiameter": {
+      "default": "",
+      "type": "integer"
+    },
+    "displayLengthiness": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
