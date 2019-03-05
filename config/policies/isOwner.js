@@ -5,9 +5,9 @@
  */
 
 module.exports = async (ctx, next) => {
-  const { id, role } = ctx.state.user;
+  const { id, _id, role } = ctx.state.user;
   if (role !== "Administrator") {
-    ctx.query.created_by = id;
+    ctx.query.created_by = _id | id;
   }
 
   await next();
