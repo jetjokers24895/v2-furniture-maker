@@ -87,7 +87,7 @@ module.exports = {
         subject: 'Tài khoản của bạn đã được xác nhận',
         html: `
           <div>
-            <a href="admin.furnituremaker.vn">Đăng nhập</a>
+            <a href="admin.furnituremaker.vn/auth/login">Đăng nhập</a>
           </div>
         `
       });

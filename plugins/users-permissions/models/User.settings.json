@@ -49,41 +49,13 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "dayOfBirth": {
-      "default": "",
-      "type": "integer"
-    },
-    "monthOfBirth": {
-      "default": "",
-      "type": "integer"
-    },
-    "yearOfBirth": {
-      "default": "",
-      "type": "integer"
-    },
     "phone": {
       "default": "",
       "type": "string"
     },
-    "gender": {
-      "default": "",
-      "type": "enumeration",
-      "enum": [
-        "male",
-        "famale"
-      ]
-    },
     "fullName": {
       "default": "",
       "type": "string"
-    },
-    "license": {
-      "model": "businesslicense",
-      "via": "created_by"
-    },
-    "agency": {
-      "model": "agency",
-      "via": "linkedUser"
     }
   },
   "collectionName": "users-permissions_user"

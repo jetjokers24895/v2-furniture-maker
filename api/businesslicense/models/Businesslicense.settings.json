@@ -14,6 +14,10 @@
       "unique": true,
       "type": "string"
     },
+    "companyAddress": {
+      "default": "",
+      "type": "string"
+    },
     "businessAreas": {
       "default": "",
       "type": "string"
@@ -26,7 +30,6 @@
     },
     "created_by": {
       "model": "user",
-      "via": "license",
       "plugin": "users-permissions"
     },
     "isBusiness": {
