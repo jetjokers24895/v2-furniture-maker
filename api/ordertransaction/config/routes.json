@@ -5,7 +5,7 @@
       "path": "/ordertransaction",
       "handler": "Ordertransaction.find",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -13,7 +13,7 @@
       "path": "/ordertransaction/count",
       "handler": "Ordertransaction.count",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -21,7 +21,7 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.findOne",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -29,7 +29,7 @@
       "path": "/ordertransaction",
       "handler": "Ordertransaction.create",
       "config": {
-        "policies": []
+        "policies": ["global.setOwner"]
       }
     },
     {
@@ -37,7 +37,15 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.update",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ordertransaction/confirm/:_id",
+      "handler": "Ordertransaction.confirm",
+      "config": {
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -45,7 +53,7 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.destroy",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     }
   ]

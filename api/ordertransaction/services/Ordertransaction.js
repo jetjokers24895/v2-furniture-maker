@@ -129,19 +129,23 @@ module.exports = {
 
     await Promise.all(
       Ordertransaction.associations.map(async association => {
-        if (!association.via || !data._id) {
-          return true;
+        try {
+          if (!association.via || !data._id || association.dominant) {
+            return true;
+          }
+
+          const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
+          const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
+
+          // Retrieve model.
+          const model = association.plugin ?
+            strapi.plugins[association.plugin].models[association.model || association.collection] :
+            strapi.models[association.model || association.collection];
+          const result = await model.update(search, update, { multi: true });
+          return result;
+        } catch (error) {
+          console.log(error);
         }
-        
-        const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
-        const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
-
-        // Retrieve model.
-        const model = association.plugin ?
-          strapi.plugins[association.plugin].models[association.model || association.collection] :
-          strapi.models[association.model || association.collection];
-
-        return model.update(search, update, { multi: true });
       })
     );
 

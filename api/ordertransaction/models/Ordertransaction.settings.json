@@ -47,6 +47,24 @@
       "minLength": 10,
       "type": "string",
       "required": true
+    },
+    "confirmed": {
+      "default": false,
+      "type": "boolean"
+    },
+    "attachment": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "confirmedBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
     }
   }
 }

@@ -53,7 +53,26 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.ordertransaction.add(ctx.request.body);
+    const { user } = ctx.state;
+    const result = await strapi.services.ordertransaction.add(ctx.request.body);
+
+    const { mail } = strapi.services;
+
+    mail.sendToAdmins({
+      subject: '[Đơn hàng] Giao dịch được tạo',
+      html: `
+        <div>
+          <p>
+            Từ tài khoản: ${user.email}
+            <br>
+            Mã giao dịch: <b>${result.code}</b>
+          </p>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
+        </div>
+      `
+    });
+
+    return result;
   },
 
   /**
@@ -63,7 +82,48 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.ordertransaction.edit(ctx.params, ctx.request.body) ;
+    return strapi.services.ordertransaction.edit(ctx.params, ctx.request.body);
+  },
+
+  /**
+   * Confirm a ordertransaction.
+   *
+   * @return {Object}
+   */
+
+  confirm: async (ctx, next) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
+    const orderTransaction = await strapi.services.ordertransaction.fetch(ctx.params);
+
+    if (orderTransaction.confirmed) {
+      return ctx.badRequest();
+    }
+
+    const result = await strapi.services.ordertransaction.edit(ctx.params, {
+      ...orderTransaction._doc,
+      confirmed: true,
+      confirmedBy: ctx.state.user
+    });
+
+    const { mail } = strapi.services;
+
+    mail.sendTo({
+      to: result.created_by.email,
+      subject: '[Đơn hàng] Giao dịch được xác nhận',
+      html: `
+        <div>
+          <p>
+            Mã giao dịch: <b>${result.code}</b>
+          </p>
+          <a href="admin.furnituremaker.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
+        </div>
+      `
+    });
+    
+    return result;
   },
 
   /**
