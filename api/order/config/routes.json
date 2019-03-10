@@ -42,8 +42,18 @@
     },
     {
       "method": "PUT",
-      "path": "/order/:_id",
+      "path": "/order/:_id/:field",
       "handler": "Order.update",
+      "config": {
+        "policies": [
+          "global.isOwner"
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/order/status/:_id/:status",
+      "handler": "Order.updateStatus",
       "config": {
         "policies": [
           "global.isOwner"

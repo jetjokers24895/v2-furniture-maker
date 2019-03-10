@@ -75,25 +75,89 @@ module.exports = {
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
-    const result = await strapi.services.order.edit(ctx.params, ctx.request.body);
-
-    if (!result.id) {
-      return;
-    }
+  update: async (ctx) => {
+    const { _id, field } = ctx.params;
+    const targetOrder = await strapi.services.order.fetch({ _id });
+    let updatedOrder;
 
     const { mail } = strapi.services;
+    switch (field) {
+      case 'shippingDate':
+        updatedOrder = await strapi.services.order.edit(
+          ctx.params,
+          {
+            ...targetOrder._doc,
+            status: ctx.request.body['shippingDate']
+          }
+        );
 
-    mail.sendToAdmins({
-      subject: 'Đơn đặt hàng đã được cập nhật',
-      html: `
-        <div>
-          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
-        </div>
-      `
-    });
+        mail.sendTo({
+          to: updatedOrder.created_by.email,
+          subject: 'Ngày giao hàng đã được thay đổi',
+          html: `
+            <div>
+              <p>Ngày giao hàng đã được thay đổi, vui lòng kiểm tra</p>
+              <p>
+                Ngày dự kiến: ${targetOrder.shippingDate}
+                <br>
+                Ngày thay Đổi: ${updatedOrder.shippingDate}
+              </p>
+              <a href="admin.furnituremaker.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+            </div>
+          `
+        });
+        break;
+      default:
+        break;
+    }
 
-    return result;
+    return updatedOrder;
+  },
+
+  /**
+   * Update a/an order record.
+   *
+   * @return {Object}
+   */
+  updateStatus: async (ctx) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
+    const { _id, status } = ctx.params;
+    const targetOrder = await strapi.services.order.fetch({ _id });
+
+    if (targetOrder.status === status) {
+      return targetOrder;
+    }
+
+    const updatedOrder = await strapi.services.order.edit(
+      ctx.params,
+      {
+        ...targetOrder._doc,
+        status: status
+      }
+    );
+
+    const { mail } = strapi.services;
+    switch (status) {
+      case 'payment':
+        mail.sendTo({
+          to: updatedOrder.created_by.email,
+          subject: 'Yêu cầu thanh toán',
+          html: `
+          <div>
+            <p>Đơn hàng của bạn đã sẵn sàng, vui lòng thanh toán số tiền còn lại để chuyển hàng</p>
+            <a href="admin.furnituremaker.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+          </div>
+        `
+        });
+        break;
+      default:
+        break;
+    }
+
+    return updatedOrder;
   },
 
   /**
