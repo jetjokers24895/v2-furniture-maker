@@ -155,6 +155,12 @@
         "apartment",
         "home"
       ]
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
