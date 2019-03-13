@@ -76,7 +76,14 @@ module.exports = {
       const roles = await usersPermissions.userspermissions.getRoles();
       const authenticatedRole = roles.find(o => o.name === 'Authenticated');
 
-      await usersPermissions.user.edit({ id: linkedUser }, { ...linkedUserEntity, role: authenticatedRole });
+      await usersPermissions.user.edit(
+        { id: linkedUser },
+        {
+          ...linkedUserEntity,
+          id: linkedUserEntity._id.toHexString(),
+          role: authenticatedRole,
+          password: undefined
+        });
     }
 
     SendMailToLinkedUser: {
@@ -87,7 +94,7 @@ module.exports = {
         subject: 'Tài khoản của bạn đã được xác nhận',
         html: `
           <div>
-            <a href="admin.furnituremaker.vn/auth/login">Đăng nhập</a>
+            <a href="http://www.mfurniture.vn/auth/login">Đăng nhập</a>
           </div>
         `
       });

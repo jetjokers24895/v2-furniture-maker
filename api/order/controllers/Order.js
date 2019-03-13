@@ -61,7 +61,7 @@ module.exports = {
       subject: 'Đơn đặt hàng mới',
       html: `
         <div>
-          <a href="admin.furnituremaker.vn/orders/detail/${result.id}">Xem đơn hàng</a>
+          <a href="http://www.mfurniture.vn/orders/detail/${result.id}">Xem đơn hàng</a>
         </div>
       `
     });
@@ -102,7 +102,7 @@ module.exports = {
                 <br>
                 Ngày thay Đổi: ${updatedOrder.shippingDate}
               </p>
-              <a href="admin.furnituremaker.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+              <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
             </div>
           `
         });
@@ -148,7 +148,7 @@ module.exports = {
           html: `
           <div>
             <p>Đơn hàng của bạn đã sẵn sàng, vui lòng thanh toán số tiền còn lại để chuyển hàng</p>
-            <a href="admin.furnituremaker.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
           </div>
         `
         });

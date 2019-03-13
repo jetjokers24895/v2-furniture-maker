@@ -67,7 +67,7 @@ module.exports = {
             <br>
             Mã giao dịch: <b>${result.code}</b>
           </p>
-          <a href="admin.furnituremaker.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
+          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
         </div>
       `
     });
@@ -118,7 +118,7 @@ module.exports = {
           <p>
             Mã giao dịch: <b>${result.code}</b>
           </p>
-          <a href="admin.furnituremaker.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
+          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
         </div>
       `
     });

@@ -62,7 +62,7 @@ module.exports = {
       subject: 'Người dùng vừa đăng ký một tài khoản',
       html: `
         <div>
-          <a href="admin.furnituremaker.vn/users/${created_by.id}">Xem tài khoản</a>
+          <a href="http://www.mfurniture.vn/users/${created_by.id}">Xem tài khoản</a>
         </div>
       `
     });
