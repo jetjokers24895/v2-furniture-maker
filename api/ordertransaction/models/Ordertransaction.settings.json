@@ -62,6 +62,18 @@
       "model": "user",
       "plugin": "users-permissions"
     },
+    "rejected": {
+      "default": false,
+      "type": "boolean"
+    },
+    "rejectedBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "rejectReason": {
+      "default": "",
+      "type": "string"
+    },
     "created_by": {
       "model": "user",
       "plugin": "users-permissions"

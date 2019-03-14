@@ -153,6 +153,30 @@ module.exports = {
         `
         });
         break;
+      case 'shipping':
+        mail.sendTo({
+          to: updatedOrder.created_by.email,
+          subject: 'Đơn hàng của bạn đã được chuyển đi',
+          html: `
+          <div>
+            <p>Đơn hàng của bạn đang trên đường đến</p>
+            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+          </div>
+        `
+        });
+        break;
+      case 'done':
+        mail.sendTo({
+          to: updatedOrder.created_by.email,
+          subject: 'Đơn hàng của bạn đã hoàn thành',
+          html: `
+          <div>
+            <p>Đơn hàng của bạn đã hoàn thành, cảm ơn vì đã xử dụng dịch vụ</p>
+            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
+          </div>
+        `
+        });
+        break;
       default:
         break;
     }

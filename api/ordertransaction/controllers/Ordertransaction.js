@@ -122,7 +122,51 @@ module.exports = {
         </div>
       `
     });
-    
+
+    return result;
+  },
+
+  /**
+   * Reject a ordertransaction.
+   *
+   * @return {Object}
+   */
+
+  reject: async (ctx) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
+    const orderTransaction = await strapi.services.ordertransaction.fetch(ctx.params);
+
+    if (orderTransaction.confirmed) {
+      return ctx.badRequest();
+    }
+
+    const result = await strapi.services.ordertransaction.edit(ctx.params, {
+      ...orderTransaction._doc,
+      rejected: true,
+      rejectReason: ctx.request.body.rejectReason,
+      rejectedBy: ctx.state.user
+    });
+
+    const { mail } = strapi.services;
+
+    mail.sendTo({
+      to: result.created_by.email,
+      subject: '[Đơn hàng] Giao dịch bị từ chối',
+      html: `
+        <div>
+          <p>
+            Mã giao dịch: <b>${result.code}</b>
+            <br>
+            Lý do từ phía hệ thống: ${ctx.request.body.rejectReason || 'Unknown'}
+          </p>
+          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
+        </div>
+      `
+    });
+
     return result;
   },
 
@@ -132,7 +176,7 @@ module.exports = {
    * @return {Object}
    */
 
-  destroy: async (ctx, next) => {
+  destroy: async (ctx) => {
     return strapi.services.ordertransaction.remove(ctx.params);
   }
 };

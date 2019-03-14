@@ -5,7 +5,9 @@
       "path": "/ordertransaction",
       "handler": "Ordertransaction.find",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -13,7 +15,9 @@
       "path": "/ordertransaction/count",
       "handler": "Ordertransaction.count",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -21,7 +25,9 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.findOne",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -29,7 +35,9 @@
       "path": "/ordertransaction",
       "handler": "Ordertransaction.create",
       "config": {
-        "policies": ["global.setOwner"]
+        "policies": [
+          "global.setOwner"
+        ]
       }
     },
     {
@@ -37,7 +45,9 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.update",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -45,7 +55,19 @@
       "path": "/ordertransaction/confirm/:_id",
       "handler": "Ordertransaction.confirm",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ordertransaction/reject/:_id",
+      "handler": "Ordertransaction.reject",
+      "config": {
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -53,7 +75,9 @@
       "path": "/ordertransaction/:_id",
       "handler": "Ordertransaction.destroy",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     }
   ]
