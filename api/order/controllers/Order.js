@@ -132,7 +132,7 @@ module.exports = {
     }
 
     const updatedOrder = await strapi.services.order.edit(
-      ctx.params,
+      { _id },
       {
         ...targetOrder._doc,
         status: status
