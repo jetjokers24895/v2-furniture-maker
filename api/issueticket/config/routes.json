@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/issuetickets",
+      "handler": "Issueticket.find",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issuetickets/count",
+      "handler": "Issueticket.count",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issuetickets/:_id",
+      "handler": "Issueticket.findOne",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/issuetickets",
+      "handler": "Issueticket.create",
+      "config": {
+        "policies": ["global.setOwner"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/issuetickets/:_id",
+      "handler": "Issueticket.update",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/issuetickets/:_id",
+      "handler": "Issueticket.destroy",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    }
+  ]
+}

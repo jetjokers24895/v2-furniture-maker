@@ -1,0 +1,53 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "issueticket",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "default": "",
+      "type": "string"
+    },
+    "openDate": {
+      "default": "",
+      "type": "date"
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "status": {
+      "default": "open",
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "processing",
+        "close"
+      ]
+    },
+    "receivedBy": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "closeDate": {
+      "default": "",
+      "type": "date"
+    }
+  }
+}

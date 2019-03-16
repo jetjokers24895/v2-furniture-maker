@@ -96,7 +96,7 @@ module.exports = {
  * @return {Object}
  */
 
-  changeStatus: async (ctx, next) => {
+  changeStatus: async (ctx) => {
     if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
       return ctx.notFound();
     }
@@ -108,20 +108,18 @@ module.exports = {
       status: ctx.params.status
     });
 
-    sendRejectMail: {
-      const { created_by } = result;
-      const { mail } = strapi.services;
+    const { created_by } = result;
+    const { mail } = strapi.services;
 
-      mail.sendTo({
-        to: created_by.email,
-        subject: '[furnituremaker.vn] Đăng ký tài khoản!',
-        html: `
+    mail.sendTo({
+      to: created_by.email,
+      subject: '[furnituremaker.vn] Đăng ký tài khoản!',
+      html: `
           <div>
             Tài khoản của bạn không đáp ứng được yêu cầu, chúng tôi rất tiếc về điều đó!
           </div>
         `
-      });
-    }
+    });
 
     return result;
   },
