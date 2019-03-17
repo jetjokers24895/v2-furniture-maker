@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/issueticketreplies",
+      "handler": "Issueticketreply.find",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issueticketreplies/count",
+      "handler": "Issueticketreply.count",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issueticketreplies/:_id",
+      "handler": "Issueticketreply.findOne",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/issueticketreplies",
+      "handler": "Issueticketreply.create",
+      "config": {
+        "policies": ["global.setOwner"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/issueticketreplies/:_id",
+      "handler": "Issueticketreply.update",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/issueticketreplies/:_id",
+      "handler": "Issueticketreply.destroy",
+      "config": {
+        "policies": ["global.isOwner"]
+      }
+    }
+  ]
+}

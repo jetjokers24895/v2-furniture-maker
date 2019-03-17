@@ -53,7 +53,28 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.issueticket.add(ctx.request.body);
+    let newIssueTitket;
+    try {
+      newIssueTitket = await strapi.services.issueticket.add(ctx.request.body);
+      return newIssueTitket;
+
+    } catch (error) {
+      throw error;
+    } finally {
+      const { mail } = strapi.services;
+
+      mail.sendToAdmins({
+        subject: 'Người dùng vừa tạo một yêu cầu hỗ trợ',
+        html: `
+          <div>
+            <p>
+            Mã yêu cầu: <b>${newIssueTitket.code}</b>
+            </p>
+            <a href="http://www.mfurniture.vn/issues/${newIssueTitket.id}">Xem yêu cầu</a>
+          </div>
+        `
+      });
+    }
   },
 
   /**
@@ -63,7 +84,49 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.issueticket.edit(ctx.params, ctx.request.body) ;
+    return strapi.services.issueticket.edit(ctx.params, ctx.request.body);
+  },
+
+  /**
+ * Close a/an issueticket record.
+ *
+ * @return {Object}
+ */
+
+  close: async (ctx) => {
+    const target = await strapi.services.issueticket.fetch(ctx.params);
+
+    try {
+      const result = await strapi.services.issueticket.edit(
+        ctx.params,
+        {
+          ...target._doc,
+          status: 'close'
+        }
+      );
+
+      return result;
+    } catch (error) {
+      throw error;
+    } finally {
+      const { mail } = strapi.services;
+
+      const isAuthorClosing = ctx.state.user.id === target.created_by.id;
+
+      if (isAuthorClosing) {
+        mail.sendToAdmins({
+          subject: 'Người dùng vừa đóng một yêu cầu hỗ trợ',
+          html: `
+            <div>
+              <p>
+              Mã yêu cầu: <b>${target.code}</b>
+              </p>
+              <a href="http://www.mfurniture.vn/issues/${target.id}">Xem yêu cầu</a>
+            </div>
+          `
+        });
+      }
+    }
   },
 
   /**

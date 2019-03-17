@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "issueticketreply",
+  "info": {
+    "name": "issueticketreply",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "default": "",
+      "type": "text"
+    },
+    "authorName": {
+      "default": "user",
+      "type": "text"
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "issueTicket": {
+      "model": "issueticket",
+      "via": "issueTicketReplies"
+    }
+  }
+}

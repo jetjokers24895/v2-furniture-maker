@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "issueticket",
   "info": {
     "name": "issueticket",
     "description": ""
@@ -22,7 +22,7 @@
       "default": "",
       "type": "date"
     },
-    "photos": {
+    "attachments": {
       "collection": "file",
       "via": "related",
       "plugin": "upload",
@@ -48,6 +48,25 @@
     "closeDate": {
       "default": "",
       "type": "date"
+    },
+    "code": {
+      "default": "",
+      "type": "string"
+    },
+    "agency": {
+      "model": "agency"
+    },
+    "issueTicketReplies": {
+      "collection": "issueticketreply",
+      "via": "issueTicket"
+    },
+    "order": {
+      "model": "order",
+      "via": "issueTicket"
+    },
+    "orderCode": {
+      "default": "",
+      "type": "string"
     }
   }
 }
