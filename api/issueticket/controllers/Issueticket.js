@@ -101,7 +101,9 @@ module.exports = {
         ctx.params,
         {
           ...target._doc,
-          status: 'close'
+          status: 'close',
+          closedBy: ctx.state.user.id,
+          closedAt: (new Date()).toISOString()
         }
       );
 

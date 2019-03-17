@@ -41,11 +41,11 @@
         "close"
       ]
     },
-    "receivedBy": {
+    "closedBy": {
       "model": "user",
       "plugin": "users-permissions"
     },
-    "closeDate": {
+    "closedAt": {
       "default": "",
       "type": "date"
     },
@@ -62,11 +62,19 @@
     },
     "order": {
       "model": "order",
-      "via": "issueTicket"
+      "via": "issueTickets"
     },
     "orderCode": {
       "default": "",
       "type": "string"
+    },
+    "type": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "order_complain",
+        "order_cancel"
+      ]
     }
   }
 }

@@ -162,8 +162,8 @@
       "plugin": "upload",
       "required": false
     },
-    "issueTicket": {
-      "model": "issueticket",
+    "issueTickets": {
+      "collection": "issueticket",
       "via": "order"
     }
   }
