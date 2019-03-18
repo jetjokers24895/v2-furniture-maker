@@ -53,74 +53,73 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    let newIssueTitket;
     try {
-      newIssueTitket = await strapi.services.issueticket.add(ctx.request.body);
-      return newIssueTitket;
+      let newIssueTitket = await strapi.services.issueticket.add(ctx.request.body);
 
-    } catch (error) {
-      throw error;
-    } finally {
       const { mail } = strapi.services;
 
       mail.sendToAdmins({
-        subject: `[Hỗ trợ] ${ctx.request.body.title}`,
+        subject: `[Hỗ trợ] ${newIssueTitket.title}`,
         html: `
           <div>
             <p>
-            Mã yêu cầu: <b>${ctx.request.body.code}</b>
+            Mã yêu cầu: <b>${newIssueTitket.code}</b>
             <br/>
-            Nội dung: ${ctx.request.body.description}
+            Nội dung: ${newIssueTitket.description}
             </p>
             <a href="http://www.mfurniture.vn/issues">Xem yêu cầu</a>
           </div>
         `
       });
-    }
-  },
 
-  /**
-   * Update a/an issueticket record.
-   *
-   * @return {Object}
-   */
+      return newIssueTitket;
 
-  update: async (ctx, next) => {
-    return strapi.services.issueticket.edit(ctx.params, ctx.request.body);
-  },
-
-  /**
- * Close a/an issueticket record.
- *
- * @return {Object}
- */
-
-  close: async (ctx) => {
-    const target = await strapi.services.issueticket.fetch(ctx.params);
-
-    try {
-      const result = await strapi.services.issueticket.edit(
-        ctx.params,
-        {
-          ...target._doc,
-          status: 'close',
-          closedBy: ctx.state.user.id,
-          closedAt: (new Date()).toISOString()
-        }
-      );
-
-      return result;
     } catch (error) {
       throw error;
-    } finally {
-      const { mail } = strapi.services;
+    }
 
-      const isAuthorClosing = ctx.state.user.id === target.created_by.id;
+    /**
+     * Update a/an issueticket record.
+     *
+     * @return {Object}
+     */
 
-      if (isAuthorClosing) {
-        mail.sendToAdmins({
-          subject: `[Hỗ trợ] Đã đóng yêu cầu ${target.code}`,
-          html: `
+    update: async (ctx, next) => {
+      return strapi.services.issueticket.edit(ctx.params, ctx.request.body);
+    },
+
+      /**
+     * Close a/an issueticket record.
+     *
+     * @return {Object}
+     */
+
+      close: async (ctx) => {
+        const target = await strapi.services.issueticket.fetch(ctx.params);
+
+        try {
+          const result = await strapi.services.issueticket.edit(
+            ctx.params,
+            {
+              ...target._doc,
+              status: 'close',
+              closedBy: ctx.state.user.id,
+              closedAt: (new Date()).toISOString()
+            }
+          );
+
+          return result;
+        } catch (error) {
+          throw error;
+        } finally {
+          const { mail } = strapi.services;
+
+          const isAuthorClosing = ctx.state.user.id === target.created_by.id;
+
+          if (isAuthorClosing) {
+            mail.sendToAdmins({
+              subject: `[Hỗ trợ] Đã đóng yêu cầu ${target.code}`,
+              html: `
             <div>
               <p>
               Mã yêu cầu: <b>${target.code}</b>
@@ -132,18 +131,18 @@ module.exports = {
               <a href="http://www.mfurniture.vn/issues/${target.id}">Xem yêu cầu</a>
             </div>
           `
-        });
-      }
-    }
-  },
+            });
+          }
+        }
+      },
 
-  /**
-   * Destroy a/an issueticket record.
-   *
-   * @return {Object}
-   */
+        /**
+         * Destroy a/an issueticket record.
+         *
+         * @return {Object}
+         */
 
-  destroy: async (ctx, next) => {
-    return strapi.services.issueticket.remove(ctx.params);
-  }
-};
+        destroy: async (ctx, next) => {
+          return strapi.services.issueticket.remove(ctx.params);
+        }
+  };
