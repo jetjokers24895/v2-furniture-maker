@@ -76,7 +76,7 @@ module.exports = {
 
   add: async (values) => {
     // Extract values related to relational data.
-    
+
     const relations = _.pick(values, Design.associations.map(ast => ast.alias));
     const data = _.omit(values, Design.associations.map(ast => ast.alias));
 
@@ -129,10 +129,10 @@ module.exports = {
 
     await Promise.all(
       Design.associations.map(async association => {
-        if (!association.via || !data._id) {
+        if (!association.via || !data._id || association.dominant) {
           return true;
         }
-        
+
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 

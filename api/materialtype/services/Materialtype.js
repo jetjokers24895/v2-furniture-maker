@@ -129,10 +129,10 @@ module.exports = {
 
     await Promise.all(
       Materialtype.associations.map(async association => {
-        if (!association.via || !data._id) {
+        if (!association.via || !data._id || association.dominant) {
           return true;
         }
-        
+
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 

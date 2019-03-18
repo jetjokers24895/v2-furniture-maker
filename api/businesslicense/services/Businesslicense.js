@@ -132,7 +132,7 @@ module.exports = {
 
     await Promise.all(
       Businesslicense.associations.map(async association => {
-        if (!association.via || !data._id) {
+        if (!association.via || !data._id || association.dominant) {
           return true;
         }
 
