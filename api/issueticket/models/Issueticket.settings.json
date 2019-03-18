@@ -20,7 +20,7 @@
     },
     "openDate": {
       "default": "",
-      "type": "date"
+      "type": "string"
     },
     "attachments": {
       "collection": "file",
@@ -47,7 +47,7 @@
     },
     "closedAt": {
       "default": "",
-      "type": "date"
+      "type": "string"
     },
     "code": {
       "default": "",
