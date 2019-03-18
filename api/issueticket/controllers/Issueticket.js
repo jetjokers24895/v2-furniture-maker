@@ -64,11 +64,13 @@ module.exports = {
       const { mail } = strapi.services;
 
       mail.sendToAdmins({
-        subject: 'Người dùng vừa tạo một yêu cầu hỗ trợ',
+        subject: `[Hỗ trợ] ${newIssueTitket.title}`,
         html: `
           <div>
             <p>
             Mã yêu cầu: <b>${newIssueTitket.code}</b>
+            <br/>
+            Nội dung: ${newIssueTitket.description}
             </p>
             <a href="http://www.mfurniture.vn/issues/${newIssueTitket.id}">Xem yêu cầu</a>
           </div>
@@ -117,11 +119,15 @@ module.exports = {
 
       if (isAuthorClosing) {
         mail.sendToAdmins({
-          subject: 'Người dùng vừa đóng một yêu cầu hỗ trợ',
+          subject: `[Hỗ trợ] Đã đóng yêu cầu ${target.code}`,
           html: `
             <div>
               <p>
               Mã yêu cầu: <b>${target.code}</b>
+              <br/>
+              Tiêu đề: ${target.title}
+              <br/>
+              Nội dung: ${target.description}
               </p>
               <a href="http://www.mfurniture.vn/issues/${target.id}">Xem yêu cầu</a>
             </div>
