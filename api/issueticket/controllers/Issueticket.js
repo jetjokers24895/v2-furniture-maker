@@ -64,15 +64,15 @@ module.exports = {
       const { mail } = strapi.services;
 
       mail.sendToAdmins({
-        subject: `[Hỗ trợ] ${newIssueTitket.title}`,
+        subject: `[Hỗ trợ] ${ctx.request.body.title}`,
         html: `
           <div>
             <p>
-            Mã yêu cầu: <b>${newIssueTitket.code}</b>
+            Mã yêu cầu: <b>${ctx.request.body.code}</b>
             <br/>
-            Nội dung: ${newIssueTitket.description}
+            Nội dung: ${ctx.request.body.description}
             </p>
-            <a href="http://www.mfurniture.vn/issues/${newIssueTitket.id}">Xem yêu cầu</a>
+            <a href="http://www.mfurniture.vn/issues">Xem yêu cầu</a>
           </div>
         `
       });
