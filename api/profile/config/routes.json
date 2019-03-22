@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "PUT",
+      "path": "/profile/update-user/:id",
+      "handler": "Profile.updateUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/profile/change-password/:id",
+      "handler": "Profile.changePassword",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
