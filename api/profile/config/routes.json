@@ -11,7 +11,7 @@
     {
       "method": "PUT",
       "path": "/profile/change-password/:id",
-      "handler": "Profile.changePassword",
+      "handler": "Profile. ",
       "config": {
         "policies": []
       }
