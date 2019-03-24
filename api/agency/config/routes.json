@@ -5,7 +5,7 @@
       "path": "/agency",
       "handler": "Agency.find",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": []
       }
     },
     {
@@ -37,7 +37,7 @@
       "path": "/agency/:_id",
       "handler": "Agency.update",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": []
       }
     },
     {

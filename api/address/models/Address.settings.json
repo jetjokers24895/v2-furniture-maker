@@ -42,6 +42,10 @@
     "created_by": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "email": {
+      "default": "",
+      "type": "string"
     }
   }
 }

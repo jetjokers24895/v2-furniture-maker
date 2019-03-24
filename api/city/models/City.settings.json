@@ -31,7 +31,7 @@
       "type": "integer"
     },
     "undefined": {
-      "collection": "agency",
+      "collection": "address",
       "via": "city"
     }
   }
