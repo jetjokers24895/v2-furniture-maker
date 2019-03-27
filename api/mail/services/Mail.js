@@ -7,7 +7,9 @@
 let mailConfigs;
 
 module.exports = {
-  sendTo: async ({ to, subject, text, html }) => {
+  sendTo: async (mail, notification) => {
+    const { to, subject, text, html } = mail;
+
     try {
       if (!mailConfigs) {
         mailConfigs = await strapi.plugins['email'].services.email.getProviderConfig(strapi.config.environment);
@@ -21,11 +23,18 @@ module.exports = {
         text: text,
         html: html
       });
+
+      if (!notification) {
+        return;
+      }
+
+      strapi.services.notification.send(notification);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   },
-  sendToAdmins: async ({ subject, text, html }) => {
+  sendToAdmins: async (mail, notification) => {
+    const { subject, text, html } = mail;
     try {
       const roles = await strapi.plugins['users-permissions'].services.userspermissions.getRoles();
       const adminRole = roles.find(o => o.name === 'Administrator');
@@ -52,9 +61,18 @@ module.exports = {
           text: text,
           html: html
         });
+
+        if (!notification) {
+          return;
+        }
+
+        strapi.services.notification.send({
+          ...notification,
+          userId: adminUser.id
+        });
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 };

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "furnituremaker-eaafa",
+  "private_key_id": "692be726bdcb2bcf05545bd3109866ba1f44cbd2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCywAW6XucyYf2b\njwSkYdW0WesiFepkyfzOuH3dZjP4HDUdCYLpmLcrxP5Rq2CincYIcekITrmIO9wD\ntMrv+mTWvHO5AvmLXzMjSDVViRx5FjcIWN5ux5fEWjzbGtwY3f5QtCevhcmGIU9u\n/doflucHT2Gz+c1WyMJykgRQKPDN9Z8COzMDtp/WDuhrXLfgLPF/bjqyJDBunSry\nGGY22LKr1A+JthmhvvTN1yT7ICyg2EIKP05gcVmZtKZcX9z6oG4lrgavLayh/wuX\niVxMbQ61sohYmixyUkUFXFClcULkrvNl5aqo6Vv8GXAeDyTHobtW2Bp15kQLV1pw\n4BdgOnUJAgMBAAECggEAFkzrGgaLiQddJLppzZlQGFVMhr7dtI/XnLG7MDM3QhnA\nzZvZa4vMNGd6BBXhs0AETBrsBAeQUY0IRKUaWWivinPN6zPSDr+EiX8RelemB/xL\nxtyReZgomMxaQcqe0XJmr0peliEWlIeU2afNffntXkXazmGYqt5WlgUeCSMmccdg\njk5YjgAEQFiInCSFosacz4CPt42DuREy3OuMZ+SUjrrC/0WyWk/5V8bPxaZO0PWo\nZTERiC1BlrXDRX1t8bFUq09TFqkvqdowBni8LTBbqLQe14JsvCCQ0ezARtEmzBRe\nFtnOeLIcc/a1yu2AHZPHBltgqWA/fvUsQZnWFVH7tQKBgQDt/O8Jm4135gXX9mRl\nZse/xjD6CFbi9hvWhY7p6SS3Py3qacoSpIJKdmhEdGomh0B9IdBUAS+M9ZW58zCk\nhlDthl3H9UW3TnTrLEeXlwt/nEyKvK6ebuKN8l0vI5XwQswUJkbcmmYc+cQJZC1E\n8HBxdd3Cwkk1QehH+ZPjjsaXlQKBgQDAR1d0FCU7/wInaNtN9srtGowrwJirXA/1\nLrXDfTV5jkAhGatmLgQPPRasuYZk7iCVaEIuiPgGNLlIiIEHPx0e7hsTXq7coRN7\nAJEsmyBcOd28Lq2nl5w9aTD8bxCl9w143XtWBWobcjsrw8Jj/54KlsCXIM2Fqkxl\nsBFnZ5c6pQKBgQCRauTwvPCzW4UkkfSElUnmn4absO7OXc1ixlcuDHyXz+4RdzS3\nMXg/YZySf4PBKRG5pCi0u8i/W+xyI+wMC9p1WI4DOZawzCra7EKOmQe4oNuQRnx4\naI7cZ0STIi5jEZ27jivsbheJCwDDMEgNANHkMj4f3DF5bl0tZY39FOe6BQKBgQCa\nHJRLxZnSbKIdVD3yT0x2nkCbENNNBY0Ex1uIRGMH+qwL27c1PsyiKiRybID7hKE5\nH0dsZPvmfXvEVyST2lJM6Ctrawhcbf5fKCUzy2I0iWzf18n3+dyQnC9XJO4DF/EE\nXwDsAYr6VKR4f37fB5J0ij/y4afY6pYxKt3IM49SwQKBgDeA8vVKJNt8BGvWaWcB\n5PvDkzawRpEECNwSZzb8YDiFmtj2KecP7SbNqSxe6kCmVg12KyF1FtQopa6rY6rY\n/lB4cbvKMnYaInNmXgNly2UdGrQdK2Fi6aaZWfjgRT3ZhuTlxur8uVc6e3FmGBBd\nDHjn+92zG0cmSyWPoeAmQ0Cu\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-zfrys@furnituremaker-eaafa.iam.gserviceaccount.com",
+  "client_id": "101899902777209455815",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zfrys%40furnituremaker-eaafa.iam.gserviceaccount.com"
+}
