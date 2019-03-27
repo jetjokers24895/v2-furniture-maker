@@ -22,6 +22,10 @@
     "productTypes": {
       "collection": "producttype",
       "via": "productTypeGroup"
+    },
+    "disabled": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

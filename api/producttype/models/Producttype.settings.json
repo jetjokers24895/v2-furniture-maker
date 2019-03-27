@@ -102,6 +102,10 @@
     "view_cameraFar": {
       "default": "",
       "type": "integer"
+    },
+    "disabled": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
