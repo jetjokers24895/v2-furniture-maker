@@ -62,10 +62,42 @@ module.exports = {
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
-    return strapi.services.orderdetail.edit(ctx.params, ctx.request.body) ;
+  update: async (ctx) => {
+    return strapi.services.orderdetail.edit(ctx.params, ctx.request.body);
   },
+  /**
+   * Update a orderdetail quantity.
+   *
+   * @return {Object}
+   */
 
+  updateQuantity: async (ctx) => {
+    const {
+      quantity,
+      product_type,
+      productPrice
+    } = ctx.request.body;
+
+    try {
+      const discountbyQuantities = await strapi.services.discountbyquantity.fetchAll({ productType: product_type });
+      const sortedDiscountByQuantities = discountbyQuantities.sort((item1, item2) => item2.quantity - item1.quantity);
+      const discoutnByQuantity = sortedDiscountByQuantities.find(o => o.quantity <= quantity);
+
+      const discount = discoutnByQuantity.discountPerProduct * quantity;
+      const subTotalPrice = productPrice * quantity;
+
+      return strapi.services.orderdetail.edit(ctx.params, {
+        ...ctx.request.body,
+        totalDiscountPerProduct: discoutnByQuantity.discountPerProduct,
+        discount: discount,
+        subTotalPrice: subTotalPrice,
+        totalPrice: subTotalPrice - discount
+      });
+
+    } catch (error) {
+      throw error;
+    }
+  },
   /**
    * Destroy a/an orderdetail record.
    *

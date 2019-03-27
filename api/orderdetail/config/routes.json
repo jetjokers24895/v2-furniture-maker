@@ -51,6 +51,16 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/orderdetail/update-quantity/:_id",
+      "handler": "Orderdetail.updateQuantity",
+      "config": {
+        "policies": [
+          "global.isOwner"
+        ]
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/orderdetail/:_id",
       "handler": "Orderdetail.destroy",
