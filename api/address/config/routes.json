@@ -5,7 +5,9 @@
       "path": "/address",
       "handler": "Address.find",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -13,7 +15,9 @@
       "path": "/address/count",
       "handler": "Address.count",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -21,7 +25,9 @@
       "path": "/address/:_id",
       "handler": "Address.findOne",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -49,7 +55,9 @@
       "path": "/address/:_id",
       "handler": "Address.destroy",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     }
   ]

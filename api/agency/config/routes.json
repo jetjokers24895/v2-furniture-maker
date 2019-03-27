@@ -13,7 +13,9 @@
       "path": "/agency/count",
       "handler": "Agency.count",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {
@@ -21,7 +23,9 @@
       "path": "/agency/:_id",
       "handler": "Agency.findOne",
       "config": {
-        "policies": ["global.isOwner"]
+        "policies": [
+          "global.isOwner"
+        ]
       }
     },
     {

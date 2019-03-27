@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "page",
+  "collectionName": "post",
   "info": {
-    "name": "page",
+    "name": "post",
     "description": ""
   },
   "options": {
@@ -15,13 +15,21 @@
     },
     "slug": {
       "default": "",
-      "unique": true,
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "content": {
       "default": "",
       "type": "text"
+    },
+    "brief": {
+      "default": "",
+      "type": "text"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
