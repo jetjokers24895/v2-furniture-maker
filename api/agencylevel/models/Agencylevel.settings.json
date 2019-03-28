@@ -19,6 +19,20 @@
       "unique": true,
       "type": "string",
       "required": true
+    },
+    "index": {
+      "default": "",
+      "type": "integer"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "minPay": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
