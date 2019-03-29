@@ -13,6 +13,10 @@
       "default": "",
       "type": "integer"
     },
+    "totalProduct": {
+      "default": "",
+      "type": "integer"
+    },
     "shippingAddress": {
       "default": "",
       "type": "string"
