@@ -11,7 +11,8 @@ module.exports = {
     try {
       const orderService = strapi.services.order;
       const allOrder = await orderService.fetchAll({
-        created_by: id
+        created_by: id,
+        status: 'done'
       });
 
       const totalProduct = allOrder.reduce(
