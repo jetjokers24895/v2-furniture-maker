@@ -75,6 +75,9 @@
     },
     "product_type": {
       "model": "producttype"
+    },
+    "productDesign": {
+      "model": "design"
     }
   }
 }

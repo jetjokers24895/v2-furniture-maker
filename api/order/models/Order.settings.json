@@ -169,6 +169,10 @@
     "issueTickets": {
       "collection": "issueticket",
       "via": "order"
+    },
+    "locked": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
