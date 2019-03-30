@@ -2,7 +2,9 @@
   "host": "localhost",
   "port": 1337,
   "proxy": {
-    "enabled": false
+    "enabled": true,
+    "host": "v2-api.furnituremaker.vn",
+    "ssl": false
   },
   "autoReload": {
     "enabled": true

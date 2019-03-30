@@ -2,7 +2,8 @@
   "host": "localhost",
   "port": "${process.env.PORT || 1337}",
   "proxy": {
-    "enabled": false
+    "enabled": true,
+    "host": "v2-api.furnituremaker.vn"
   },
   "autoReload": {
     "enabled": false
