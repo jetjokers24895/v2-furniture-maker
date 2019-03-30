@@ -81,7 +81,7 @@ module.exports = {
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
+  update: async (ctx) => {
     return strapi.services.ordertransaction.edit(ctx.params, ctx.request.body);
   },
 
@@ -91,23 +91,50 @@ module.exports = {
    * @return {Object}
    */
 
-  confirm: async (ctx, next) => {
+  confirm: async (ctx) => {
     if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
       return ctx.notFound();
     }
 
-    const orderTransaction = await strapi.services.ordertransaction.fetch(ctx.params);
+    const orderTransactionService = strapi.services.ordertransaction;
+
+    const orderTransaction = await orderTransactionService.fetch(ctx.params);
 
     if (orderTransaction.confirmed) {
       return ctx.badRequest();
     }
 
-    const result = await strapi.services.ordertransaction.edit(ctx.params, {
+    const result = await orderTransactionService.edit(ctx.params, {
       ...orderTransaction._doc,
       confirmed: true,
       confirmedBy: ctx.state.user
     });
 
+    // #region [Update Order status]
+    const orderService = strapi.services.order;
+    const fetchOrderParams = { _id: result.order.id };
+    const order = await orderService.fetch(fetchOrderParams);
+
+    if (order.status === 'new') {
+      const allConfirmedTransaction = await order.orderTransactions.filter(o => o.confirmed === true);
+      const totalTransactionMoney = allConfirmedTransaction.reduce(
+        (total, transaction) => total + transaction.money,
+        0
+      );
+
+      if (totalTransactionMoney >= order.depositRequired) {
+        orderService.edit(
+          fetchOrderParams,
+          {
+            ...order._doc,
+            status: 'confirmed'
+          }
+        );
+      }
+    }
+    // #endregion
+
+    // #region [Send Email]
     const { mail } = strapi.services;
 
     mail.sendTo({
@@ -122,6 +149,7 @@ module.exports = {
         </div>
       `
     });
+    // #endregion
 
     return result;
   },
