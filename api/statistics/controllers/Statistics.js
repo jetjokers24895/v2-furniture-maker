@@ -15,33 +15,27 @@ module.exports = {
         status: 'done'
       });
 
-      const totalProduct = allOrder.reduce(
-        (total, order) => {
-          return total + order.totalProduct;
-        },
-        0
-      );
+      let totalProduct = 0;
+      let totalDiscount = 0;
+      let totalTransactionMoney = 0;
 
-      const totalDiscount = allOrder.reduce(
-        (totalDiscount, order) => {
-          return totalDiscount + order.totalDiscount;
-        },
-        0
-      );
+      for (let i = 0; i < allOrder.length; i++) {
+        const order = allOrder[i];
 
-      const transactionService = strapi.services.ordertransaction;
+        totalProduct += order.totalProduct;
+        totalDiscount += order.totalDiscount;
 
-      const allOrderTransaction = await transactionService.fetchAll({
-        created_by: id,
-        confirmed: true
-      });
+        totalTransactionMoney += order.orderTransactions.reduce(
+          (total, orderTransaction) => {
+            if (!orderTransaction.confirmed) {
+              return total;
+            }
 
-      const totalTransactionMoney = allOrderTransaction.reduce(
-        (total, orderTransaction) => {
-          return total + orderTransaction.money;
-        },
-        0
-      );
+            return total + orderTransaction.money;
+          },
+          0
+        );
+      }
 
       return {
         totalTransactionMoney: totalTransactionMoney,
