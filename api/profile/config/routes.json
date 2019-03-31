@@ -10,8 +10,8 @@
     },
     {
       "method": "PUT",
-      "path": "/profile/change-password/:id",
-      "handler": "Profile. ",
+      "path": "/profile/change-password",
+      "handler": "Profile.changePassword",
       "config": {
         "policies": []
       }

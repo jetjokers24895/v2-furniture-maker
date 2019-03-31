@@ -30,19 +30,22 @@ module.exports = {
   },
 
   changePassword: async (ctx) => {
-    const { _id, oldPassword, newPassword } = ctx.request.body;
-    const currentUser = ctx.state.user;
+    const { user } = ctx.state;
+    const userId = user.id || user._id.toHexString();
+
+    const { oldPassword, newPassword } = ctx.request.body;
 
     const usersPermissions = strapi.plugins['users-permissions'].services;
 
-    const validate = await usersPermissions.user.validatePassword(oldPassword, currentUser.password);
+    const validate = await usersPermissions.user.validatePassword(oldPassword, user.password);
+
     if (!validate) {
       return ctx.notFound();
     }
 
     try {
       const result = await usersPermissions.user.edit(
-        { id: _id },
+        { id: userId },
         {
           ...ctx.state.user,
           password: newPassword
