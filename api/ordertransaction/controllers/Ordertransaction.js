@@ -53,24 +53,27 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    const { user } = ctx.state;
     const result = await strapi.services.ordertransaction.add(ctx.request.body);
 
     const { mail } = strapi.services;
 
-    mail.sendToAdmins({
-      subject: '[Đơn hàng] Giao dịch được tạo',
-      html: `
-        <div>
-          <p>
-            Từ tài khoản: ${user.email}
-            <br>
-            Mã giao dịch: <b>${result.code}</b>
-          </p>
-          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
-        </div>
-      `
-    });
+    if (result.type === 'deposit') {
+      mail.sendToAdmins({
+        templateId: 'd-7e25e939f63a4cde8118598d5a2a6ada',
+        dynamic_template_data: {
+          orderCode: result.order.code,
+          link: 'http://mfurniture.vn/orders/detail/' + result.order.id
+        }
+      });
+    } else if (result.type === 'payment') {
+      mail.sendToAdmins({
+        templateId: 'd-44f52a007b074a308cac247087245c94',
+        dynamic_template_data: {
+          orderCode: result.order.code,
+          link: 'http://mfurniture.vn/orders/detail/' + result.order.id
+        }
+      });
+    }
 
     return result;
   },
@@ -137,18 +140,31 @@ module.exports = {
     // #region [Send Email]
     const { mail } = strapi.services;
 
-    mail.sendTo({
-      to: result.created_by.email,
-      subject: '[Đơn hàng] Giao dịch được xác nhận',
-      html: `
-        <div>
-          <p>
-            Mã giao dịch: <b>${result.code}</b>
-          </p>
-          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
-        </div>
-      `
-    });
+    if (result.type === 'deposit') {
+      const { mail } = strapi.services;
+      mail.sendTo({
+        to: order.created_by.email,
+        templateId: 'd-dc979d9db0294b39912e270202f32c29',
+        dynamic_template_data: {
+          user: ctx.state.user.fullname,
+          depositMoney: result.money,
+          orderCode: result.order.code,
+          link: 'http://mfurniture.vn/orders/detail/' + order.id
+        }
+      });
+    } else if (result.type === 'payment') {
+      mail.sendTo({
+        to: order.created_by.email,
+        templateId: 'd-25f5df645a29463c9df1dde415fcca9d',
+        dynamic_template_data: {
+          user: ctx.state.user.fullname,
+          depositMoney: result.money,
+          orderCode: result.order.code,
+          transactionCode: result.code,
+          link: 'http://mfurniture.vn/orders/detail/' + order.id
+        }
+      });
+    }
     // #endregion
 
     return result;
@@ -182,17 +198,14 @@ module.exports = {
 
     mail.sendTo({
       to: result.created_by.email,
-      subject: '[Đơn hàng] Giao dịch bị từ chối',
-      html: `
-        <div>
-          <p>
-            Mã giao dịch: <b>${result.code}</b>
-            <br>
-            Lý do từ phía hệ thống: ${ctx.request.body.rejectReason || 'Unknown'}
-          </p>
-          <a href="http://www.mfurniture.vn/orders/detail/${result.order.id}">Xem đơn hàng</a>
-        </div>
-      `
+      templateId: 'd-dc979d9db0294b39912e270202f32c29',
+      dynamic_template_data: {
+        user: ctx.state.user.fullname,
+        depositMoney: result.money,
+        orderCode: result.order.code,
+        transactionCode: result.code,
+        link: 'http://mfurniture.vn/orders/detail/' + result.order.id
+      }
     });
 
     return result;

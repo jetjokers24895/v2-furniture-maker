@@ -1,4 +1,5 @@
 'use strict';
+const sendgrid = require('@sendgrid/mail');
 
 /**
  * `Mail` service.
@@ -8,20 +9,30 @@ let mailConfigs;
 
 module.exports = {
   sendTo: async (mail, notification) => {
-    const { to, subject, text, html } = mail;
+    const {
+      to,
+      subject,
+      text,
+      html,
+      templateId,
+      dynamic_template_data
+    } = mail;
 
     try {
       if (!mailConfigs) {
         mailConfigs = await strapi.plugins['email'].services.email.getProviderConfig(strapi.config.environment);
+        sendgrid.setApiKey(mailConfigs.sendgrid_api_key);
       }
 
-      await strapi.plugins['email'].services.email.send({
+      sendgrid.send({
         to: to,
         from: mailConfigs.sendgrid_default_from,
         replyTo: mailConfigs.sendgrid_default_replyto,
         subject: subject,
         text: text,
-        html: html
+        html: html,
+        templateId: templateId,
+        dynamic_template_data: dynamic_template_data
       });
 
       if (!notification) {
@@ -34,7 +45,14 @@ module.exports = {
     }
   },
   sendToAdmins: async (mail, notification) => {
-    const { subject, text, html } = mail;
+    const {
+      subject,
+      text,
+      html,
+      templateId,
+      dynamic_template_data
+    } = mail;
+
     try {
       const roles = await strapi.plugins['users-permissions'].services.userspermissions.getRoles();
       const adminRole = roles.find(o => o.name === 'Administrator');
@@ -46,6 +64,7 @@ module.exports = {
 
       if (!mailConfigs) {
         mailConfigs = await strapi.plugins['email'].services.email.getProviderConfig(strapi.config.environment);
+        sendgrid.setApiKey(mailConfigs.sendgrid_api_key);
       }
 
       for (const adminUser of adminUsers) {
@@ -53,23 +72,26 @@ module.exports = {
           continue;
         }
 
-        await strapi.plugins['email'].services.email.send({
+        sendgrid.send({
           to: adminUser.email,
           from: mailConfigs.sendgrid_default_from,
           replyTo: mailConfigs.sendgrid_default_replyto,
           subject: subject,
           text: text,
-          html: html
+          html: html,
+          templateId: templateId,
+          dynamic_template_data: {
+            admin: adminUser.fullname,
+            ...dynamic_template_data
+          }
         });
 
-        if (!notification) {
-          return;
+        if (notification) {
+          strapi.services.notification.send({
+            ...notification,
+            userId: adminUser.id
+          });
         }
-
-        strapi.services.notification.send({
-          ...notification,
-          userId: adminUser.id
-        });
       }
     } catch (error) {
       throw error;

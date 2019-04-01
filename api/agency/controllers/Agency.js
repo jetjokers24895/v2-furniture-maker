@@ -72,7 +72,6 @@ module.exports = {
     }
 
     UpdateUserRole: {
-
       const roles = await usersPermissions.userspermissions.getRoles();
       const authenticatedRole = roles.find(o => o.name === 'Authenticated');
 
@@ -91,12 +90,7 @@ module.exports = {
 
       mail.sendTo({
         to: linkedUserEntity.email,
-        subject: 'Tài khoản của bạn đã được xác nhận',
-        html: `
-          <div>
-            <a href="http://www.mfurniture.vn/auth/login">Đăng nhập</a>
-          </div>
-        `
+        templateId: 'd-0edd9476a22d4824b87d118d6ccbf72f'
       });
     }
 
@@ -109,7 +103,7 @@ module.exports = {
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
+  update: async (ctx) => {
     return strapi.services.agency.edit(ctx.params, ctx.request.body);
   },
 

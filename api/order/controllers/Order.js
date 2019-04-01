@@ -57,13 +57,23 @@ module.exports = {
 
     const { mail } = strapi.services;
 
+    mail.sendTo({
+      to: result.created_by.email,
+      templateId: 'd-9e484f35e2ab472bac1d86d497c59d34',
+      dynamic_template_data: {
+        user: ctx.state.user.fullname,
+        orderCode: result.code,
+        depositAmount: result.depositRequired,
+        link: 'http://mfurniture.vn/orders/detail/' + result.id
+      }
+    });
+
     mail.sendToAdmins({
-      subject: 'Đơn đặt hàng mới',
-      html: `
-        <div>
-          <a href="http://www.mfurniture.vn/orders/detail/${result.id}">Xem đơn hàng</a>
-        </div>
-      `
+      templateId: 'd-4ee6f563b37c42529ff7bfe066cbd0d6',
+      dynamic_template_data: {
+        orderCode: result.code,
+        link: 'http://mfurniture.vn/orders/detail/' + result.id
+      }
     });
 
     return result;
@@ -144,37 +154,32 @@ module.exports = {
       case 'payment':
         mail.sendTo({
           to: updatedOrder.created_by.email,
-          subject: 'Yêu cầu thanh toán',
-          html: `
-          <div>
-            <p>Đơn hàng của bạn đã sẵn sàng, vui lòng thanh toán số tiền còn lại để chuyển hàng</p>
-            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
-          </div>
-        `
+          templateId: 'd-a17abe5e0c54414b8edb56d97e815706',
+          dynamic_template_data: {
+            user: ctx.state.user.fullname,
+            orderCode: updatedOrder.code,
+            link: 'http://mfurniture.vn/orders/detail/' + updatedOrder.id
+          }
         });
         break;
       case 'shipping':
         mail.sendTo({
           to: updatedOrder.created_by.email,
-          subject: 'Đơn hàng của bạn đã được chuyển đi',
-          html: `
-          <div>
-            <p>Đơn hàng của bạn đang trên đường đến</p>
-            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
-          </div>
-        `
+          templateId: 'd-27f540f2b8d64faab57f4ac541b6647c',
+          dynamic_template_data: {
+            user: ctx.state.user.fullname,
+            orderCode: updatedOrder.code,
+            link: 'http://mfurniture.vn/orders/detail/' + updatedOrder.id
+          }
         });
         break;
       case 'done':
         mail.sendTo({
           to: updatedOrder.created_by.email,
-          subject: 'Đơn hàng của bạn đã hoàn thành',
-          html: `
-          <div>
-            <p>Đơn hàng của bạn đã hoàn thành, cảm ơn vì đã xử dụng dịch vụ</p>
-            <a href="http://www.mfurniture.vn/orders/detail/${updatedOrder.id}">Xem đơn hàng</a>
-          </div>
-        `
+          templateId: 'd-27f540f2b8d64faab57f4ac541b6647c',
+          dynamic_template_data: {
+            link: 'http://mfurniture.vn/dashboard'
+          }
         });
         break;
       default:
@@ -184,7 +189,7 @@ module.exports = {
     return updatedOrder;
   },
 
-  /**
+  /**~
    * Destroy a/an order record.
    *
    * @return {Object}

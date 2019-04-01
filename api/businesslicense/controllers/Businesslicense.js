@@ -59,22 +59,15 @@ module.exports = {
     const { mail } = strapi.services;
 
     mail.sendToAdmins({
-      subject: 'Người dùng vừa đăng ký một tài khoản',
-      html: `
-        <div>
-          <a href="http://www.mfurniture.vn/users/${created_by.id}">Xem tài khoản</a>
-        </div>
-      `
+      templateId: 'd-e9d63e9cfb1e4d9ebe383df444370cbb',
+      dynamic_template_data: {
+        link: 'http://mfurniture.vn/acccounts?email=' + created_by.email
+      }
     });
 
     mail.sendTo({
       to: created_by.email,
-      subject: '[furnituremaker.vn] Đăng ký tài khoản!',
-      html: `
-        <div>
-          Cảm ơn bạn đã đăng ký!
-        </div>
-      `
+      templateId: 'd-6809074ea08e4734bd82b885bbbf01a7'
     });
 
     return result;
@@ -111,15 +104,15 @@ module.exports = {
     const { created_by } = result;
     const { mail } = strapi.services;
 
-    mail.sendTo({
-      to: created_by.email,
-      subject: '[furnituremaker.vn] Đăng ký tài khoản!',
-      html: `
-          <div>
-            Tài khoản của bạn không đáp ứng được yêu cầu, chúng tôi rất tiếc về điều đó!
-          </div>
-        `
-    });
+    if (result.status === 'rejected') {
+      mail.sendTo({
+        to: created_by.email,
+        templateId: 'd-78c6d972751344d6955a41ece35afcda',
+        dynamic_template_data: {
+          link: 'http://mfurniture.vn/auth/confirm'
+        }
+      });
+    }
 
     return result;
   },
