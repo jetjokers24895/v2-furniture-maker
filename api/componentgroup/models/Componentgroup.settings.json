@@ -56,6 +56,12 @@
     "disabled": {
       "default": false,
       "type": "boolean"
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
