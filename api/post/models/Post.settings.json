@@ -30,6 +30,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "public": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
