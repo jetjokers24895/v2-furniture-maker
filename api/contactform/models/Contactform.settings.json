@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "contactform",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "fullname": {
+      "default": "",
+      "type": "string"
+    },
+    "phone": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "message": {
+      "default": "",
+      "type": "text"
+    }
+  }
+}

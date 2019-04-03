@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contactforms",
+      "handler": "Contactform.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contactforms/count",
+      "handler": "Contactform.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contactforms/:_id",
+      "handler": "Contactform.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contactforms",
+      "handler": "Contactform.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contactforms/:_id",
+      "handler": "Contactform.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contactforms/:_id",
+      "handler": "Contactform.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
