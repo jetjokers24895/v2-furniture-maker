@@ -157,7 +157,7 @@
       "type": "enumeration",
       "enum": [
         "apartment",
-        "home"
+        "house"
       ]
     },
     "photos": {
