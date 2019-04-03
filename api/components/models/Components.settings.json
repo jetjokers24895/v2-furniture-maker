@@ -133,6 +133,10 @@
     "displayLengthiness": {
       "default": "",
       "type": "integer"
+    },
+    "materialNorm": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
