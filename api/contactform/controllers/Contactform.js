@@ -53,7 +53,9 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.contactform.add(ctx.request.body);
+    strapi.services.contactform.add(ctx.request.body);
+    ctx.redirect('http://mfurniture.vn/');
+    return;
   },
 
   /**

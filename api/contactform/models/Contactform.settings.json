@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "contactform",
   "info": {
     "name": "contactform",
     "description": ""
@@ -11,7 +11,8 @@
   "attributes": {
     "fullname": {
       "default": "",
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "phone": {
       "default": "",
@@ -19,11 +20,13 @@
     },
     "email": {
       "default": "",
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "message": {
       "default": "",
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }
