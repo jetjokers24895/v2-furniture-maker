@@ -64,7 +64,7 @@ module.exports = {
         user: ctx.state.user.fullname,
         orderCode: result.code,
         depositAmount: result.depositRequired,
-        link: 'http://mfurniture.vn/orders/detail/' + result.id
+        link: 'http://design.mfurniture.vn/orders/detail/' + result.id
       }
     });
 
@@ -72,7 +72,7 @@ module.exports = {
       templateId: 'd-4ee6f563b37c42529ff7bfe066cbd0d6',
       dynamic_template_data: {
         orderCode: result.code,
-        link: 'http://mfurniture.vn/orders/detail/' + result.id
+        link: 'http://design.mfurniture.vn/orders/detail/' + result.id
       }
     });
 
@@ -158,7 +158,7 @@ module.exports = {
           dynamic_template_data: {
             user: ctx.state.user.fullname,
             orderCode: updatedOrder.code,
-            link: 'http://mfurniture.vn/orders/detail/' + updatedOrder.id
+            link: 'http://design.mfurniture.vn/orders/detail/' + updatedOrder.id
           }
         });
         break;
@@ -169,7 +169,7 @@ module.exports = {
           dynamic_template_data: {
             user: ctx.state.user.fullname,
             orderCode: updatedOrder.code,
-            link: 'http://mfurniture.vn/orders/detail/' + updatedOrder.id
+            link: 'http://design.mfurniture.vn/orders/detail/' + updatedOrder.id
           }
         });
         break;
@@ -178,7 +178,7 @@ module.exports = {
           to: updatedOrder.created_by.email,
           templateId: 'd-27f540f2b8d64faab57f4ac541b6647c',
           dynamic_template_data: {
-            link: 'http://mfurniture.vn/dashboard'
+            link: 'http://design.mfurniture.vn/dashboard'
           }
         });
         break;

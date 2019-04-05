@@ -61,7 +61,7 @@ module.exports = {
     mail.sendToAdmins({
       templateId: 'd-e9d63e9cfb1e4d9ebe383df444370cbb',
       dynamic_template_data: {
-        link: 'http://mfurniture.vn/acccounts?email=' + created_by.email
+        link: 'http://design.mfurniture.vn/acccounts?email=' + created_by.email
       }
     });
 
@@ -109,7 +109,7 @@ module.exports = {
         to: created_by.email,
         templateId: 'd-78c6d972751344d6955a41ece35afcda',
         dynamic_template_data: {
-          link: 'http://mfurniture.vn/auth/confirm'
+          link: 'http://design.mfurniture.vn/auth/confirm'
         }
       });
     }
