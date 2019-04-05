@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "invitation",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "code": {
+      "default": "",
+      "type": "string"
+    },
+    "expirationDate": {
+      "default": "",
+      "type": "string"
+    },
+    "created_by": {
+      "model": "address"
+    },
+    "receiver": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}
