@@ -29,13 +29,21 @@
       "path": "/invitations",
       "handler": "Invitation.create",
       "config": {
-        "policies": []
+        "policies": ["global.setOwner"]
       }
     },
     {
       "method": "PUT",
       "path": "/invitations/:_id",
       "handler": "Invitation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/invitations/confirm/:_id",
+      "handler": "Invitation.confirm",
       "config": {
         "policies": []
       }

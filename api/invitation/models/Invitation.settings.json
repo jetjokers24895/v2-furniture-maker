@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "invitation",
   "info": {
     "name": "invitation",
     "description": ""
@@ -18,9 +18,18 @@
       "type": "string"
     },
     "created_by": {
-      "model": "address"
+      "model": "user",
+      "plugin": "users-permissions"
     },
-    "receiver": {
+    "receiverFullName": {
+      "default": "",
+      "type": "string"
+    },
+    "receiverAgencyName": {
+      "default": "",
+      "type": "string"
+    },
+    "joinedDate": {
       "default": "",
       "type": "string"
     }

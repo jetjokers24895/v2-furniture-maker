@@ -1,5 +1,7 @@
 'use strict';
 
+const shortid = require('shortid');
+
 /**
  * Invitation.js controller
  *
@@ -53,7 +55,10 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.invitation.add(ctx.request.body);
+    return await strapi.services.invitation.add({
+      ...ctx.request.body,
+      code: shortid.generate()
+    });
   },
 
   /**
@@ -62,8 +67,61 @@ module.exports = {
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
-    return strapi.services.invitation.edit(ctx.params, ctx.request.body) ;
+  update: async (ctx) => {
+    return strapi.services.invitation.edit(ctx.params, ctx.request.body);
+  },
+
+  /**
+   * Confirm a/an invitation record.
+   *
+   * @return {Object}
+   */
+
+  confirm: async (ctx) => {
+    const { code, email, phone, password } = ctx.request.body;
+    const invitation = strapi.services.invitation.fetchAll({ code });
+
+    if (!invitation) {
+      return ctx.notFound();
+    }
+
+    try {
+      const usersPermissions = strapi.plugins['users-permissions'].services;
+      const allRole = await usersPermissions.userspermissions.getRoles();
+      const authenticationRole = allRole.find(o => o.name === 'Authentication');
+
+      const newUser = await usersPermissions.user.add({
+        email,
+        password,
+        phone,
+        username: code,
+        confirmed: true,
+        fullname: invitation.receiverFullName,
+        role: authenticationRole,
+      });
+
+      const [startAgencyLevel] = await strapi.services.agencylevel.fetchAll({
+        index: 0
+      });
+
+      await strapi.services.agency.add({
+        name: invitation.receiverAgencyName,
+        linkedUser: newUser,
+        level: startAgencyLevel
+      });
+
+      await strapi.services.invitation.edit(
+        ctx.params,
+        {
+          ...invitation._doc,
+          confirmedDate: (new Date()).toISOString()
+        }
+      );
+
+      return await usersPermissions.jwt.issue({ id: newUser.id, _id: newUser._id });
+    } catch (error) {
+      throw error;
+    }
   },
 
   /**
