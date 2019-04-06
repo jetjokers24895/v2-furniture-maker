@@ -1,6 +1,15 @@
 'use strict';
 
+const _ = require('lodash');
 const shortid = require('shortid');
+
+const isInvitationExpried = (invitation) => {
+  const expirationDate = new Date(invitation.expirationDate);
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const isExpired = expirationDate < now;
+  return isExpired;
+};
 
 /**
  * Invitation.js controller
@@ -39,6 +48,24 @@ module.exports = {
   },
 
   /**
+   * Retrieve a invitation record by code.
+   *
+   * @return {Object}
+   */
+
+  findOneByCode: async (ctx) => {
+    const invitation = await strapi.services.invitation.fetch({ code: ctx.params.code });
+
+    const isExpired = isInvitationExpried(invitation);
+
+    if (!!invitation.joinedDate || isExpired) {
+      return ctx.badRequest();
+    }
+
+    return invitation;
+  },
+
+  /**
    * Count invitation records.
    *
    * @return {Number}
@@ -55,9 +82,13 @@ module.exports = {
    */
 
   create: async (ctx) => {
+    const now = new Date();
+    now.setDate(now.getDate() + 7);
+
     return await strapi.services.invitation.add({
       ...ctx.request.body,
-      code: shortid.generate()
+      code: shortid.generate(),
+      expirationDate: now.toISOString()
     });
   },
 
@@ -77,27 +108,35 @@ module.exports = {
    * @return {Object}
    */
 
-  confirm: async (ctx) => {
-    const { code, email, phone, password } = ctx.request.body;
-    const invitation = strapi.services.invitation.fetchAll({ code });
+  join: async (ctx) => {
+    const invitation = await strapi.services.invitation.fetch(ctx.params);
+
+    const isExpired = isInvitationExpried(invitation);
+
+    if (invitation.joinedDate || isExpired) {
+      return ctx.badRequest();
+    }
 
     if (!invitation) {
       return ctx.notFound();
     }
 
+    const { email, password } = ctx.request.body;
+
     try {
       const usersPermissions = strapi.plugins['users-permissions'].services;
       const allRole = await usersPermissions.userspermissions.getRoles();
-      const authenticationRole = allRole.find(o => o.name === 'Authentication');
+      const authenticationRole = allRole.find(o => o.name === 'Authenticated');
 
       const newUser = await usersPermissions.user.add({
         email,
         password,
-        phone,
-        username: code,
-        confirmed: true,
-        fullname: invitation.receiverFullName,
+        phone: invitation.receiverPhone,
+        username: invitation.code,
+        fullName: invitation.receiverFullName,
         role: authenticationRole,
+        invitation: invitation,
+        confirmed: true
       });
 
       const [startAgencyLevel] = await strapi.services.agencylevel.fetchAll({
@@ -106,6 +145,10 @@ module.exports = {
 
       await strapi.services.agency.add({
         name: invitation.receiverAgencyName,
+        city: invitation.receivercity,
+        county: invitation.receiverCounty,
+        address: invitation.receiverAddress,
+
         linkedUser: newUser,
         level: startAgencyLevel
       });
@@ -114,11 +157,24 @@ module.exports = {
         ctx.params,
         {
           ...invitation._doc,
-          confirmedDate: (new Date()).toISOString()
+          joinedDate: (new Date()).toISOString()
         }
       );
 
-      return await usersPermissions.jwt.issue({ id: newUser.id, _id: newUser._id });
+      // #region [Send mails]
+      strapi.services.mail.sendToAdmins({
+        templateId: 'd-91e53eef5aee419aa5bb7a6ab87f32d4',
+        dynamic_template_data: {
+          newUserFullname: newUser.fullname,
+          newUserEmail: newUser.mail,
+          link: 'http://design.mfurniture.vn/acccounts?email=' + newUser.email
+        }
+      });
+      // #endregion
+
+      ctx.send({
+        jwt: usersPermissions.jwt.issue(_.pick(newUser.toJSON ? newUser.toJSON() : newUser, ['_id', 'id'])),
+      });
     } catch (error) {
       throw error;
     }
@@ -130,7 +186,7 @@ module.exports = {
    * @return {Object}
    */
 
-  destroy: async (ctx, next) => {
+  destroy: async (ctx) => {
     return strapi.services.invitation.remove(ctx.params);
   }
 };

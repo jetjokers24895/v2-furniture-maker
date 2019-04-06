@@ -32,6 +32,29 @@
     "joinedDate": {
       "default": "",
       "type": "string"
+    },
+    "joinedUser": {
+      "model": "user",
+      "via": "invitation",
+      "plugin": "users-permissions"
+    },
+    "receiverPhone": {
+      "default": "",
+      "type": "string"
+    },
+    "receiverAddress": {
+      "default": "",
+      "type": "string"
+    },
+    "receiverCity": {
+      "model": "city"
+    },
+    "receiverCounty": {
+      "model": "county"
+    },
+    "note": {
+      "default": "",
+      "type": "text"
     }
   }
 }

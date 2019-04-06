@@ -56,6 +56,10 @@
     "fullName": {
       "default": "",
       "type": "string"
+    },
+    "invitation": {
+      "model": "invitation",
+      "via": "joinedUser"
     }
   },
   "collectionName": "users-permissions_user"

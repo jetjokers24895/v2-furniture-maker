@@ -25,11 +25,21 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/invitations/code/:code",
+      "handler": "Invitation.findOneByCode",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/invitations",
       "handler": "Invitation.create",
       "config": {
-        "policies": ["global.setOwner"]
+        "policies": [
+          "global.setOwner"
+        ]
       }
     },
     {
@@ -42,8 +52,8 @@
     },
     {
       "method": "PUT",
-      "path": "/invitations/confirm/:_id",
-      "handler": "Invitation.confirm",
+      "path": "/invitations/join/:_id",
+      "handler": "Invitation.join",
       "config": {
         "policies": []
       }
