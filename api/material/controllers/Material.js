@@ -1,5 +1,22 @@
 'use strict';
 
+const makeCode = async () => {
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  for (var i = 0; i < 3; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  const code = 'EX' + text;
+
+  const existWithTheCode = await strapi.services.material.fetchAll({ code });
+  if(existWithTheCode.length) {
+    return makeCode();
+  }
+
+  return code;
+};
+
 /**
  * Material.js controller
  *
@@ -57,13 +74,31 @@ module.exports = {
   },
 
   /**
+   * Create external a/an material record.
+   *
+   * @return {Object}
+   */
+
+  createExternal: async (ctx) => {
+    let code = await makeCode();
+
+    return strapi.services.material.add({
+      ...ctx.request.body,
+      name: ctx.request.body.displayName,
+      price: 0,
+      external: true,
+      code: code
+    });
+  },
+
+  /**
    * Update a/an material record.
    *
    * @return {Object}
    */
 
-  update: async (ctx, next) => {
-    return strapi.services.material.edit(ctx.params, ctx.request.body) ;
+  update: async (ctx) => {
+    return strapi.services.material.edit(ctx.params, ctx.request.body);
   },
 
   /**
@@ -72,7 +107,7 @@ module.exports = {
    * @return {Object}
    */
 
-  destroy: async (ctx, next) => {
+  destroy: async (ctx) => {
     return strapi.services.material.remove(ctx.params);
   }
 };

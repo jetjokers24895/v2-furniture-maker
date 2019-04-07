@@ -17,7 +17,8 @@
     },
     "componentTypes": {
       "collection": "componenttype",
-      "via": "materialType"
+      "via": "materialType",
+      "autoPopulate": false
     },
     "materials": {
       "collection": "material",
@@ -33,7 +34,8 @@
     },
     "components": {
       "collection": "components",
-      "via": "materialTypes"
+      "via": "materialTypes",
+      "autoPopulate": false
     },
     "view_shiny": {
       "default": "",
@@ -46,6 +48,10 @@
       "required": false
     },
     "hideInLibrary": {
+      "default": false,
+      "type": "boolean"
+    },
+    "isExternal": {
       "default": false,
       "type": "boolean"
     }

@@ -33,11 +33,19 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/material/external",
+      "handler": "Material.createExternal",
+      "config": {
+        "policies": ["global.setOwner"]
+      }
+    },
+    {
       "method": "PUT",
       "path": "/material/:_id",
       "handler": "Material.update",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     },
     {
@@ -45,7 +53,7 @@
       "path": "/material/:_id",
       "handler": "Material.destroy",
       "config": {
-        "policies": []
+        "policies": ["global.isOwner"]
       }
     }
   ]

@@ -59,6 +59,14 @@
     "hideInLibrary": {
       "default": false,
       "type": "boolean"
+    },
+    "isExternal": {
+      "default": false,
+      "type": "boolean"
+    },
+    "created_by": {
+      "model": "user",
+      "plugin": "users-permissions"
     }
   }
 }

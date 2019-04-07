@@ -32,24 +32,18 @@ module.exports = {
     var link_image_2000 = path.normalize(root_project + '/public/' + file.url); //must is absolute link
     //console
     console.log(link_image_2000);
-    // var reg = /(?:\/uploads\/).*/g;
-    // var reg_action = link_image_2000.match(reg);
-    // var name = reg_action.toString().replace(/\/|uploads/g,"");
     var name = file.name;
     assert.equal(name.search('/'), -1);
-    // check resize directory exists
+
     var exist = statPath(root_project + '/public/uploads/resize');
+
     if (!(exist && exist.isDirectory())) {
       console.log('not exists');
       mkdirSync(root_project + '/public/uploads/resize');
     }
-    //set output path
+
     const outputPath = root_project + '/public/uploads/resize/';
-    //resize image
     resize_action(file.buffer, name, outputPath, model, file.ext);
-    // return new Promise (resolve => {
-    //   resolve(model);
-    // });
     return model;
   },
   check_imgage_size_exists: async (_model) => {
