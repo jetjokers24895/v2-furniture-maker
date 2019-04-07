@@ -46,6 +46,10 @@
     "email": {
       "default": "",
       "type": "string"
+    },
+    "consigneeName": {
+      "default": "",
+      "type": "string"
     }
   }
 }

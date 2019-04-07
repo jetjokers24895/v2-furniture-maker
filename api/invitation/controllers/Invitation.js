@@ -148,7 +148,8 @@ module.exports = {
         city: invitation.receivercity,
         county: invitation.receiverCounty,
         address: invitation.receiverAddress,
-
+        phone: invitation.receiverPhone,
+        email: newUser.email,
         linkedUser: newUser,
         level: startAgencyLevel
       });

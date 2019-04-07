@@ -173,6 +173,10 @@
     "locked": {
       "default": false,
       "type": "boolean"
+    },
+    "consigneeName": {
+      "default": "",
+      "type": "string"
     }
   }
 }

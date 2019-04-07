@@ -81,7 +81,7 @@ module.exports = {
           html: html,
           templateId: templateId,
           dynamic_template_data: {
-            admin: adminUser.fullname,
+            admin: adminUser.fullName,
             ...dynamic_template_data
           }
         });
