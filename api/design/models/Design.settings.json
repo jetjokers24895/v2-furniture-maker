@@ -17,6 +17,10 @@
       "default": "",
       "type": "string"
     },
+    "productionCode ": {
+      "default": "",
+      "type": "string"
+    },
     "coverPhoto": {
       "model": "file",
       "via": "related",
